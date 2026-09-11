@@ -1,0 +1,22 @@
+# Excel lock files
+~$*.xlsx
+~$*.docx
+
+# R session + history
+.Rhistory
+.RData
+.Ruserdata
+
+# Quarto / R Markdown caches and outputs
+*_cache/
+*_files/
+*-figure/
+
+# R package build artefacts
+*.Rproj.user/
+.Rproj.user/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store

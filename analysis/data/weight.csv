@@ -1,0 +1,337 @@
+plant,part,parasite,group,concentration_mgml,timepoint,weight_g,animal_dead,data_flag
+A. indica,seeds,T. congolense,100mg/ml,100,Pre-Infection,20.1,FALSE,NA
+A. indica,seeds,T. congolense,100mg/ml,100,Infection,22,FALSE,NA
+A. indica,seeds,T. congolense,100mg/ml,100,Post-Infection,23.2,FALSE,NA
+A. indica,seeds,T. congolense,10mg/ml,10,Pre-Infection,23.7,FALSE,NA
+A. indica,seeds,T. congolense,10mg/ml,10,Infection,24.2,FALSE,NA
+A. indica,seeds,T. congolense,10mg/ml,10,Post-Infection,20.1,FALSE,NA
+A. indica,seeds,T. congolense,0.5mg/ml,0.5,Pre-Infection,19.9,FALSE,NA
+A. indica,seeds,T. congolense,0.5mg/ml,0.5,Infection,19,FALSE,NA
+A. indica,seeds,T. congolense,0.5mg/ml,0.5,Post-Infection,17.2,FALSE,NA
+A. indica,seeds,T. congolense,0.01mg/ml,0.01,Pre-Infection,24,FALSE,NA
+A. indica,seeds,T. congolense,0.01mg/ml,0.01,Infection,22.1,FALSE,NA
+A. indica,seeds,T. congolense,0.01mg/ml,0.01,Post-Infection,19.5,FALSE,NA
+A. indica,seeds,T. congolense,0.005mg/ml,0.005,Pre-Infection,22.8,FALSE,NA
+A. indica,seeds,T. congolense,0.005mg/ml,0.005,Infection,24,FALSE,NA
+A. indica,seeds,T. congolense,0.005mg/ml,0.005,Post-Infection,14.2,FALSE,NA
+A. indica,seeds,T. congolense,Negative Control,NA,Pre-Infection,20.1,FALSE,NA
+A. indica,seeds,T. congolense,Negative Control,NA,Infection,18.9,FALSE,NA
+A. indica,seeds,T. congolense,Negative Control,NA,Post-Infection,17,FALSE,NA
+A. indica,seeds,T. congolense,Positive Control,NA,Pre-Infection,21.8,FALSE,NA
+A. indica,seeds,T. congolense,Positive Control,NA,Infection,21.9,FALSE,NA
+A. indica,seeds,T. congolense,Positive Control,NA,Post-Infection,24.1,FALSE,NA
+A. indica,roots,T. congolense,100mg/ml,100,Pre-Infection,20,FALSE,NA
+A. indica,roots,T. congolense,100mg/ml,100,Infection,21,FALSE,NA
+A. indica,roots,T. congolense,100mg/ml,100,Post-Infection,23,FALSE,NA
+A. indica,roots,T. congolense,10mg/ml,10,Pre-Infection,22.4,FALSE,NA
+A. indica,roots,T. congolense,10mg/ml,10,Infection,20.5,FALSE,NA
+A. indica,roots,T. congolense,10mg/ml,10,Post-Infection,NA,TRUE,missing = animal died before measurement
+A. indica,roots,T. congolense,0.5mg/ml,0.5,Pre-Infection,22.6,FALSE,NA
+A. indica,roots,T. congolense,0.5mg/ml,0.5,Infection,19.5,FALSE,NA
+A. indica,roots,T. congolense,0.5mg/ml,0.5,Post-Infection,NA,TRUE,missing = animal died before measurement
+A. indica,roots,T. congolense,0.01mg/ml,0.01,Pre-Infection,24,FALSE,NA
+A. indica,roots,T. congolense,0.01mg/ml,0.01,Infection,22.1,FALSE,NA
+A. indica,roots,T. congolense,0.01mg/ml,0.01,Post-Infection,NA,TRUE,missing = animal died before measurement
+A. indica,roots,T. congolense,0.005mg/ml,0.005,Pre-Infection,24.8,FALSE,NA
+A. indica,roots,T. congolense,0.005mg/ml,0.005,Infection,20,FALSE,NA
+A. indica,roots,T. congolense,0.005mg/ml,0.005,Post-Infection,NA,TRUE,missing = animal died before measurement
+A. indica,roots,T. congolense,Negative Control,NA,Pre-Infection,20.7,FALSE,NA
+A. indica,roots,T. congolense,Negative Control,NA,Infection,17.9,FALSE,NA
+A. indica,roots,T. congolense,Negative Control,NA,Post-Infection,NA,TRUE,missing = animal died before measurement
+A. indica,roots,T. congolense,Positive Control,NA,Pre-Infection,20,FALSE,NA
+A. indica,roots,T. congolense,Positive Control,NA,Infection,20.9,FALSE,NA
+A. indica,roots,T. congolense,Positive Control,NA,Post-Infection,23,FALSE,NA
+A. indica,stem bark,T. congolense,100mg/ml,100,Pre-Infection,25.7,FALSE,NA
+A. indica,stem bark,T. congolense,100mg/ml,100,Infection,24.6,FALSE,NA
+A. indica,stem bark,T. congolense,100mg/ml,100,Post-Infection,26,FALSE,NA
+A. indica,stem bark,T. congolense,10mg/ml,10,Pre-Infection,22.9,FALSE,NA
+A. indica,stem bark,T. congolense,10mg/ml,10,Infection,23.7,FALSE,NA
+A. indica,stem bark,T. congolense,10mg/ml,10,Post-Infection,24.1,FALSE,NA
+A. indica,stem bark,T. congolense,0.5mg/ml,0.5,Pre-Infection,19.9,FALSE,NA
+A. indica,stem bark,T. congolense,0.5mg/ml,0.5,Infection,19,FALSE,NA
+A. indica,stem bark,T. congolense,0.5mg/ml,0.5,Post-Infection,20.4,FALSE,NA
+A. indica,stem bark,T. congolense,0.01mg/ml,0.01,Pre-Infection,23,FALSE,NA
+A. indica,stem bark,T. congolense,0.01mg/ml,0.01,Infection,22.1,FALSE,NA
+A. indica,stem bark,T. congolense,0.01mg/ml,0.01,Post-Infection,23.5,FALSE,NA
+A. indica,stem bark,T. congolense,0.005mg/ml,0.005,Pre-Infection,22.8,FALSE,NA
+A. indica,stem bark,T. congolense,0.005mg/ml,0.005,Infection,24,FALSE,NA
+A. indica,stem bark,T. congolense,0.005mg/ml,0.005,Post-Infection,16.5,FALSE,NA
+A. indica,stem bark,T. congolense,Negative Control,NA,Pre-Infection,20.1,FALSE,NA
+A. indica,stem bark,T. congolense,Negative Control,NA,Infection,18.9,FALSE,NA
+A. indica,stem bark,T. congolense,Negative Control,NA,Post-Infection,NA,TRUE,missing = animal died before measurement
+A. indica,stem bark,T. congolense,Positive Control,NA,Pre-Infection,21.8,FALSE,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,Infection,21.5,FALSE,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,Post-Infection,23.6,FALSE,NA
+A. indica,leaves,T. congolense,100mg/ml,100,Pre-Infection,20,FALSE,NA
+A. indica,leaves,T. congolense,100mg/ml,100,Infection,22,FALSE,NA
+A. indica,leaves,T. congolense,100mg/ml,100,Post-Infection,24,FALSE,NA
+A. indica,leaves,T. congolense,10mg/ml,10,Pre-Infection,21.2,FALSE,NA
+A. indica,leaves,T. congolense,10mg/ml,10,Infection,22,FALSE,NA
+A. indica,leaves,T. congolense,10mg/ml,10,Post-Infection,23,FALSE,NA
+A. indica,leaves,T. congolense,0.5mg/ml,0.5,Pre-Infection,20,FALSE,NA
+A. indica,leaves,T. congolense,0.5mg/ml,0.5,Infection,22.8,FALSE,NA
+A. indica,leaves,T. congolense,0.5mg/ml,0.5,Post-Infection,21,FALSE,NA
+A. indica,leaves,T. congolense,0.01mg/ml,0.01,Pre-Infection,22.9,FALSE,NA
+A. indica,leaves,T. congolense,0.01mg/ml,0.01,Infection,22,FALSE,NA
+A. indica,leaves,T. congolense,0.01mg/ml,0.01,Post-Infection,17,FALSE,NA
+A. indica,leaves,T. congolense,0.005mg/ml,0.005,Pre-Infection,21.7,FALSE,NA
+A. indica,leaves,T. congolense,0.005mg/ml,0.005,Infection,20,FALSE,NA
+A. indica,leaves,T. congolense,0.005mg/ml,0.005,Post-Infection,15.4,FALSE,NA
+A. indica,leaves,T. congolense,Negative Control,NA,Pre-Infection,22,FALSE,NA
+A. indica,leaves,T. congolense,Negative Control,NA,Infection,16.7,FALSE,NA
+A. indica,leaves,T. congolense,Negative Control,NA,Post-Infection,NA,TRUE,missing = animal died before measurement
+A. indica,leaves,T. congolense,Positive Control,NA,Pre-Infection,21.8,FALSE,NA
+A. indica,leaves,T. congolense,Positive Control,NA,Infection,22.3,FALSE,NA
+A. indica,leaves,T. congolense,Positive Control,NA,Post-Infection,24.1,FALSE,NA
+M. oleifera,seeds,T. congolense,100mg/ml,100,Pre-Infection,20.1,FALSE,NA
+M. oleifera,seeds,T. congolense,100mg/ml,100,Infection,22,FALSE,NA
+M. oleifera,seeds,T. congolense,100mg/ml,100,Post-Infection,23.2,FALSE,NA
+M. oleifera,seeds,T. congolense,10mg/ml,10,Pre-Infection,23.7,FALSE,NA
+M. oleifera,seeds,T. congolense,10mg/ml,10,Infection,24.2,FALSE,NA
+M. oleifera,seeds,T. congolense,10mg/ml,10,Post-Infection,20.1,FALSE,NA
+M. oleifera,seeds,T. congolense,0.5mg/ml,0.5,Pre-Infection,19.9,FALSE,NA
+M. oleifera,seeds,T. congolense,0.5mg/ml,0.5,Infection,19,FALSE,NA
+M. oleifera,seeds,T. congolense,0.5mg/ml,0.5,Post-Infection,17.2,FALSE,NA
+M. oleifera,seeds,T. congolense,0.01mg/ml,0.01,Pre-Infection,24,FALSE,NA
+M. oleifera,seeds,T. congolense,0.01mg/ml,0.01,Infection,22.1,FALSE,NA
+M. oleifera,seeds,T. congolense,0.01mg/ml,0.01,Post-Infection,19.5,FALSE,NA
+M. oleifera,seeds,T. congolense,0.005mg/ml,0.005,Pre-Infection,22.8,FALSE,NA
+M. oleifera,seeds,T. congolense,0.005mg/ml,0.005,Infection,24,FALSE,NA
+M. oleifera,seeds,T. congolense,0.005mg/ml,0.005,Post-Infection,14.2,FALSE,NA
+M. oleifera,seeds,T. congolense,Negative Control,NA,Pre-Infection,20.1,FALSE,NA
+M. oleifera,seeds,T. congolense,Negative Control,NA,Infection,18.9,FALSE,NA
+M. oleifera,seeds,T. congolense,Negative Control,NA,Post-Infection,17,FALSE,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,Pre-Infection,21.8,FALSE,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,Infection,21.9,FALSE,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,Post-Infection,24,FALSE,NA
+M. oleifera,roots,T. congolense,100mg/ml,100,Pre-Infection,20,FALSE,NA
+M. oleifera,roots,T. congolense,100mg/ml,100,Infection,22.5,FALSE,NA
+M. oleifera,roots,T. congolense,100mg/ml,100,Post-Infection,25.3,FALSE,NA
+M. oleifera,roots,T. congolense,10mg/ml,10,Pre-Infection,23.2,FALSE,NA
+M. oleifera,roots,T. congolense,10mg/ml,10,Infection,24,FALSE,NA
+M. oleifera,roots,T. congolense,10mg/ml,10,Post-Infection,24.1,FALSE,NA
+M. oleifera,roots,T. congolense,0.5mg/ml,0.5,Pre-Infection,19.8,FALSE,NA
+M. oleifera,roots,T. congolense,0.5mg/ml,0.5,Infection,21,FALSE,NA
+M. oleifera,roots,T. congolense,0.5mg/ml,0.5,Post-Infection,22.7,FALSE,NA
+M. oleifera,roots,T. congolense,0.01mg/ml,0.01,Pre-Infection,20.4,FALSE,NA
+M. oleifera,roots,T. congolense,0.01mg/ml,0.01,Infection,22.1,FALSE,NA
+M. oleifera,roots,T. congolense,0.01mg/ml,0.01,Post-Infection,19,FALSE,NA
+M. oleifera,roots,T. congolense,0.005mg/ml,0.005,Pre-Infection,22,FALSE,NA
+M. oleifera,roots,T. congolense,0.005mg/ml,0.005,Infection,20,FALSE,NA
+M. oleifera,roots,T. congolense,0.005mg/ml,0.005,Post-Infection,NA,TRUE,missing = animal died before measurement
+M. oleifera,roots,T. congolense,Negative Control,NA,Pre-Infection,19.7,FALSE,NA
+M. oleifera,roots,T. congolense,Negative Control,NA,Infection,15,FALSE,NA
+M. oleifera,roots,T. congolense,Negative Control,NA,Post-Infection,NA,TRUE,missing = animal died before measurement
+M. oleifera,roots,T. congolense,Positive Control,NA,Pre-Infection,19.8,FALSE,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,Infection,22,FALSE,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,Post-Infection,23.6,FALSE,NA
+M. oleifera,stem bark,T. congolense,100mg/ml,100,Pre-Infection,22.6,FALSE,NA
+M. oleifera,stem bark,T. congolense,100mg/ml,100,Infection,22,FALSE,NA
+M. oleifera,stem bark,T. congolense,100mg/ml,100,Post-Infection,23.7,FALSE,NA
+M. oleifera,stem bark,T. congolense,10mg/ml,10,Pre-Infection,21,FALSE,NA
+M. oleifera,stem bark,T. congolense,10mg/ml,10,Infection,23.1,FALSE,NA
+M. oleifera,stem bark,T. congolense,10mg/ml,10,Post-Infection,22.9,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.5mg/ml,0.5,Pre-Infection,19.6,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.5mg/ml,0.5,Infection,18,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.5mg/ml,0.5,Post-Infection,20.4,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.01mg/ml,0.01,Pre-Infection,23.1,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.01mg/ml,0.01,Infection,23.9,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.01mg/ml,0.01,Post-Infection,24,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.005mg/ml,0.005,Pre-Infection,20.2,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.005mg/ml,0.005,Infection,22.8,FALSE,NA
+M. oleifera,stem bark,T. congolense,0.005mg/ml,0.005,Post-Infection,23,FALSE,NA
+M. oleifera,stem bark,T. congolense,Negative Control,NA,Pre-Infection,23,FALSE,NA
+M. oleifera,stem bark,T. congolense,Negative Control,NA,Infection,22.9,FALSE,NA
+M. oleifera,stem bark,T. congolense,Negative Control,NA,Post-Infection,17,FALSE,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,Pre-Infection,19,FALSE,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,Infection,21,FALSE,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,Post-Infection,23,FALSE,NA
+M. oleifera,leaves,T. congolense,100mg/ml,100,Pre-Infection,20,FALSE,NA
+M. oleifera,leaves,T. congolense,100mg/ml,100,Infection,22.2,FALSE,NA
+M. oleifera,leaves,T. congolense,100mg/ml,100,Post-Infection,23.2,FALSE,NA
+M. oleifera,leaves,T. congolense,10mg/ml,10,Pre-Infection,17.8,FALSE,NA
+M. oleifera,leaves,T. congolense,10mg/ml,10,Infection,21,FALSE,NA
+M. oleifera,leaves,T. congolense,10mg/ml,10,Post-Infection,20.1,FALSE,NA
+M. oleifera,leaves,T. congolense,0.5mg/ml,0.5,Pre-Infection,19.9,FALSE,NA
+M. oleifera,leaves,T. congolense,0.5mg/ml,0.5,Infection,19,FALSE,NA
+M. oleifera,leaves,T. congolense,0.5mg/ml,0.5,Post-Infection,22.6,FALSE,NA
+M. oleifera,leaves,T. congolense,0.01mg/ml,0.01,Pre-Infection,21,FALSE,NA
+M. oleifera,leaves,T. congolense,0.01mg/ml,0.01,Infection,22.1,FALSE,NA
+M. oleifera,leaves,T. congolense,0.01mg/ml,0.01,Post-Infection,23.8,FALSE,NA
+M. oleifera,leaves,T. congolense,0.005mg/ml,0.005,Pre-Infection,21.8,FALSE,NA
+M. oleifera,leaves,T. congolense,0.005mg/ml,0.005,Infection,22.5,FALSE,NA
+M. oleifera,leaves,T. congolense,0.005mg/ml,0.005,Post-Infection,24,FALSE,NA
+M. oleifera,leaves,T. congolense,Negative Control,NA,Pre-Infection,20,FALSE,NA
+M. oleifera,leaves,T. congolense,Negative Control,NA,Infection,17.9,FALSE,NA
+M. oleifera,leaves,T. congolense,Negative Control,NA,Post-Infection,NA,TRUE,missing = animal died before measurement
+M. oleifera,leaves,T. congolense,Positive Control,NA,Pre-Infection,22,FALSE,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,Infection,21.9,FALSE,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,Post-Infection,24,FALSE,NA
+A. indica,seeds,T. evansi,100mg/ml,100,Pre-Infection,28.86667,FALSE,NA
+A. indica,seeds,T. evansi,100mg/ml,100,Infection,27.4333,FALSE,NA
+A. indica,seeds,T. evansi,100mg/ml,100,Post-Infection,29.2,FALSE,NA
+A. indica,seeds,T. evansi,10mg/ml,10,Pre-Infection,20.05,FALSE,NA
+A. indica,seeds,T. evansi,10mg/ml,10,Infection,22.3333,FALSE,NA
+A. indica,seeds,T. evansi,10mg/ml,10,Post-Infection,24.8,FALSE,NA
+A. indica,seeds,T. evansi,0.5mg/ml,0.5,Pre-Infection,19.56667,FALSE,NA
+A. indica,seeds,T. evansi,0.5mg/ml,0.5,Infection,22.3333,FALSE,NA
+A. indica,seeds,T. evansi,0.5mg/ml,0.5,Post-Infection,22.1,FALSE,NA
+A. indica,seeds,T. evansi,0.01mg/ml,0.01,Pre-Infection,19.36667,FALSE,NA
+A. indica,seeds,T. evansi,0.01mg/ml,0.01,Infection,21.5,FALSE,NA
+A. indica,seeds,T. evansi,0.01mg/ml,0.01,Post-Infection,20.2,FALSE,NA
+A. indica,seeds,T. evansi,0.005mg/ml,0.005,Pre-Infection,19.13333,FALSE,NA
+A. indica,seeds,T. evansi,0.005mg/ml,0.005,Infection,21.3333,FALSE,NA
+A. indica,seeds,T. evansi,0.005mg/ml,0.005,Post-Infection,19.5,FALSE,NA
+A. indica,seeds,T. evansi,Negative Control,NA,Pre-Infection,18.96667,FALSE,NA
+A. indica,seeds,T. evansi,Negative Control,NA,Infection,18.1,FALSE,NA
+A. indica,seeds,T. evansi,Negative Control,NA,Post-Infection,17.6,FALSE,NA
+A. indica,seeds,T. evansi,Positive Control,NA,Pre-Infection,21.67,FALSE,NA
+A. indica,seeds,T. evansi,Positive Control,NA,Infection,23.556,FALSE,NA
+A. indica,seeds,T. evansi,Positive Control,NA,Post-Infection,26.667,FALSE,NA
+A. indica,roots,T. evansi,100mg/ml,100,Pre-Infection,25.4,FALSE,NA
+A. indica,roots,T. evansi,100mg/ml,100,Infection,32.95,FALSE,NA
+A. indica,roots,T. evansi,100mg/ml,100,Post-Infection,34.2,FALSE,NA
+A. indica,roots,T. evansi,10mg/ml,10,Pre-Infection,22.67,FALSE,NA
+A. indica,roots,T. evansi,10mg/ml,10,Infection,24.87,FALSE,NA
+A. indica,roots,T. evansi,10mg/ml,10,Post-Infection,24,FALSE,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,Pre-Infection,25.88,FALSE,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,Infection,25.95,FALSE,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,Post-Infection,23.1,FALSE,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,Pre-Infection,26.57,FALSE,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,Infection,26.07,FALSE,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,Post-Infection,25.93,FALSE,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,Pre-Infection,26.43,FALSE,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,Infection,26.47,FALSE,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,Post-Infection,30.25,FALSE,NA
+A. indica,roots,T. evansi,Negative Control,NA,Pre-Infection,26.9,FALSE,NA
+A. indica,roots,T. evansi,Negative Control,NA,Infection,28.01,FALSE,NA
+A. indica,roots,T. evansi,Negative Control,NA,Post-Infection,23.85,FALSE,NA
+A. indica,roots,T. evansi,Positive Control,NA,Pre-Infection,25.4,FALSE,NA
+A. indica,roots,T. evansi,Positive Control,NA,Infection,29.2,FALSE,NA
+A. indica,roots,T. evansi,Positive Control,NA,Post-Infection,30.67,FALSE,NA
+A. indica,stem bark,T. evansi,100mg/ml,100,Pre-Infection,19.53,FALSE,NA
+A. indica,stem bark,T. evansi,100mg/ml,100,Infection,21.4,FALSE,NA
+A. indica,stem bark,T. evansi,100mg/ml,100,Post-Infection,23.7,FALSE,NA
+A. indica,stem bark,T. evansi,10mg/ml,10,Pre-Infection,20.3,FALSE,NA
+A. indica,stem bark,T. evansi,10mg/ml,10,Infection,22.4,FALSE,NA
+A. indica,stem bark,T. evansi,10mg/ml,10,Post-Infection,23.63,FALSE,NA
+A. indica,stem bark,T. evansi,0.5mg/ml,0.5,Pre-Infection,24.7,FALSE,NA
+A. indica,stem bark,T. evansi,0.5mg/ml,0.5,Infection,26.03,FALSE,NA
+A. indica,stem bark,T. evansi,0.5mg/ml,0.5,Post-Infection,27.93,FALSE,NA
+A. indica,stem bark,T. evansi,0.01mg/ml,0.01,Pre-Infection,19.73,FALSE,NA
+A. indica,stem bark,T. evansi,0.01mg/ml,0.01,Infection,22.27,FALSE,NA
+A. indica,stem bark,T. evansi,0.01mg/ml,0.01,Post-Infection,19.6,FALSE,NA
+A. indica,stem bark,T. evansi,0.005mg/ml,0.005,Pre-Infection,20,FALSE,NA
+A. indica,stem bark,T. evansi,0.005mg/ml,0.005,Infection,23.27,FALSE,NA
+A. indica,stem bark,T. evansi,0.005mg/ml,0.005,Post-Infection,25.73,FALSE,NA
+A. indica,stem bark,T. evansi,Negative Control,NA,Pre-Infection,21.6,FALSE,NA
+A. indica,stem bark,T. evansi,Negative Control,NA,Infection,21.7,FALSE,NA
+A. indica,stem bark,T. evansi,Negative Control,NA,Post-Infection,16.4,FALSE,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,Pre-Infection,23.4,FALSE,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,Infection,23.9,FALSE,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,Post-Infection,24.13,FALSE,NA
+A. indica,leaves,T. evansi,100mg/ml,100,Pre-Infection,29.3,FALSE,NA
+A. indica,leaves,T. evansi,100mg/ml,100,Infection,30.1,FALSE,NA
+A. indica,leaves,T. evansi,100mg/ml,100,Post-Infection,28.33,FALSE,NA
+A. indica,leaves,T. evansi,10mg/ml,10,Pre-Infection,28.03,FALSE,NA
+A. indica,leaves,T. evansi,10mg/ml,10,Infection,28.87,FALSE,NA
+A. indica,leaves,T. evansi,10mg/ml,10,Post-Infection,28.53,FALSE,NA
+A. indica,leaves,T. evansi,0.5mg/ml,0.5,Pre-Infection,28.33,FALSE,NA
+A. indica,leaves,T. evansi,0.5mg/ml,0.5,Infection,28.8,FALSE,NA
+A. indica,leaves,T. evansi,0.5mg/ml,0.5,Post-Infection,27.5,FALSE,NA
+A. indica,leaves,T. evansi,0.01mg/ml,0.01,Pre-Infection,24.17,FALSE,NA
+A. indica,leaves,T. evansi,0.01mg/ml,0.01,Infection,26.07,FALSE,NA
+A. indica,leaves,T. evansi,0.01mg/ml,0.01,Post-Infection,28.25,FALSE,NA
+A. indica,leaves,T. evansi,0.005mg/ml,0.005,Pre-Infection,26.07,FALSE,NA
+A. indica,leaves,T. evansi,0.005mg/ml,0.005,Infection,25.07,FALSE,NA
+A. indica,leaves,T. evansi,0.005mg/ml,0.005,Post-Infection,25.67,FALSE,NA
+A. indica,leaves,T. evansi,Negative Control,NA,Pre-Infection,28.2,FALSE,NA
+A. indica,leaves,T. evansi,Negative Control,NA,Infection,33.77,FALSE,NA
+A. indica,leaves,T. evansi,Negative Control,NA,Post-Infection,NA,TRUE,missing = animal died before measurement
+A. indica,leaves,T. evansi,Positive Control,NA,Pre-Infection,25.2,FALSE,NA
+A. indica,leaves,T. evansi,Positive Control,NA,Infection,25.9,FALSE,NA
+A. indica,leaves,T. evansi,Positive Control,NA,Post-Infection,27,FALSE,NA
+M. oleifera,seeds,T. evansi,100mg/ml,100,Pre-Infection,17.83,FALSE,NA
+M. oleifera,seeds,T. evansi,100mg/ml,100,Infection,24.1,FALSE,NA
+M. oleifera,seeds,T. evansi,100mg/ml,100,Post-Infection,22.23,FALSE,NA
+M. oleifera,seeds,T. evansi,10mg/ml,10,Pre-Infection,19.83,FALSE,NA
+M. oleifera,seeds,T. evansi,10mg/ml,10,Infection,24.1,FALSE,NA
+M. oleifera,seeds,T. evansi,10mg/ml,10,Post-Infection,21.77,FALSE,NA
+M. oleifera,seeds,T. evansi,0.5mg/ml,0.5,Pre-Infection,16.47,FALSE,NA
+M. oleifera,seeds,T. evansi,0.5mg/ml,0.5,Infection,20.47,FALSE,NA
+M. oleifera,seeds,T. evansi,0.5mg/ml,0.5,Post-Infection,19.67,FALSE,NA
+M. oleifera,seeds,T. evansi,0.01mg/ml,0.01,Pre-Infection,20.03,FALSE,NA
+M. oleifera,seeds,T. evansi,0.01mg/ml,0.01,Infection,23.2,FALSE,NA
+M. oleifera,seeds,T. evansi,0.01mg/ml,0.01,Post-Infection,26,FALSE,NA
+M. oleifera,seeds,T. evansi,0.005mg/ml,0.005,Pre-Infection,18.2,FALSE,NA
+M. oleifera,seeds,T. evansi,0.005mg/ml,0.005,Infection,21.97,FALSE,NA
+M. oleifera,seeds,T. evansi,0.005mg/ml,0.005,Post-Infection,20.47,FALSE,NA
+M. oleifera,seeds,T. evansi,Negative Control,NA,Pre-Infection,17.9,FALSE,NA
+M. oleifera,seeds,T. evansi,Negative Control,NA,Infection,23.27,FALSE,NA
+M. oleifera,seeds,T. evansi,Negative Control,NA,Post-Infection,21.6,FALSE,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,Pre-Infection,20.3,FALSE,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,Infection,20.4,FALSE,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,Post-Infection,22,FALSE,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,Pre-Infection,22.07,FALSE,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,Infection,21.77,FALSE,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,Post-Infection,22.26,FALSE,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,Pre-Infection,22.67,FALSE,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,Infection,23.93,FALSE,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,Post-Infection,24.53,FALSE,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,Pre-Infection,23.63,FALSE,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,Infection,24.7,FALSE,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,Post-Infection,25.07,FALSE,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,Pre-Infection,26.56,FALSE,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,Infection,27.33,FALSE,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,Post-Infection,28.37,FALSE,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,Pre-Infection,23.1,FALSE,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,Infection,24.5,FALSE,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,Post-Infection,25.6,FALSE,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,Pre-Infection,26.9,FALSE,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,Infection,27.67,FALSE,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,Post-Infection,25.23,FALSE,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,Pre-Infection,20,FALSE,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,Infection,20.6,FALSE,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,Post-Infection,22,FALSE,NA
+M. oleifera,stem bark,T. evansi,100mg/ml,100,Pre-Infection,18.07,FALSE,NA
+M. oleifera,stem bark,T. evansi,100mg/ml,100,Infection,20.2,FALSE,NA
+M. oleifera,stem bark,T. evansi,100mg/ml,100,Post-Infection,21.3,FALSE,NA
+M. oleifera,stem bark,T. evansi,10mg/ml,10,Pre-Infection,18.93,FALSE,NA
+M. oleifera,stem bark,T. evansi,10mg/ml,10,Infection,20.17,FALSE,NA
+M. oleifera,stem bark,T. evansi,10mg/ml,10,Post-Infection,22.2,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.5mg/ml,0.5,Pre-Infection,17.93,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.5mg/ml,0.5,Infection,19.33,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.5mg/ml,0.5,Post-Infection,21.63,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.01mg/ml,0.01,Pre-Infection,20.23,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.01mg/ml,0.01,Infection,21.53,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.01mg/ml,0.01,Post-Infection,20.73,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.005mg/ml,0.005,Pre-Infection,21.87,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.005mg/ml,0.005,Infection,23.03,FALSE,NA
+M. oleifera,stem bark,T. evansi,0.005mg/ml,0.005,Post-Infection,21.5,FALSE,NA
+M. oleifera,stem bark,T. evansi,Negative Control,NA,Pre-Infection,24.43,FALSE,NA
+M. oleifera,stem bark,T. evansi,Negative Control,NA,Infection,25.43,FALSE,NA
+M. oleifera,stem bark,T. evansi,Negative Control,NA,Post-Infection,23.13,FALSE,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,Pre-Infection,19.5,FALSE,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,Infection,20.3,FALSE,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,Post-Infection,21,FALSE,NA
+M. oleifera,leaves,T. evansi,100mg/ml,100,Pre-Infection,16.17,FALSE,NA
+M. oleifera,leaves,T. evansi,100mg/ml,100,Infection,22.13,FALSE,NA
+M. oleifera,leaves,T. evansi,100mg/ml,100,Post-Infection,20.63,FALSE,NA
+M. oleifera,leaves,T. evansi,10mg/ml,10,Pre-Infection,17.37,FALSE,NA
+M. oleifera,leaves,T. evansi,10mg/ml,10,Infection,21.9,FALSE,NA
+M. oleifera,leaves,T. evansi,10mg/ml,10,Post-Infection,24.1,FALSE,NA
+M. oleifera,leaves,T. evansi,0.5mg/ml,0.5,Pre-Infection,21.8,FALSE,NA
+M. oleifera,leaves,T. evansi,0.5mg/ml,0.5,Infection,24.9,FALSE,NA
+M. oleifera,leaves,T. evansi,0.5mg/ml,0.5,Post-Infection,24.33,FALSE,NA
+M. oleifera,leaves,T. evansi,0.01mg/ml,0.01,Pre-Infection,20.47,FALSE,NA
+M. oleifera,leaves,T. evansi,0.01mg/ml,0.01,Infection,22.53,FALSE,NA
+M. oleifera,leaves,T. evansi,0.01mg/ml,0.01,Post-Infection,20.3,FALSE,NA
+M. oleifera,leaves,T. evansi,0.005mg/ml,0.005,Pre-Infection,17.53,FALSE,NA
+M. oleifera,leaves,T. evansi,0.005mg/ml,0.005,Infection,22.13,FALSE,NA
+M. oleifera,leaves,T. evansi,0.005mg/ml,0.005,Post-Infection,20.27,FALSE,NA
+M. oleifera,leaves,T. evansi,Negative Control,NA,Pre-Infection,20.03,FALSE,NA
+M. oleifera,leaves,T. evansi,Negative Control,NA,Infection,24.97,FALSE,NA
+M. oleifera,leaves,T. evansi,Negative Control,NA,Post-Infection,24,FALSE,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,Pre-Infection,19,FALSE,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,Infection,20.3,FALSE,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,Post-Infection,20.7,FALSE,NA

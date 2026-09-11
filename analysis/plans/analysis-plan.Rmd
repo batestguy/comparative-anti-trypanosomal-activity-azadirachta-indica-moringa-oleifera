@@ -1,0 +1,265 @@
+---
+title: "Analysis Plan — Trypanosome Plant-Extract Study"
+author: "Hermes Agent"
+date: "`r Sys.Date()`"
+output:
+  flextable::flextable_docx:
+    toc: true
+  bookdown::word_document2: default
+fontsize: 11pt
+geometry: margin=1in
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(dplyr)
+library(flextable)
+```
+
+# Context
+
+Sheet 2 of the Excel file parsed into 5 tidy CSVs in `analysis/data/`. CSVs contain **group means** (n=3 mice per group was averaged in the source xlsx). Statistical methods use the **block (plant×part×parasite)** as the analytical unit (n=16 independent units). 7 groups per block (5 concentrations + NC + PC) at n=1 each — within-block comparisons are descriptive only.
+
+## Available Tools (R 4.5.1)
+
+| Tool | Purpose |
+|---|---|
+| dplyr / tidyr | Data wrangling, reshaping, summarising |
+| stringr | Regex parsing |
+| readr | CSV I/O |
+| ggplot2 | Visualisation |
+| rstatix | Wilcoxon, Mann-Whitney, Dunn's, Cliff's delta, correlation |
+| PMCMRplus | Jonckheere-Terpacca trend test |
+| stats | Spearman, Wilcoxon, lm() |
+| broom | Tidy model output |
+| flextable | Table rendering for Word output |
+| rmarkdown | Report knitting |
+
+## Key Data Constraints
+
+- **n=3 mice → group means only:** Each CSV row is one group's mean. Within any block, 7 groups at n=1 cannot support inferential statistics. Use 16 blocks as the independent unit.
+- **16 blocks (plant×part×parasite):** Effective n=16 for block-level inference, n=8 per plant, n=8 per parasite.
+- **LEV 0–5 ordinal:** Non-parametric. No ANOVA on raw LEV.
+- **Weight, PCV continuous:** Can use Pearson/Spearman on block-level aggregates.
+- **Motility binary (0/1):** Per group × timepoint. % motile used as descriptive.
+- **Missing = animal death:** Documented as `animal_dead=TRUE`. Not imputed.
+- **All-zero T. evansi blocks:** Real complete protection. Preserved.
+- **Significance:** p < 0.05. All p-values adjusted where multiple tests.
+
+# Statistical Method Justification Table
+
+| Method | Formula | Variables | Level | R Function | Source | Justification |
+|---|---|---|---|---|---|---|
+| Wilcoxon signed-rank | W = ΣR·sign(d_i); d_i = x_i−y_i paired | day40_lev (ordinal 0-5) | Paired (n=16 blocks) | rstatix::wilcox_test() | Wilcoxon (1945); Conover (1999) | Non-parametric paired test; tests if median difference ≠ 0; valid for ordinal with n≥6 pairs |
+| Mann-Whitney U | U = ΣΣ S(x,y); x∈X, y∈Y | day40_lev (ordinal 0-5) | Unpaired (n=8 per group) | rstatix::wilcox_test() | Mann & Whitney (1947) | Non-parametric two-sample test; compares distributions; no normality assumption |
+| Cliff's delta | δ = #(x>y)−#(x<y) / (n_x × n_y) | day40_lev (ordinal 0-5) | Two-group comparison | rstatix::cliff.delta() | Cliff (1993, 1996); Vargha & Delaney (2000) | Purely non-parametric effect size; valid for ordinal/binary data; no distributional assumptions |
+| Spearman ρ | ρ = 1 − 6Σd²/(n(n²−1)) | log10_conc vs day40_lev | Paired (5 conc × 16 blocks) | stats::cor.test() | Spearman (1904) | Measures monotonic association; appropriate for ordinal × ordinal |
+| Jonckheere-Terpacca | JT = Σ_{i<j} U_{ij}; U_{ij}=#(x_i>x_j) for ordered groups | 5 concentrations (ordered) | Ordered groups | PMCMRplus::jonckheereTest() | Jonckheere (1955); Terpstra (1952) | Tests ordered alternative; more powerful than KW for monotonic trends |
+| Dunn's test | z_{ij} = (R̄_i−R̄_j)/√(σ²(1/n_i+1/n_j)) | 7 groups per block | Within-block (n=1) | rstatix::dunn_test() | Dunn (1964) | Post-hoc for KW; uses same ranks; Holm adjustment |
+
+## Variable Definitions
+
+| Variable | Column in CSV | Level | Measurement |
+|---|---|---|---|
+| plant | plant | Nominal (2: A. indica, M. oleifera) | Categorical |
+| part | part | Nominal (4: leaves, stem bark, roots, seeds) | Categorical |
+| parasite | parasite | Nominal (2: T. congolense, T. evansi) | Categorical |
+| group | group | Nominal (7 levels) | Categorical |
+| concentration_mgml | concentration_mgml | Ordinal/ratio (5 levels: 0.005–100; NA for controls) | Numeric |
+| day | day | Ordinal (1–40) | Integer |
+| lev | lev | Ordinal (0–5) | Integer |
+| timepoint | timepoint | Ordinal (3: Pre-Infection, Infection, Post-Infection) | Categorical |
+| weight_g | weight_g | Ratio | Numeric (grams) |
+| pcv | pcv | Ratio | Numeric (percentage) |
+| time_min | time_min | Ordinal (9: 0, 15, 30, ..., 120) | Integer |
+| motile | motile | Nominal binary (0, 1; NA for `+-`) | Integer |
+| animal_dead | animal_dead | Binary (TRUE, FALSE) | Logical |
+
+# Docx Objectives → Method + Visualisation Mapping
+
+## Objective 1: Extract phytochemical contents (docx §1.8.2.i)
+
+Extract methanolic contents from leaves, stem bark, roots, seeds of both plants.
+
+- **Datasets:** `phytochemical.csv`
+- **Analysis:** Descriptive summary of compound presence per plant×part
+- **Test:** None (binary screening data)
+- **Tables:**
+  - `phytochemical_summary.csv` — 96-row presence/absence matrix (compound × plant × part)
+  - `phytochemical_counts.csv` — total compounds present per plant×part
+- **Figures:**
+  - `phytochemical_heatmap.png` — binary presence/absence heatmap (12 compounds × 8 plant×part combos)
+  - `phytochemical_barchart.png` — total compounds present per plant×part, grouped by plant
+  - `phytochemical_composition_bar.png` — compound class distribution per plant×part
+  - `phytochemical_cooccurrence_network.png` — which compounds co-occur across parts
+- **Rationale:** Screening yields binary data; visualisation reveals richest parts.
+
+## Objective 2: Identify phytochemical contents (docx §1.8.2.ii)
+
+Identify and characterise phytochemical contents.
+
+- **Dataset:** `phytochemical.csv`
+- **Analysis:** Part profiles per plant; identify signature compounds
+- **Test:** None
+- **Tables:**
+  - `phytochemical_part_profiles.csv` — per-part compound list with counts
+- **Figures:**
+  - `phytochemical_composition_pie.png` — compound composition per plant×part (8 pies)
+  - `phytochemical_upset.png` — UpSet plot of compound co-occurrence
+  - `phytochemical_richness_boxplot.png` — # compounds per part by plant
+  - `phytochemical_unique_vs_shared.csv` — compounds unique vs shared
+
+## Objective 3: In-vitro anti-trypanosomal activity via motility assay (docx §1.8.2.iii, §3.10)
+
+Determine in-vitro activity of 5 concentrations (100, 10, 0.5, 0.01, 0.005 mg/ml) against T. congolense and T. evansi using motility assay.
+
+- **Dataset:** `motility.csv`
+- **Analysis:**
+  - Descriptive: % motile vs time for each concentration per block
+  - **Trend test:** Jonckheere-Terpacca (ordered: 100 → 0.005 mg/ml) per block
+  - **Effect size:** Cliff's delta between each concentration and Negative Control
+  - **Compare:** 100mg/ml vs 0.005mg/ml across 16 blocks — Wilcoxon signed-rank
+- **Method rationale:** JT formula: `JT = Σ_{i<j} U_{ij}` where `U_{ij} = #(x_i > x_j)` for ordered concentrations — tests H0: no trend vs H1: monotonic decreasing motility with increasing concentration. Appropriate because concentrations have natural ordering and motility is binary → % is ordinal.
+- **Tables:**
+  - `motility_stats.csv` — per-block JT p-value, Cliff's delta vs NC, % motile at t=120
+  - `motility_summary.csv` — % motile at t=0, t=120 per group×block
+  - `motility_concentration_test.csv` — Wilcoxon signed-rank (100mg/ml vs 0.005mg/ml) across 16 blocks
+- **Figures:**
+  - `motility_trajectories_faceted.png` — % motile over 9 timepoints, 16 panels
+  - `motility_concentration_response.png` — % motile (averaged t=0–120) vs log10(concentration), loess, faceted
+  - `motility_t120_heatmap.png` — % motile at t=120 (rows=7 groups, cols=16 blocks)
+  - `motility_jt_trend_beeswarm.png` — JT Z per block, colored by significance
+  - `motility_100_vs_0005_scatter.png` — paired % motile at t=120, 16 points
+
+## Objective 4: In-vivo infectivity monitoring (docx §1.8.2.iv)
+
+### 4a: Parasitaemia (LEV)
+
+- **Dataset:** `parasitemia.csv`
+- **Analysis:**
+  - Day-40 LEV per group per block (summary endpoint)
+  - Wilcoxon signed-rank: T. congolense vs T. evansi (paired, 16 plant×part pairs)
+  - Mann-Whitney U: A. indica vs M. oleifera (n=8 per plant)
+  - Cliff's delta for effect size
+  - Spearman: log10(concentration) vs mean day-40 LEV per block
+- **Rationale:** LEV is ordinal 0–5; Wilcoxon signed-rank handles paired blocks; MWU for species comparison; Spearman for dose-response. All non-parametric avoids distributional assumptions.
+- **Tables:**
+  - `parasitemia_stats.csv` — day-40 LEV per group×block
+  - `parasitemia_species_test.csv` — Wilcoxon signed-rank + Cliff's delta
+  - `parasitemia_plant_test.csv` — MWU + Cliff's delta
+  - `parasitemia_dose_correlation.csv` — Spearman ρ per block + per parasite
+- **Figures:**
+  - `parasitemia_trajectories_faceted.png` — LEV over 40 days, 16 panels
+  - `parasitemia_day40_boxplot.png` — day-40 LEV by group, split by plant×parasite
+  - `parasitemia_species_comparison.png` — paired scatter, 16 points
+  - `parasitemia_concentration_gradient.png` — mean day-40 LEV vs log10(conc), Spearman
+  - `parasitemia_dead_heatmap.png` — mortality pattern
+
+### 4b: Body weight
+
+- **Dataset:** `weight.csv`
+- **Analysis:**
+  - Δweight = Post-Infection − Pre-Infection per group per block
+  - Wilcoxon signed-rank: A. indica vs M. oleifera Δweight
+  - Toxicity flag: Δweight < −2g
+- **Rationale:** Δweight is ratio-scaled (grams); non-parametric chosen for small n.
+- **Tables:**
+  - `weight_stats.csv` — Δweight per group×block, toxicity flags
+  - `weight_species_test.csv` — Wilcoxon results
+- **Figures:**
+  - `weight_trajectory_faceted.png` — weight across 3 timepoints, 16 panels
+  - `weight_delta_boxplot.png` — Δweight distribution by plant × parasite
+  - `weight_toxicity_scatter.png` — Pre vs Post weight, colored by toxicity
+  - `weight_missing_heatmap.png` — mortality (NA) heatmap
+
+### 4c: PCV (packed cell volume)
+
+- **Dataset:** `pcv.csv`
+- **Analysis:**
+  - ΔPCV = Post-Infection − Pre-Infection per group per block
+  - Wilcoxon signed-rank: A. indica vs M. oleifera ΔPCV
+  - Anemia flag: ΔPCV < −10pp
+- **Rationale:** Same as weight.
+- **Tables:**
+  - `pcv_stats.csv` — ΔPCV per group×block, anemia flags
+  - `pcv_species_test.csv` — Wilcoxon results
+- **Figures:**
+  - `pcv_trajectory_faceted.png` — PCV across 3 timepoints, 16 panels
+  - `pcv_delta_boxplot.png` — ΔPCV distribution by plant × parasite
+  - `pcv_weight_correlation.png` — ΔPCV vs Δweight scatter
+  - `pcv_anemia_heatmap.png` — anemia flags heatmap
+
+## Objective 5: Comparative efficacy A. indica vs M. oleifera (docx §1.8.2.v)
+
+- **Datasets:** `parasitemia.csv`, `motility.csv`
+- **Analysis:**
+  - Wilcoxon signed-rank on day-40 LEV (16 paired blocks)
+  - Cliff's delta for effect size
+  - Motility cross-check: Wilcoxon on mean % motile reduction
+- **Rationale:** Paired blocks (same plant×part×parasite, different species); n=16 pairs.
+- **Tables:**
+  - `species_comparison.csv` — paired values, Wilcoxon W, Cliff's delta
+  - `species_motility_test.csv` — motility comparison
+- **Figures:**
+  - `species_parasitemia_forest.png` — per-block LEV difference
+  - `species_motility_forest.png` — per-block motility difference
+  - `species_summary_scatter.png` — A. indica vs M. oleifera day-40 LEV
+  - `species_interaction_plot.png` — plant × parasite interaction
+
+## Exploratory: Part comparison within plant
+
+- **Dataset:** `parasitemia.csv`
+- **Analysis:** Day-40 LEV per part; Wilcoxon signed-rank for paired part comparisons
+- **Tables:** `part_comparison.csv`, `part_ranking.csv`
+- **Figures:** `part_efficacy_boxplot.png`, `part_ranking_barchart.png`, `part_dose_interaction.png`, `part_toxicity_overlay.png`
+
+## Exploratory: Dose-response gradient
+
+- **Dataset:** `parasitemia.csv`
+- **Analysis:** Spearman ρ between log10(concentration) and day-40 LEV per block; JT trend test
+- **Tables:** `dose_response.csv`, `dose_response_summary.csv`, `dose_response_jt_test.csv`
+- **Figures:** `dose_response_scatter.png`, `dose_response_curve.png`, `dose_response_heatmap.png`
+
+## Exploratory: Phytochemical ↔ efficacy association
+
+- **Datasets:** `phytochemical.csv`, `parasitemia.csv`
+- **Analysis:** Mann-Whitney U per compound; Cliff's delta
+- **Tables:** `phytochemical_association.csv`, `phytochemical_efficacy_ranks.csv`
+- **Figures:** `phytochemical_efficacy_scatter.png`, `phytochemical_association_forest.png`, `phytochemical_correlation_heatmap.png`, `phytochemical_dose_moderation.png`
+
+# Output Structure
+
+```
+analysis/
+├── R/
+│   ├── 01_build_datasets.R
+│   ├── 02_analysis.R
+│   └── render_docx.R
+├── data/
+└── results/
+    ├── tables/ (15 CSV files listed above)
+    ├── figures/ (29+ PNG files listed above)
+    └── report.docx
+```
+
+# Statistical Method Rationale
+
+1. **Wilcoxon signed-rank** — paired blocks (same plant×part×parasite, different species); 16 pairs; valid for ordinal LEV
+2. **Mann-Whitney U** — unpaired groups (8 blocks per plant); compares distributions
+3. **Cliff's delta** — effect size for ordinal/binary; δ = #(x>y)−#(x<y)/(n_x×n_y); |δ|≥0.11 small, ≥0.28 med, ≥0.43 large
+4. **Spearman ρ** — monotonic association for dose-response; ρ = 1−6Σd²/(n(n²−1))
+5. **Jonckheere-Terpacca** — ordered trend across concentrations; JT = Σ_{i<j} U_{ij}
+6. **Descriptive only within blocks** — n=1 per group per block; no test has power
+7. **p < 0.05** throughout; Holm adjustment on Dunn's post-hoc
+
+# References
+
+- Cliff, N. (1993, 1996). Ordinal methods for behavioral sciences.
+- Vargha, A. & Delaney, H.D. (2000). Critique and improvement of CL common language effect size. *J. Educ. Behav. Stat.* 25(2): 101-133.
+- Conover, W.J. (1999). *Practical Nonparametric Statistics* (3rd ed.). Wiley.
+- Mann, H.B. & Whitney, D.R. (1947). On a test of whether one of two random variables is stochastically larger. *Ann. Math. Statist.* 18(1): 50-60.
+- Wilcoxon, F. (1945). Individual comparisons by ranking methods. *Biometrics* 1(1): 86-89.
+- Spearman, C. (1904). The proof and measurement of association between two things. *Am. J. Psychol.* 15(1): 72-85.
+- Jonckheere, A. (1955). A class of non-parametric tests for ordered alternatives. *Biometrika* 42: 147-154.
+- Terpstra, J.T. (1952). The asymptotic normality of the best non-parametric estimates of a monotone hypothesis. *Proc. Kon. Ned. Akad. Wetensch.* 55: 493-497.
+- Dunn, O.J. (1964). Multiple comparisons among means. *J. Amer. Statist. Assoc.* 59(304): 52-64.

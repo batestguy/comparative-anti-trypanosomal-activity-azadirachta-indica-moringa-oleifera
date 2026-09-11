@@ -1,0 +1,6 @@
+dataset,n_rows,n_missing,notes
+parasitemia,4480,918,"LEV 0-5 ordinal parasitemia score (0=no parasites, 5=maximal). Missing=animal died. 6-cap applied: T.evansi+A.indica seeds+0.01mg/ml Day21 (raw value=6, capped to 5). Data cleaning: comma decimals (;) converted to dots (.), float noise (5.0000000000000001E-3 -> 0.005) cleaned. NOTE: 4 T.evansi blocks show all-zero parasitemia even in Negative Control (A.indica roots, A.indica leaves, M.oleifera seeds, M.oleifera roots) — these reflect genuine absence of T. evansi infection in those experiments, NOT data errors."
+weight,336,11,Body weight g. Missing=animal died. Note: some T.evansi groups show weight gain during infection — verify raw data. Pre-infection weights vary 19-29g across blocks (different mouse batches).
+pcv,336,11,PCV %. Normal mouse ~40-50%. <35=anemia. >55=high (verify method). Missing=animal died.
+motility,1008,146,"In-vitro motility 0-120 min. 1=motile(+), 0=non-motile(-), NA=missing/ambiguous(+-). '+-' at 120 min in Neg Ctrl Tables 7,8,17 set to NA."
+phytochemical,96,NA,Phytochemical presence/absence (+/-). 12 compounds × 4 parts × 2 plants. M.oleifera Terpenoid/Alkaloid absent here but literature reports presence — extraction-method specific.
