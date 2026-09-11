@@ -10,7 +10,7 @@ suppressMessages({library(officer); library(magrittr); library(flextable)})
 
 out <- file.path("analysis", "reports", "objectives-methods.docx")
 
-doc <- read_docx()
+doc <- read_docx("analysis/R/template-tnr.docx")
 doc <- doc %>%
   body_add_par("Objectives, Variables and Statistical Methods", style = "heading 1") %>%
   body_add_par(paste0("Comparative anti-trypanosomal activity of Azadirachta indica ",
@@ -72,9 +72,14 @@ doc <- doc %>%
                       "The analytical unit is the block (N = 16)."), style = "Normal")
 ft <- flextable(methods_tbl)
 ft <- set_table_properties(ft, layout = "autofit")
-ft <- theme_vanilla(ft)
+ft <- theme_apa(ft)
+ft <- font(ft, fontname = "Times New Roman", part = "all")
 ft <- fontsize(ft, size = 8, part = "all")
 ft <- bold(ft, part = "header")
+doc <- body_add_fpar(doc, fpar(
+  ftext("Table 1. ", fp_text(font.family = "Times New Roman", font.size = 10, bold = TRUE)),
+  ftext("Objectives, variables and statistical methods.",
+        fp_text(font.family = "Times New Roman", font.size = 10, italic = TRUE))))
 doc <- body_add_flextable(doc, ft)
 
 doc <- doc %>%

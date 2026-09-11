@@ -4,6 +4,7 @@ format:
   docx:
     toc: true
     number-sections: true
+    reference-doc: reference-doc.docx
   html:
     toc: true
     number-sections: true
