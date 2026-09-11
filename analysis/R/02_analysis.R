@@ -594,6 +594,24 @@ p13 <- wp_long %>%
 ggsave(file.path(fig_dir, "explore_weight_pcv_traj.png"),
        p13, width = SINGLE$width, height = SINGLE$height, dpi = SINGLE$dpi)
 
+# Figure 4 replacement: clean dose-level summary curves (mean %motile vs time
+# by group, faceted by parasite) — the 16-panel faceted trajectories remain in
+# results/figures as archive but are too dense for the report.
+p14 <- mot %>% filter(group %in% GRP_ORD) %>%
+  group_by(parasite, group, time_min) %>%
+  summarise(m = mean(motile, na.rm = TRUE), .groups = "drop") %>%
+  ggplot(aes(time_min, m, colour = grp_f(group))) +
+  geom_line(linewidth = 1.1, na.rm = TRUE) +
+  geom_point(size = 2, na.rm = TRUE) +
+  facet_wrap(~ parasite) +
+  scale_y_continuous(limits = c(0, 1),
+                     labels = function(x) paste0(round(100 * x), "%")) +
+  labs(title = "Mean proportion motile over time, by dose",
+       x = "Time (min)", y = "% motile", colour = "Group") +
+  theme(legend.position = "bottom")
+ggsave(file.path(fig_dir, "motility_summary_curves.png"),
+       p14, width = SINGLE$width, height = 5, dpi = SINGLE$dpi)
+
 # ── 9. Console headline summary ──────────────────────────────────────────
 cat("\n=== DOSE-RESPONSE (parasitemia AUC) ===\n"); print(dose_resp_tbl)
 cat("\n=== DOSE vs NC (AUC, Holm per parasite) ===\n"); print(dose_vs_nc_tbl)

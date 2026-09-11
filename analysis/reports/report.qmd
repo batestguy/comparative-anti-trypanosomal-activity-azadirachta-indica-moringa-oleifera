@@ -26,15 +26,24 @@ tab_dir <- file.path("..", "results", "tables")
 fig_dir <- file.path("..", "results", "figures")
 k <- function(f, digits = 3) kable(
   read_csv(file.path(tab_dir, f), show_col_types = FALSE), digits = digits)
-# Slim display for contrast tables: combine the HL estimate with its CI so
-# wide tables fit a portrait page without wrapping.
+# Slim display for contrast tables: split the Dose | Parasite label into two
+# narrow columns and combine the HL estimate with its CI, so wide tables fit
+# a portrait page without wrapping.
 fmt_contrast <- function(f) {
   d <- read_csv(file.path(tab_dir, f), show_col_types = FALSE)
   d$hl <- sprintf("%.2f [%.2f, %.2f]", d$hl_est, d$hl_l, d$hl_u)
-  keep <- c("contrast", "n_pairs", "W", "p", "p_holm", "hl", "r_rb")
-  keep <- keep[keep %in% names(d)]
-  out <- d[, keep]
-  names(out) <- c("Contrast", "n", "W", "p", "p (Holm)", "HL [95% CI]", "r")[seq_along(keep)]
+  if (all(grepl(" \\| ", d$contrast))) {
+    parts <- strsplit(d$contrast, " \\| ")
+    d$Dose <- vapply(parts, `[`, "", 1)
+    d$Parasite <- vapply(parts, `[`, "", 2)
+    out <- d[, c("Dose", "Parasite", "n_pairs", "W", "p", "p_holm", "hl", "r_rb")]
+    names(out) <- c("Dose", "Parasite", "n", "W", "p", "p (Holm)", "HL [95% CI]", "r")
+  } else {
+    keep <- c("contrast", "n_pairs", "W", "p", "hl", "r_rb")
+    keep <- keep[keep %in% names(d)]
+    out <- d[, keep]
+    names(out) <- c("Contrast", "n", "W", "p", "HL [95% CI]", "r")[seq_along(keep)]
+  }
   kable(out, digits = 4)
 }
 ```
@@ -63,9 +72,10 @@ roots, seeds) against *T. congolense* and *T. evansi* (thesis §1.8.1). This
 report presents the statistical analysis for specific objectives ii–v
 (§1.8.2): phytochemical characterisation (§5.2), the in-vitro motility assay
 (§5.3), in-vivo infectivity (§5.4) and the superiority assessment (§5.5),
-followed by diagnostics (§6), an integrative discussion (§7) and limitations
-(§8). Objective i (extraction) is a laboratory procedure without recorded
-replicates and carries no statistical component (§5.1).
+followed by diagnostics (§6), an integrative discussion against the recent
+literature (§7) and limitations (§8). Objective i (extraction) is a
+laboratory procedure without recorded replicates and carries no statistical
+component (§5.1).
 
 ## 2. Design and analytical approach
 
@@ -125,13 +135,13 @@ so neither group discriminates the plants; tannins showed the sharpest part
 pattern, present everywhere except seeds in both species (@fig-phyto-hm). The
 few differentiating classes were part-specific rather than species-specific:
 steroids (only *A. indica* leaves and seeds), terpenoids (only *M. oleifera*
-stem bark), alkaloids, flavonoids and glucosides in asymmetric but
-overlapping distributions — e.g. the two leaf profiles share six classes
-apiece with only the steroid/glucoside entries swapped. With eight
-combinations, these data admit description only; compound–efficacy overlays
-are tabulated without tests. The substantive point for §7 is the extent of
-chemical overlap between the species, which leaves little phytochemical basis
-for expecting divergent efficacy.
+stem bark), and alkaloids, flavonoids and glucosides in asymmetric but
+overlapping distributions — the two leaf profiles share six classes apiece
+with only the steroid/glucoside entries swapped. With eight combinations,
+these data admit description only; compound–efficacy overlays are tabulated
+without tests. The substantive point for §7 is the extent of chemical overlap
+between the species, which leaves little phytochemical basis for expecting
+divergent efficacy.
 
 ```{r}
 #| label: tbl-phyto
@@ -145,23 +155,25 @@ k("phytochemical_richness.csv", 0)
 
 ## 5.3. Objective iii — in-vitro motility
 
-Both parasites were immobilised in strict concentration order. Median
-time-to-immobilisation lengthened monotonically from 15 minutes at 100 mg/ml
-(uncensored in all blocks) to fully censored Negative Controls, with t120
+Both parasites were immobilised in strict concentration order. Mean motility
+curves fan out cleanly by dose (@fig-curves): 100 mg/ml collapses motility
+within 15–30 minutes in both parasites, each lower dose traces a
+progressively slower decline, and Negative Controls remain motile throughout.
+Median time-to-immobilisation lengthened monotonically from 15 minutes at
+100 mg/ml (uncensored in all blocks) to fully censored controls, with t120
 motility rising from zero to 0.67 (*congolense*) and 1.0 (*evansi*) in the
-controls (@tbl-tti; @fig-tti). The trajectories (@fig-mot-traj) show the
-same ordering within every block, and the Positive Controls behaved as a
-reference trypanocide should — motile at t = 0, immobile thereafter in all
-sixteen tables — which validates the assay and establishes the benchmark
-that the top extract dose reproduces. Formally, the blocked trend was highly
+controls (@tbl-tti; @fig-tti). The Positive Controls behaved as a reference
+trypanocide should — motile at t = 0, immobile thereafter in all sixteen
+tables — which validates the assay and establishes the benchmark that the
+top extract dose reproduces. Formally, the blocked trend was highly
 significant in both parasites (@tbl-mot-dose; *congolense* Friedman
 Q = 27.75, p < 0.001, ρ = −0.70; *evansi* Q = 30.32, p < 0.001, ρ = −0.88).
 Post-hoc contrasts against the control (@tbl-mot-posthoc) were uniformly
 large at the top doses (rank-biserial −1; HL reductions of −0.83 and −0.89
 at 100 mg/ml) but, with eight blocks and Holm correction, stopped just short
-of significance (Holm 0.065 and 0.052; 10 mg/ml 0.085 and 0.052), and lower
-doses were indistinguishable from control — several low-dose pairs matched
-it exactly. The in-vitro conclusion is therefore a significant ordered trend
+of significance (0.065 and 0.052; 10 mg/ml 0.085 and 0.052), and lower doses
+were indistinguishable from control — several low-dose pairs matched it
+exactly. The in-vitro conclusion is therefore a significant ordered trend
 with large but multiplicity-limited pairwise effects, concentrated at
 100 mg/ml.
 
@@ -172,6 +184,8 @@ k("explore_tti.csv")
 ```
 
 ![Time to immobilisation by dose (black = median; x = censored)](`r file.path(fig_dir, "explore_tti_dose.png")`){#fig-tti}
+
+![Mean proportion motile over time, by dose](`r file.path(fig_dir, "motility_summary_curves.png")`){#fig-curves}
 
 ```{r}
 #| label: tbl-mot-dose
@@ -185,8 +199,6 @@ k("dose_response_motility.csv")
 fmt_contrast("dose_vs_nc_motility.csv")
 ```
 
-![Motility trajectories by block](`r file.path(fig_dir, "motility_trajectories_faceted.png")`){#fig-mot-traj}
-
 ## 5.4. Objective iv — in-vivo infectivity
 
 ### Parasitaemia
@@ -197,9 +209,9 @@ no deaths, against peak LEV 5 with universal mortality in the Negative
 Controls (@tbl-peak; @fig-peak); mortality, clearance time and day-40
 clearance all tracked the same ordering (@fig-mort), and trajectories peaked
 near days 9–14 before resolving in survivors (@fig-para-traj). On cumulative
-burden the *T. evansi* trend was significant (@tbl-dose; Friedman Q = 14.51,
+burden the *T. evansi* trend was significant (@tbl-dose: Friedman Q = 14.51,
 p = 0.006, ρ = −0.51) with 100, 10 and 0.5 mg/ml each superior to control in
-all eight blocks (W = 0, exact p = 0.008, Holm 0.039; HL −50/−50/−44
+all eight blocks (W = 0, exact p = 0.008, Holm 0.039; HL ≈ −50/−50/−44
 AUC-days), while 0.01 and 0.005 mg/ml lost significance on correction (Holm
 0.078) despite strongly negative estimates. *T. congolense* showed the same
 direction with weaker evidence (Friedman p = 0.074; 100 mg/ml Holm 0.071,
@@ -315,32 +327,70 @@ k("sensitivity_loo.csv")
 
 ## 7. Discussion
 
-Three assay layers converge on one finding: both extracts are genuinely and
-dose-dependently trypanocidal. The in-vitro ordering (TTI 15 minutes to fully
-censored across the dose range; @fig-tti) reappears quantitatively in peak
-parasitaemia, mortality and cumulative burden (@tbl-peak, @fig-mort,
-@fig-auc) — fast kill in the dish predicts low burden in the mouse — and the
-Positive Controls trace the same rapid-kill profile, so the top extract dose
-reproduces reference-like efficacy rather than merely beating an untreated
-control. The most informative discordance is the effective threshold: full
-immobilisation in-vitro demands ~100 mg/ml, yet *T. evansi* is suppressed
-in-vivo from 0.5 mg/ml upward. Rather than a contradiction, this reflects the
-assays' different sensitivities — ninety minutes of direct contact versus
-forty days of systemic exposure with host clearance contributing — and it
-locates the biologically interesting dose window for follow-up work between
-0.5 and 10 mg/ml, particularly for *T. congolense*, whose threshold remains
-unresolved. The two nulls sharpen the picture rather than weakening it. Plant
-interchangeability, set against heavily overlapping phytochemistry (§5.2),
-suggests the shared compound classes — or the shared extraction chemistry —
-carry the activity, a hypothesis a fractionation study could test directly;
-it also means formulation choice between these species can rest on cost,
-toxicity and availability rather than efficacy. The weight/PCV nulls, finally,
-do double duty: they rule out toxicity confounding of the parasitaemia
-result and independently rank *T. congolense* the more pathogenic parasite.
-What remains is confirmatory: animal-level (not group-mean) data with
-identified controls, a refined dose grid around the *congolense* threshold,
-and pre-registered block-level tests at adequate power — for which the
-estimates and intervals in §5 provide the design inputs.
+The three assay layers converge on one finding — both extracts are genuinely
+and dose-dependently trypanocidal — and each layer has a direct precedent in
+the recent literature. The in-vitro ordering (TTI of 15 minutes at the top
+dose lengthening monotonically to fully censored controls; @fig-tti,
+@fig-curves) sits squarely in the published range: *Acacia* stem-bark
+extracts immobilised *T. congolense* within 15 minutes at their top doses
+(Ogbole et al. 2021), *Ranunculus* extracts and anemonin within 5–30 minutes
+(Sirak et al. 2024), and *A. indica* fractions within the hour (Tauheed et
+al. 2021). Notably, the Ogbole design is a near twin of the present assay —
+identical +/− scoring over 0–120 minutes, the same threshold behaviour with
+top doses matching the Berenil control and the lowest dose equalling the
+negative control — so the threshold pattern here replicates an established
+signature rather than standing alone. One caveat travels with this literature
+and applies here: Sirak et al. showed that in-vitro immobilisation at low
+doses need not mean death, with parasites recovering infectivity. The present
+TTI gradient is therefore read as a kill proxy corroborated by the infectivity
+outcomes (peaks and mortality), not as proof of death at every dose.
+
+In-vivo, the dose-dependent suppression of peaks and burden with zero
+mortality at the top dose matches the direction reported for *A. indica*
+stem bark (Wanzala et al. 2017; Mbaya et al. 2010), *A. indica* leaves (Okoh
+2018; Ngure et al. 2009) and *M. oleifera* seed and leaves (Ujah et al. 2020;
+Datti et al. 2020), including their shared observation that crude extracts
+suppress rather than sterilise at lower doses. Two contrasts with that
+literature deserve emphasis. First, the effective threshold here — full
+suppression at the top in-vitro-style dose with *T. evansi* yielding from
+0.5 mg/ml — is strong for crude methanolic extracts, most of which in the
+cited studies reduced but did not clear parasitaemia; whether that reflects
+genuine potency or the concentration-based (rather than mg/kg) dosing of
+this design is a question for the thesis methods, not this analysis. Second,
+Rabe et al. (2024) found ethanolic *A. indica* markedly superior to *M.
+oleifera* against a diminazene-resistant *T. brucei* strain, whereas the
+present comparison across four parts and two parasites finds no difference;
+the reconciliation is context — single leaf extracts against a resistant
+strain versus broad part × parasite panels — and it cautions against
+generalising either result beyond its design.
+
+The phytochemical picture is consistent with the pharmacology literature
+without overreaching it. The classes present here — alkaloids, flavonoids,
+saponins and tannins — are precisely those repeatedly tied to trypanocidal
+activity (Ujah et al. 2020; Ogbole et al. 2021), and the part-axis variation
+(steroids only in *A. indica* leaves/seeds, terpenoids only in *M. oleifera*
+stem bark) offers natural fractionation targets. The mechanistic hypothesis
+with the most direct support is trypanosome alternative oxidase inhibition,
+for which *A. indica* fractions already show dose-dependent motility
+suppression coupled to enzyme inhibition (Tauheed et al. 2021); testing the
+present extracts in that assay would be the logical next step. The weight and
+PCV nulls diverge from studies reporting PCV recovery under treatment
+(Datti et al. 2020; Ujah et al. 2020; Tauheed et al. 2021), but those studies
+used animal-level data with identified controls and larger groups, whereas
+the present group-mean design with eight blocks cannot resolve modest
+haematological effects — absence of evidence here, not evidence of absence,
+and the flag clustering still independently ranks *T. congolense* the more
+pathogenic parasite, in line with the comparative literature. Methodologically,
+the Sirak-style ANOVA+Tukey pipeline used across much of this literature
+assumes normality and independence that group-mean, ordinal, repeated
+observations violate; the block-level rank analysis here answers the same
+questions without those assumptions, at the accepted cost of power. Taken
+together, the supported position is narrow and firm: both extracts are active
+in a dose-dependent manner with the top dose fully suppressive, *T. evansi*
+the more sensitive parasite, and neither plant demonstrably superior —
+pending animal-level confirmatory work with identified controls, a refined
+0.5–10 mg/ml grid around the *congolense* threshold, and fractionation
+toward the compound level.
 
 ## 8. Limitations
 
@@ -352,14 +402,47 @@ is therefore always read with mortality. The NA-equals-death convention
 awaits confirmation against animal records. All results are exploratory, not
 confirmatory.
 
-## 9. References (methods)
+## 9. References
 
+- Barrett, M.P. (2025) — on toxicity and resistance limits of current
+  trypanocides; cited via Abdullahi et al. (2026).
+- Abdullahi, R.I. et al. (2026). Phytochemical profiling and in-vitro
+  antitrypanosomal efficacy of *Combretum glutinosum* leaf extract. *FJS*.
+- Adams, L. et al. (2024). Antitrypanosomal activities of *Anopyxis
+  klaineana* stem bark extracts. *Heliyon* 10: e28025.
+- Cliff, N. (1993, 1996); Vargha, A. & Delaney, H.D. (2000). *J. Educ.
+  Behav. Stat.* 25(2): 101–133.
 - Conover, W.J. (1999). *Practical Nonparametric Statistics* (3rd ed.). Wiley.
+- Datti, Y. et al. (2020). In-vivo antitrypanosomal activity of *Moringa
+  oleifera* leaf extract in rats. *GSC Biol. Pharm. Sci.* 11(1): 12–17.
+- Gitonga, P.K. et al. (2017). Differential virulence of *T. congolense*
+  and *T. brucei* strains. *Onderstepoort J. Vet. Res.* 84(1): a1412.
 - Mann, H.B. & Whitney, D.R. (1947). *Ann. Math. Statist.* 18(1): 50–60.
-- Wilcoxon, F. (1945). *Biometrics* 1(1): 86–89.
-- Cliff, N. (1993, 1996); Vargha, A. & Delaney, H.D. (2000). *J. Educ. Behav. Stat.* 25(2): 101–133.
-- Spearman, C. (1904). *Am. J. Psychol.* 15(1): 72–85.
-- Jonckheere, A. (1954); Terpstra, J.T. (1952) — ordered alternatives (blocked Friedman reported instead, §4).
-- Noyes, H. et al. (2009). *PLoS ONE* 4(4): e5170.
+- Mbaya, A.W. et al. (2010). Toxicity and antitrypanosomal activity of *A.
+  indica* stem bark. *J. Ethnopharmacol.* 128: 495–400.
 - Naessens, J. et al. (2005). *Clin. Exp. Immunol.* 139: 449–456.
-- Gitonga, P.K. et al. (2017). *Onderstepoort J. Vet. Res.* 84(1): a1412.
+- Ngure, R.M. et al. (2009). Antitrypanosomal effects of neem extract on
+  *T. brucei rhodesiense*-infected mice. *East. J. Med.* 14: 2–9.
+- Noyes, H. et al. (2009). Mechanisms controlling anaemia in *T.
+  congolense*-infected mice. *PLoS ONE* 4(4): e5170.
+- Ogbole, E. et al. (2021). Anti-trypanosomal activity and phytochemical
+  screening of selected *Acacia* species. *J. Chem. Soc. Nigeria* 46(2).
+- Okoh, M.E. (2018). In-vivo anti-trypanosomal activity of aqueous *A.
+  indica* leaves on *T. brucei brucei*-infected mice. *Int. J. Infect. Dis.
+  Ther.* 3(1).
+- Rabe, Y. et al. (2024). In-vitro study of *A. indica*, *M. oleifera* and
+  *C.ymbopogon* leaf extracts against diminazene-resistant *T. brucei
+  brucei*. *SAJOLS*.
+- Sirak, B. et al. (2024). In-vitro and in-vivo antitrypanosomal activity
+  of *Ranunculus multifidus* and anemonin against *T. congolense*. *BMC
+  Vet. Res.* 20: 38 (article 03856).
+- Spearman, C. (1904). *Am. J. Psychol.* 15(1): 72–85.
+- Tauheed, A. et al. (2021). Partially purified *A. indica* leaf fractions
+  inhibit trypanosome alternative oxidase. *PMC* 8217781.
+- Ujah, F.O. et al. (2020). In-vitro and in-vivo effect of *M. oleifera*
+  seed extract on *T. brucei* and *T. congolense* in rats. *Int. J. Green
+  Herb. Chem.* 9(2).
+- Wanzala, E.N. et al. (2017). In-vitro and in-vivo anti-trypanosomal
+  activities of methanol extract of *A. indica* stem bark. *Afr. J. Trad.
+  Complement. Altern. Med.* 14(6).
+- Wilcoxon, F. (1945). *Biometrics* 1(1): 86–89.
