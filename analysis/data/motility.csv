@@ -53,15 +53,15 @@ A. indica,seeds,T. congolense,Negative Control,NA,75,1,+,NA
 A. indica,seeds,T. congolense,Negative Control,NA,90,1,+,NA
 A. indica,seeds,T. congolense,Negative Control,NA,105,0,-,NA
 A. indica,seeds,T. congolense,Negative Control,NA,120,0,-,NA
-A. indica,seeds,T. congolense,Positive Control,NA,0,NA,,NA
-A. indica,seeds,T. congolense,Positive Control,NA,15,NA,,NA
-A. indica,seeds,T. congolense,Positive Control,NA,30,NA,,NA
-A. indica,seeds,T. congolense,Positive Control,NA,45,NA,,NA
-A. indica,seeds,T. congolense,Positive Control,NA,60,NA,,NA
-A. indica,seeds,T. congolense,Positive Control,NA,75,NA,,NA
-A. indica,seeds,T. congolense,Positive Control,NA,90,NA,,NA
-A. indica,seeds,T. congolense,Positive Control,NA,105,NA,,NA
-A. indica,seeds,T. congolense,Positive Control,NA,120,NA,,NA
+A. indica,seeds,T. congolense,Positive Control,NA,0,1,+,NA
+A. indica,seeds,T. congolense,Positive Control,NA,15,0,-,NA
+A. indica,seeds,T. congolense,Positive Control,NA,30,0,-,NA
+A. indica,seeds,T. congolense,Positive Control,NA,45,0,-,NA
+A. indica,seeds,T. congolense,Positive Control,NA,60,0,-,NA
+A. indica,seeds,T. congolense,Positive Control,NA,75,0,-,NA
+A. indica,seeds,T. congolense,Positive Control,NA,90,0,-,NA
+A. indica,seeds,T. congolense,Positive Control,NA,105,0,-,NA
+A. indica,seeds,T. congolense,Positive Control,NA,120,0,-,NA
 A. indica,roots,T. congolense,100mg/ml,100,0,1,+,NA
 A. indica,roots,T. congolense,100mg/ml,100,15,0,-,NA
 A. indica,roots,T. congolense,100mg/ml,100,30,0,-,NA
@@ -116,15 +116,15 @@ A. indica,roots,T. congolense,Negative Control,NA,75,1,+,NA
 A. indica,roots,T. congolense,Negative Control,NA,90,1,+,NA
 A. indica,roots,T. congolense,Negative Control,NA,105,1,+,NA
 A. indica,roots,T. congolense,Negative Control,NA,120,1,+,NA
-A. indica,roots,T. congolense,Positive Control,NA,0,NA,,NA
-A. indica,roots,T. congolense,Positive Control,NA,15,NA,,NA
-A. indica,roots,T. congolense,Positive Control,NA,30,NA,,NA
-A. indica,roots,T. congolense,Positive Control,NA,45,NA,,NA
-A. indica,roots,T. congolense,Positive Control,NA,60,NA,,NA
-A. indica,roots,T. congolense,Positive Control,NA,75,NA,,NA
-A. indica,roots,T. congolense,Positive Control,NA,90,NA,,NA
-A. indica,roots,T. congolense,Positive Control,NA,105,NA,,NA
-A. indica,roots,T. congolense,Positive Control,NA,120,NA,,NA
+A. indica,roots,T. congolense,Positive Control,NA,0,1,+,NA
+A. indica,roots,T. congolense,Positive Control,NA,15,0,-,NA
+A. indica,roots,T. congolense,Positive Control,NA,30,0,-,NA
+A. indica,roots,T. congolense,Positive Control,NA,45,0,-,NA
+A. indica,roots,T. congolense,Positive Control,NA,60,0,-,NA
+A. indica,roots,T. congolense,Positive Control,NA,75,0,-,NA
+A. indica,roots,T. congolense,Positive Control,NA,90,0,-,NA
+A. indica,roots,T. congolense,Positive Control,NA,105,0,-,NA
+A. indica,roots,T. congolense,Positive Control,NA,120,0,-,NA
 A. indica,stem bark,T. congolense,100mg/ml,100,0,0,-,NA
 A. indica,stem bark,T. congolense,100mg/ml,100,15,0,-,NA
 A. indica,stem bark,T. congolense,100mg/ml,100,30,0,-,NA
@@ -179,15 +179,15 @@ A. indica,stem bark,T. congolense,Negative Control,NA,75,1,+,NA
 A. indica,stem bark,T. congolense,Negative Control,NA,90,1,+,NA
 A. indica,stem bark,T. congolense,Negative Control,NA,105,1,+,NA
 A. indica,stem bark,T. congolense,Negative Control,NA,120,1,+,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,0,NA,,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,15,NA,,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,30,NA,,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,45,NA,,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,60,NA,,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,75,NA,,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,90,NA,,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,105,NA,,NA
-A. indica,stem bark,T. congolense,Positive Control,NA,120,NA,,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,0,1,+,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,15,0,-,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,30,0,-,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,45,0,-,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,60,0,-,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,75,0,-,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,90,0,-,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,105,0,-,NA
+A. indica,stem bark,T. congolense,Positive Control,NA,120,0,-,NA
 A. indica,leaves,T. congolense,100mg/ml,100,0,1,+,NA
 A. indica,leaves,T. congolense,100mg/ml,100,15,1,+,NA
 A. indica,leaves,T. congolense,100mg/ml,100,30,0,-,NA
@@ -242,15 +242,15 @@ A. indica,leaves,T. congolense,Negative Control,NA,75,1,+,NA
 A. indica,leaves,T. congolense,Negative Control,NA,90,1,+,NA
 A. indica,leaves,T. congolense,Negative Control,NA,105,1,+,NA
 A. indica,leaves,T. congolense,Negative Control,NA,120,1,+,NA
-A. indica,leaves,T. congolense,Positive Control,NA,0,NA,,NA
-A. indica,leaves,T. congolense,Positive Control,NA,15,NA,,NA
-A. indica,leaves,T. congolense,Positive Control,NA,30,NA,,NA
-A. indica,leaves,T. congolense,Positive Control,NA,45,NA,,NA
-A. indica,leaves,T. congolense,Positive Control,NA,60,NA,,NA
-A. indica,leaves,T. congolense,Positive Control,NA,75,NA,,NA
-A. indica,leaves,T. congolense,Positive Control,NA,90,NA,,NA
-A. indica,leaves,T. congolense,Positive Control,NA,105,NA,,NA
-A. indica,leaves,T. congolense,Positive Control,NA,120,NA,,NA
+A. indica,leaves,T. congolense,Positive Control,NA,0,1,+,NA
+A. indica,leaves,T. congolense,Positive Control,NA,15,0,-,NA
+A. indica,leaves,T. congolense,Positive Control,NA,30,0,-,NA
+A. indica,leaves,T. congolense,Positive Control,NA,45,0,-,NA
+A. indica,leaves,T. congolense,Positive Control,NA,60,0,-,NA
+A. indica,leaves,T. congolense,Positive Control,NA,75,0,-,NA
+A. indica,leaves,T. congolense,Positive Control,NA,90,0,-,NA
+A. indica,leaves,T. congolense,Positive Control,NA,105,0,-,NA
+A. indica,leaves,T. congolense,Positive Control,NA,120,0,-,NA
 M. oleifera,seeds,T. congolense,100mg/ml,100,0,1,+,NA
 M. oleifera,seeds,T. congolense,100mg/ml,100,15,0,-,NA
 M. oleifera,seeds,T. congolense,100mg/ml,100,30,0,-,NA
@@ -305,15 +305,15 @@ M. oleifera,seeds,T. congolense,Negative Control,NA,75,1,+,NA
 M. oleifera,seeds,T. congolense,Negative Control,NA,90,1,+,NA
 M. oleifera,seeds,T. congolense,Negative Control,NA,105,1,+,NA
 M. oleifera,seeds,T. congolense,Negative Control,NA,120,NA,+-,motility scored '+-' (ambiguous; key only defines +/-; set to NA)
-M. oleifera,seeds,T. congolense,Positive Control,NA,0,NA,,NA
-M. oleifera,seeds,T. congolense,Positive Control,NA,15,NA,,NA
-M. oleifera,seeds,T. congolense,Positive Control,NA,30,NA,,NA
-M. oleifera,seeds,T. congolense,Positive Control,NA,45,NA,,NA
-M. oleifera,seeds,T. congolense,Positive Control,NA,60,NA,,NA
-M. oleifera,seeds,T. congolense,Positive Control,NA,75,NA,,NA
-M. oleifera,seeds,T. congolense,Positive Control,NA,90,NA,,NA
-M. oleifera,seeds,T. congolense,Positive Control,NA,105,NA,,NA
-M. oleifera,seeds,T. congolense,Positive Control,NA,120,NA,,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,0,1,+,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,15,0,-,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,30,0,-,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,45,0,-,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,60,0,-,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,75,0,-,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,90,0,-,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,105,0,-,NA
+M. oleifera,seeds,T. congolense,Positive Control,NA,120,0,-,NA
 M. oleifera,roots,T. congolense,100mg/ml,100,0,1,+,NA
 M. oleifera,roots,T. congolense,100mg/ml,100,15,0,-,NA
 M. oleifera,roots,T. congolense,100mg/ml,100,30,0,-,NA
@@ -368,15 +368,15 @@ M. oleifera,roots,T. congolense,Negative Control,NA,75,1,+,NA
 M. oleifera,roots,T. congolense,Negative Control,NA,90,1,+,NA
 M. oleifera,roots,T. congolense,Negative Control,NA,105,1,+,NA
 M. oleifera,roots,T. congolense,Negative Control,NA,120,NA,+-,motility scored '+-' (ambiguous; key only defines +/-; set to NA)
-M. oleifera,roots,T. congolense,Positive Control,NA,0,NA,,NA
-M. oleifera,roots,T. congolense,Positive Control,NA,15,NA,,NA
-M. oleifera,roots,T. congolense,Positive Control,NA,30,NA,,NA
-M. oleifera,roots,T. congolense,Positive Control,NA,45,NA,,NA
-M. oleifera,roots,T. congolense,Positive Control,NA,60,NA,,NA
-M. oleifera,roots,T. congolense,Positive Control,NA,75,NA,,NA
-M. oleifera,roots,T. congolense,Positive Control,NA,90,NA,,NA
-M. oleifera,roots,T. congolense,Positive Control,NA,105,NA,,NA
-M. oleifera,roots,T. congolense,Positive Control,NA,120,NA,,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,0,1,+,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,15,0,-,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,30,0,-,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,45,0,-,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,60,0,-,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,75,0,-,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,90,0,-,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,105,0,-,NA
+M. oleifera,roots,T. congolense,Positive Control,NA,120,0,-,NA
 M. oleifera,stem bark,T. congolense,100mg/ml,100,0,1,+,NA
 M. oleifera,stem bark,T. congolense,100mg/ml,100,15,1,+,NA
 M. oleifera,stem bark,T. congolense,100mg/ml,100,30,0,-,NA
@@ -431,15 +431,15 @@ M. oleifera,stem bark,T. congolense,Negative Control,NA,75,1,+,NA
 M. oleifera,stem bark,T. congolense,Negative Control,NA,90,1,+,NA
 M. oleifera,stem bark,T. congolense,Negative Control,NA,105,1,+,NA
 M. oleifera,stem bark,T. congolense,Negative Control,NA,120,0,-,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,0,NA,,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,15,NA,,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,30,NA,,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,45,NA,,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,60,NA,,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,75,NA,,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,90,NA,,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,105,NA,,NA
-M. oleifera,stem bark,T. congolense,Positive Control,NA,120,NA,,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,0,1,+,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,15,0,-,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,30,0,-,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,45,0,-,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,60,0,-,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,75,0,-,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,90,0,-,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,105,0,-,NA
+M. oleifera,stem bark,T. congolense,Positive Control,NA,120,0,-,NA
 M. oleifera,leaves,T. congolense,100mg/ml,100,0,1,+,NA
 M. oleifera,leaves,T. congolense,100mg/ml,100,15,0,-,NA
 M. oleifera,leaves,T. congolense,100mg/ml,100,30,0,-,NA
@@ -494,15 +494,15 @@ M. oleifera,leaves,T. congolense,Negative Control,NA,75,1,+,NA
 M. oleifera,leaves,T. congolense,Negative Control,NA,90,1,+,NA
 M. oleifera,leaves,T. congolense,Negative Control,NA,105,1,+,NA
 M. oleifera,leaves,T. congolense,Negative Control,NA,120,1,+,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,0,NA,,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,15,NA,,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,30,NA,,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,45,NA,,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,60,NA,,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,75,NA,,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,90,NA,,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,105,NA,,NA
-M. oleifera,leaves,T. congolense,Positive Control,NA,120,NA,,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,0,1,+,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,15,0,-,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,30,0,-,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,45,0,-,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,60,0,-,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,75,0,-,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,90,0,-,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,105,0,-,NA
+M. oleifera,leaves,T. congolense,Positive Control,NA,120,0,-,NA
 A. indica,seeds,T. evansi,100mg/ml,100,0,1,+,NA
 A. indica,seeds,T. evansi,100mg/ml,100,15,0,-,NA
 A. indica,seeds,T. evansi,100mg/ml,100,30,0,-,NA
@@ -557,78 +557,78 @@ A. indica,seeds,T. evansi,Negative Control,NA,75,1,+,NA
 A. indica,seeds,T. evansi,Negative Control,NA,90,1,+,NA
 A. indica,seeds,T. evansi,Negative Control,NA,105,1,+,NA
 A. indica,seeds,T. evansi,Negative Control,NA,120,1,+,NA
-A. indica,seeds,T. evansi,Positive Control,NA,0,NA,,NA
-A. indica,seeds,T. evansi,Positive Control,NA,15,NA,,NA
-A. indica,seeds,T. evansi,Positive Control,NA,30,NA,,NA
-A. indica,seeds,T. evansi,Positive Control,NA,45,NA,,NA
-A. indica,seeds,T. evansi,Positive Control,NA,60,NA,,NA
-A. indica,seeds,T. evansi,Positive Control,NA,75,NA,,NA
-A. indica,seeds,T. evansi,Positive Control,NA,90,NA,,NA
-A. indica,seeds,T. evansi,Positive Control,NA,105,NA,,NA
-A. indica,seeds,T. evansi,Positive Control,NA,120,NA,,NA
-A. indica,root,T. evansi,100mg/ml,100,0,1,+,NA
-A. indica,root,T. evansi,100mg/ml,100,15,0,-,NA
-A. indica,root,T. evansi,100mg/ml,100,30,0,-,NA
-A. indica,root,T. evansi,100mg/ml,100,45,0,-,NA
-A. indica,root,T. evansi,100mg/ml,100,60,0,-,NA
-A. indica,root,T. evansi,100mg/ml,100,75,0,-,NA
-A. indica,root,T. evansi,100mg/ml,100,90,0,-,NA
-A. indica,root,T. evansi,100mg/ml,100,105,0,-,NA
-A. indica,root,T. evansi,100mg/ml,100,120,0,-,NA
-A. indica,root,T. evansi,10mg/ml,10,0,1,+,NA
-A. indica,root,T. evansi,10mg/ml,10,15,0,-,NA
-A. indica,root,T. evansi,10mg/ml,10,30,0,-,NA
-A. indica,root,T. evansi,10mg/ml,10,45,0,-,NA
-A. indica,root,T. evansi,10mg/ml,10,60,0,-,NA
-A. indica,root,T. evansi,10mg/ml,10,75,0,-,NA
-A. indica,root,T. evansi,10mg/ml,10,90,0,-,NA
-A. indica,root,T. evansi,10mg/ml,10,105,0,-,NA
-A. indica,root,T. evansi,10mg/ml,10,120,0,-,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,0,1,+,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,15,1,+,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,30,0,-,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,45,0,-,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,60,0,-,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,75,0,-,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,90,0,-,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,105,0,-,NA
-A. indica,root,T. evansi,0.5mg/ml,0.5,120,0,-,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,0,1,+,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,15,1,+,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,30,1,+,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,45,1,+,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,60,1,+,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,75,0,-,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,90,0,-,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,105,0,-,NA
-A. indica,root,T. evansi,0.01mg/ml,0.01,120,0,-,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,0,1,+,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,15,1,+,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,30,1,+,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,45,1,+,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,60,1,+,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,75,1,+,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,90,0,-,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,105,0,-,NA
-A. indica,root,T. evansi,0.005mg/ml,0.005,120,0,-,NA
-A. indica,root,T. evansi,Negative Control,NA,0,1,+,NA
-A. indica,root,T. evansi,Negative Control,NA,15,1,+,NA
-A. indica,root,T. evansi,Negative Control,NA,30,1,+,NA
-A. indica,root,T. evansi,Negative Control,NA,45,1,+,NA
-A. indica,root,T. evansi,Negative Control,NA,60,1,+,NA
-A. indica,root,T. evansi,Negative Control,NA,75,1,+,NA
-A. indica,root,T. evansi,Negative Control,NA,90,1,+,NA
-A. indica,root,T. evansi,Negative Control,NA,105,1,+,NA
-A. indica,root,T. evansi,Negative Control,NA,120,1,+,NA
-A. indica,root,T. evansi,Positive Control,NA,0,NA,,NA
-A. indica,root,T. evansi,Positive Control,NA,15,NA,,NA
-A. indica,root,T. evansi,Positive Control,NA,30,NA,,NA
-A. indica,root,T. evansi,Positive Control,NA,45,NA,,NA
-A. indica,root,T. evansi,Positive Control,NA,60,NA,,NA
-A. indica,root,T. evansi,Positive Control,NA,75,NA,,NA
-A. indica,root,T. evansi,Positive Control,NA,90,NA,,NA
-A. indica,root,T. evansi,Positive Control,NA,105,NA,,NA
-A. indica,root,T. evansi,Positive Control,NA,120,NA,,NA
+A. indica,seeds,T. evansi,Positive Control,NA,0,1,+,NA
+A. indica,seeds,T. evansi,Positive Control,NA,15,0,-,NA
+A. indica,seeds,T. evansi,Positive Control,NA,30,0,-,NA
+A. indica,seeds,T. evansi,Positive Control,NA,45,0,-,NA
+A. indica,seeds,T. evansi,Positive Control,NA,60,0,-,NA
+A. indica,seeds,T. evansi,Positive Control,NA,75,0,-,NA
+A. indica,seeds,T. evansi,Positive Control,NA,90,0,-,NA
+A. indica,seeds,T. evansi,Positive Control,NA,105,0,-,NA
+A. indica,seeds,T. evansi,Positive Control,NA,120,0,-,NA
+A. indica,roots,T. evansi,100mg/ml,100,0,1,+,NA
+A. indica,roots,T. evansi,100mg/ml,100,15,0,-,NA
+A. indica,roots,T. evansi,100mg/ml,100,30,0,-,NA
+A. indica,roots,T. evansi,100mg/ml,100,45,0,-,NA
+A. indica,roots,T. evansi,100mg/ml,100,60,0,-,NA
+A. indica,roots,T. evansi,100mg/ml,100,75,0,-,NA
+A. indica,roots,T. evansi,100mg/ml,100,90,0,-,NA
+A. indica,roots,T. evansi,100mg/ml,100,105,0,-,NA
+A. indica,roots,T. evansi,100mg/ml,100,120,0,-,NA
+A. indica,roots,T. evansi,10mg/ml,10,0,1,+,NA
+A. indica,roots,T. evansi,10mg/ml,10,15,0,-,NA
+A. indica,roots,T. evansi,10mg/ml,10,30,0,-,NA
+A. indica,roots,T. evansi,10mg/ml,10,45,0,-,NA
+A. indica,roots,T. evansi,10mg/ml,10,60,0,-,NA
+A. indica,roots,T. evansi,10mg/ml,10,75,0,-,NA
+A. indica,roots,T. evansi,10mg/ml,10,90,0,-,NA
+A. indica,roots,T. evansi,10mg/ml,10,105,0,-,NA
+A. indica,roots,T. evansi,10mg/ml,10,120,0,-,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,0,1,+,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,15,1,+,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,30,0,-,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,45,0,-,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,60,0,-,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,75,0,-,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,90,0,-,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,105,0,-,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,120,0,-,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,0,1,+,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,15,1,+,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,30,1,+,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,45,1,+,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,60,1,+,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,75,0,-,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,90,0,-,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,105,0,-,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,120,0,-,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,0,1,+,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,15,1,+,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,30,1,+,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,45,1,+,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,60,1,+,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,75,1,+,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,90,0,-,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,105,0,-,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,120,0,-,NA
+A. indica,roots,T. evansi,Negative Control,NA,0,1,+,NA
+A. indica,roots,T. evansi,Negative Control,NA,15,1,+,NA
+A. indica,roots,T. evansi,Negative Control,NA,30,1,+,NA
+A. indica,roots,T. evansi,Negative Control,NA,45,1,+,NA
+A. indica,roots,T. evansi,Negative Control,NA,60,1,+,NA
+A. indica,roots,T. evansi,Negative Control,NA,75,1,+,NA
+A. indica,roots,T. evansi,Negative Control,NA,90,1,+,NA
+A. indica,roots,T. evansi,Negative Control,NA,105,1,+,NA
+A. indica,roots,T. evansi,Negative Control,NA,120,1,+,NA
+A. indica,roots,T. evansi,Positive Control,NA,0,1,+,NA
+A. indica,roots,T. evansi,Positive Control,NA,15,0,-,NA
+A. indica,roots,T. evansi,Positive Control,NA,30,0,-,NA
+A. indica,roots,T. evansi,Positive Control,NA,45,0,-,NA
+A. indica,roots,T. evansi,Positive Control,NA,60,0,-,NA
+A. indica,roots,T. evansi,Positive Control,NA,75,0,-,NA
+A. indica,roots,T. evansi,Positive Control,NA,90,0,-,NA
+A. indica,roots,T. evansi,Positive Control,NA,105,0,-,NA
+A. indica,roots,T. evansi,Positive Control,NA,120,0,-,NA
 A. indica,stem bark,T. evansi,100mg/ml,100,0,1,+,NA
 A. indica,stem bark,T. evansi,100mg/ml,100,15,1,+,NA
 A. indica,stem bark,T. evansi,100mg/ml,100,30,0,-,NA
@@ -683,15 +683,15 @@ A. indica,stem bark,T. evansi,Negative Control,NA,75,1,+,NA
 A. indica,stem bark,T. evansi,Negative Control,NA,90,1,+,NA
 A. indica,stem bark,T. evansi,Negative Control,NA,105,1,+,NA
 A. indica,stem bark,T. evansi,Negative Control,NA,120,1,+,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,0,NA,,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,15,NA,,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,30,NA,,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,45,NA,,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,60,NA,,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,75,NA,,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,90,NA,,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,105,NA,,NA
-A. indica,stem bark,T. evansi,Positive Control,NA,120,NA,,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,0,1,+,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,15,0,-,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,30,0,-,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,45,0,-,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,60,0,-,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,75,0,-,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,90,0,-,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,105,0,-,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,120,0,-,NA
 A. indica,leaves,T. evansi,100mg/ml,100,0,1,+,NA
 A. indica,leaves,T. evansi,100mg/ml,100,15,0,-,NA
 A. indica,leaves,T. evansi,100mg/ml,100,30,0,-,NA
@@ -746,15 +746,15 @@ A. indica,leaves,T. evansi,Negative Control,NA,75,1,+,NA
 A. indica,leaves,T. evansi,Negative Control,NA,90,1,+,NA
 A. indica,leaves,T. evansi,Negative Control,NA,105,1,+,NA
 A. indica,leaves,T. evansi,Negative Control,NA,120,1,+,NA
-A. indica,leaves,T. evansi,Positive Control,NA,0,NA,,NA
-A. indica,leaves,T. evansi,Positive Control,NA,15,NA,,NA
-A. indica,leaves,T. evansi,Positive Control,NA,30,NA,,NA
-A. indica,leaves,T. evansi,Positive Control,NA,45,NA,,NA
-A. indica,leaves,T. evansi,Positive Control,NA,60,NA,,NA
-A. indica,leaves,T. evansi,Positive Control,NA,75,NA,,NA
-A. indica,leaves,T. evansi,Positive Control,NA,90,NA,,NA
-A. indica,leaves,T. evansi,Positive Control,NA,105,NA,,NA
-A. indica,leaves,T. evansi,Positive Control,NA,120,NA,,NA
+A. indica,leaves,T. evansi,Positive Control,NA,0,1,+,NA
+A. indica,leaves,T. evansi,Positive Control,NA,15,0,-,NA
+A. indica,leaves,T. evansi,Positive Control,NA,30,0,-,NA
+A. indica,leaves,T. evansi,Positive Control,NA,45,0,-,NA
+A. indica,leaves,T. evansi,Positive Control,NA,60,0,-,NA
+A. indica,leaves,T. evansi,Positive Control,NA,75,0,-,NA
+A. indica,leaves,T. evansi,Positive Control,NA,90,0,-,NA
+A. indica,leaves,T. evansi,Positive Control,NA,105,0,-,NA
+A. indica,leaves,T. evansi,Positive Control,NA,120,0,-,NA
 M. oleifera,seeds,T. evansi,100mg/ml,100,0,0,-,NA
 M. oleifera,seeds,T. evansi,100mg/ml,100,15,0,-,NA
 M. oleifera,seeds,T. evansi,100mg/ml,100,30,0,-,NA
@@ -809,78 +809,78 @@ M. oleifera,seeds,T. evansi,Negative Control,NA,75,1,+,NA
 M. oleifera,seeds,T. evansi,Negative Control,NA,90,1,+,NA
 M. oleifera,seeds,T. evansi,Negative Control,NA,105,1,+,NA
 M. oleifera,seeds,T. evansi,Negative Control,NA,120,1,+,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,0,NA,,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,15,NA,,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,30,NA,,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,45,NA,,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,60,NA,,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,75,NA,,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,90,NA,,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,105,NA,,NA
-M. oleifera,seeds,T. evansi,Positive Control,NA,120,NA,,NA
-M. oleifera,root,T. evansi,100mg/ml,100,0,1,+,NA
-M. oleifera,root,T. evansi,100mg/ml,100,15,0,-,NA
-M. oleifera,root,T. evansi,100mg/ml,100,30,0,-,NA
-M. oleifera,root,T. evansi,100mg/ml,100,45,0,-,NA
-M. oleifera,root,T. evansi,100mg/ml,100,60,0,-,NA
-M. oleifera,root,T. evansi,100mg/ml,100,75,0,-,NA
-M. oleifera,root,T. evansi,100mg/ml,100,90,0,-,NA
-M. oleifera,root,T. evansi,100mg/ml,100,105,0,-,NA
-M. oleifera,root,T. evansi,100mg/ml,100,120,0,-,NA
-M. oleifera,root,T. evansi,10mg/ml,10,0,1,+,NA
-M. oleifera,root,T. evansi,10mg/ml,10,15,1,+,NA
-M. oleifera,root,T. evansi,10mg/ml,10,30,0,-,NA
-M. oleifera,root,T. evansi,10mg/ml,10,45,0,-,NA
-M. oleifera,root,T. evansi,10mg/ml,10,60,0,-,NA
-M. oleifera,root,T. evansi,10mg/ml,10,75,0,-,NA
-M. oleifera,root,T. evansi,10mg/ml,10,90,0,-,NA
-M. oleifera,root,T. evansi,10mg/ml,10,105,0,-,NA
-M. oleifera,root,T. evansi,10mg/ml,10,120,0,-,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,0,1,+,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,15,1,+,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,30,0,-,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,45,0,-,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,60,0,-,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,75,0,-,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,90,0,-,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,105,0,-,NA
-M. oleifera,root,T. evansi,0.5mg/ml,0.5,120,0,-,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,0,1,+,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,15,1,+,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,30,1,+,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,45,1,+,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,60,0,-,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,75,0,-,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,90,0,-,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,105,0,-,NA
-M. oleifera,root,T. evansi,0.01mg/ml,0.01,120,0,-,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,0,1,+,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,15,1,+,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,30,1,+,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,45,1,+,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,60,1,+,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,75,1,+,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,90,1,+,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,105,0,-,NA
-M. oleifera,root,T. evansi,0.005mg/ml,0.005,120,0,-,NA
-M. oleifera,root,T. evansi,Negative Control,NA,0,1,+,NA
-M. oleifera,root,T. evansi,Negative Control,NA,15,1,+,NA
-M. oleifera,root,T. evansi,Negative Control,NA,30,1,+,NA
-M. oleifera,root,T. evansi,Negative Control,NA,45,1,+,NA
-M. oleifera,root,T. evansi,Negative Control,NA,60,1,+,NA
-M. oleifera,root,T. evansi,Negative Control,NA,75,1,+,NA
-M. oleifera,root,T. evansi,Negative Control,NA,90,1,+,NA
-M. oleifera,root,T. evansi,Negative Control,NA,105,1,+,NA
-M. oleifera,root,T. evansi,Negative Control,NA,120,1,+,NA
-M. oleifera,root,T. evansi,Positive Control,NA,0,NA,,NA
-M. oleifera,root,T. evansi,Positive Control,NA,15,NA,,NA
-M. oleifera,root,T. evansi,Positive Control,NA,30,NA,,NA
-M. oleifera,root,T. evansi,Positive Control,NA,45,NA,,NA
-M. oleifera,root,T. evansi,Positive Control,NA,60,NA,,NA
-M. oleifera,root,T. evansi,Positive Control,NA,75,NA,,NA
-M. oleifera,root,T. evansi,Positive Control,NA,90,NA,,NA
-M. oleifera,root,T. evansi,Positive Control,NA,105,NA,,NA
-M. oleifera,root,T. evansi,Positive Control,NA,120,NA,,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,0,1,+,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,15,0,-,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,30,0,-,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,45,0,-,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,60,0,-,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,75,0,-,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,90,0,-,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,105,0,-,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,120,0,-,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,0,1,+,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,15,0,-,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,30,0,-,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,45,0,-,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,60,0,-,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,75,0,-,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,90,0,-,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,105,0,-,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,120,0,-,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,0,1,+,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,15,1,+,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,30,0,-,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,45,0,-,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,60,0,-,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,75,0,-,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,90,0,-,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,105,0,-,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,120,0,-,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,0,1,+,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,15,1,+,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,30,0,-,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,45,0,-,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,60,0,-,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,75,0,-,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,90,0,-,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,105,0,-,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,120,0,-,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,0,1,+,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,15,1,+,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,30,1,+,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,45,1,+,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,60,0,-,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,75,0,-,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,90,0,-,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,105,0,-,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,120,0,-,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,0,1,+,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,15,1,+,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,30,1,+,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,45,1,+,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,60,1,+,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,75,1,+,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,90,1,+,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,105,0,-,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,120,0,-,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,0,1,+,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,15,1,+,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,30,1,+,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,45,1,+,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,60,1,+,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,75,1,+,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,90,1,+,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,105,1,+,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,120,1,+,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,0,1,+,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,15,0,-,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,30,0,-,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,45,0,-,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,60,0,-,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,75,0,-,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,90,0,-,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,105,0,-,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,120,0,-,NA
 M. oleifera,stem bark,T. evansi,100mg/ml,100,0,1,+,NA
 M. oleifera,stem bark,T. evansi,100mg/ml,100,15,0,-,NA
 M. oleifera,stem bark,T. evansi,100mg/ml,100,30,0,-,NA
@@ -935,15 +935,15 @@ M. oleifera,stem bark,T. evansi,Negative Control,NA,75,1,+,NA
 M. oleifera,stem bark,T. evansi,Negative Control,NA,90,1,+,NA
 M. oleifera,stem bark,T. evansi,Negative Control,NA,105,1,+,NA
 M. oleifera,stem bark,T. evansi,Negative Control,NA,120,1,+,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,0,NA,,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,15,NA,,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,30,NA,,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,45,NA,,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,60,NA,,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,75,NA,,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,90,NA,,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,105,NA,,NA
-M. oleifera,stem bark,T. evansi,Positive Control,NA,120,NA,,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,0,1,+,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,15,0,-,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,30,0,-,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,45,0,-,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,60,0,-,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,75,0,-,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,90,0,-,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,105,0,-,NA
+M. oleifera,stem bark,T. evansi,Positive Control,NA,120,0,-,NA
 M. oleifera,leaves,T. evansi,100mg/ml,100,0,1,+,NA
 M. oleifera,leaves,T. evansi,100mg/ml,100,15,0,-,NA
 M. oleifera,leaves,T. evansi,100mg/ml,100,30,0,-,NA
@@ -998,12 +998,12 @@ M. oleifera,leaves,T. evansi,Negative Control,NA,75,1,+,NA
 M. oleifera,leaves,T. evansi,Negative Control,NA,90,1,+,NA
 M. oleifera,leaves,T. evansi,Negative Control,NA,105,1,+,NA
 M. oleifera,leaves,T. evansi,Negative Control,NA,120,1,+,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,0,NA,,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,15,NA,,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,30,NA,,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,45,NA,,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,60,NA,,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,75,NA,,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,90,NA,,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,105,NA,,NA
-M. oleifera,leaves,T. evansi,Positive Control,NA,120,NA,,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,0,1,+,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,15,0,-,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,30,0,-,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,45,0,-,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,60,0,-,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,75,0,-,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,90,0,-,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,105,0,-,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,120,0,-,NA

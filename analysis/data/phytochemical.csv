@@ -3,7 +3,7 @@ M. oleifera,leaves,Saponin,TRUE
 M. oleifera,stem bark,Saponin,TRUE
 M. oleifera,roots,Saponin,TRUE
 M. oleifera,seeds,Saponin,TRUE
-A. indica,leaves,Saponin,FALSE
+A. indica,leaves,Saponin,TRUE
 A. indica,stem bark,Saponin,TRUE
 A. indica,roots,Saponin,TRUE
 A. indica,seeds,Saponin,TRUE
@@ -11,16 +11,16 @@ M. oleifera,leaves,Steroid,FALSE
 M. oleifera,stem bark,Steroid,FALSE
 M. oleifera,roots,Steroid,FALSE
 M. oleifera,seeds,Steroid,FALSE
-A. indica,leaves,Steroid,FALSE
-A. indica,stem bark,Steroid,TRUE
+A. indica,leaves,Steroid,TRUE
+A. indica,stem bark,Steroid,FALSE
 A. indica,roots,Steroid,FALSE
-A. indica,seeds,Steroid,FALSE
+A. indica,seeds,Steroid,TRUE
 M. oleifera,leaves,Alkaloid,TRUE
 M. oleifera,stem bark,Alkaloid,FALSE
 M. oleifera,roots,Alkaloid,TRUE
 M. oleifera,seeds,Alkaloid,FALSE
-A. indica,leaves,Alkaloid,FALSE
-A. indica,stem bark,Alkaloid,TRUE
+A. indica,leaves,Alkaloid,TRUE
+A. indica,stem bark,Alkaloid,FALSE
 A. indica,roots,Alkaloid,FALSE
 A. indica,seeds,Alkaloid,FALSE
 M. oleifera,leaves,Terpenoid,FALSE
@@ -35,10 +35,10 @@ M. oleifera,leaves,Flavonoid,TRUE
 M. oleifera,stem bark,Flavonoid,FALSE
 M. oleifera,roots,Flavonoid,FALSE
 M. oleifera,seeds,Flavonoid,TRUE
-A. indica,leaves,Flavonoid,FALSE
-A. indica,stem bark,Flavonoid,TRUE
+A. indica,leaves,Flavonoid,TRUE
+A. indica,stem bark,Flavonoid,FALSE
 A. indica,roots,Flavonoid,FALSE
-A. indica,seeds,Flavonoid,FALSE
+A. indica,seeds,Flavonoid,TRUE
 M. oleifera,leaves,Anthraquinone,FALSE
 M. oleifera,stem bark,Anthraquinone,FALSE
 M. oleifera,roots,Anthraquinone,FALSE
@@ -54,7 +54,7 @@ M. oleifera,seeds,Glucosides,TRUE
 A. indica,leaves,Glucosides,FALSE
 A. indica,stem bark,Glucosides,FALSE
 A. indica,roots,Glucosides,FALSE
-A. indica,seeds,Glucosides,FALSE
+A. indica,seeds,Glucosides,TRUE
 M. oleifera,leaves,Phlobatanins,FALSE
 M. oleifera,stem bark,Phlobatanins,FALSE
 M. oleifera,roots,Phlobatanins,FALSE
@@ -67,10 +67,10 @@ M. oleifera,leaves,Tanins,TRUE
 M. oleifera,stem bark,Tanins,TRUE
 M. oleifera,roots,Tanins,TRUE
 M. oleifera,seeds,Tanins,FALSE
-A. indica,leaves,Tanins,FALSE
+A. indica,leaves,Tanins,TRUE
 A. indica,stem bark,Tanins,TRUE
 A. indica,roots,Tanins,TRUE
-A. indica,seeds,Tanins,TRUE
+A. indica,seeds,Tanins,FALSE
 M. oleifera,leaves,Oxalates,FALSE
 M. oleifera,stem bark,Oxalates,FALSE
 M. oleifera,roots,Oxalates,FALSE
@@ -91,7 +91,7 @@ M. oleifera,leaves,Carbohydrates,TRUE
 M. oleifera,stem bark,Carbohydrates,TRUE
 M. oleifera,roots,Carbohydrates,TRUE
 M. oleifera,seeds,Carbohydrates,TRUE
-A. indica,leaves,Carbohydrates,FALSE
+A. indica,leaves,Carbohydrates,TRUE
 A. indica,stem bark,Carbohydrates,TRUE
 A. indica,roots,Carbohydrates,TRUE
 A. indica,seeds,Carbohydrates,TRUE
