@@ -1,0 +1,17 @@
+dataset,plant,parasite,flag,n_groups
+pcv,A. indica,T. congolense,anemia,5
+pcv,A. indica,T. congolense,missing (died),7
+pcv,A. indica,T. evansi,missing (died),1
+pcv,A. indica,T. evansi,severe anemia,2
+pcv,M. oleifera,T. congolense,anemia,4
+pcv,M. oleifera,T. congolense,missing (died),3
+pcv,M. oleifera,T. evansi,anemia,2
+weight,A. indica,T. congolense,missing (died),7
+weight,A. indica,T. congolense,severe weight loss (>=20%),4
+weight,A. indica,T. congolense,toxicity signal (>=10% loss),4
+weight,A. indica,T. evansi,missing (died),1
+weight,A. indica,T. evansi,severe weight loss (>=20%),1
+weight,A. indica,T. evansi,toxicity signal (>=10% loss),2
+weight,M. oleifera,T. congolense,missing (died),3
+weight,M. oleifera,T. congolense,severe weight loss (>=20%),2
+weight,M. oleifera,T. congolense,toxicity signal (>=10% loss),4

@@ -380,17 +380,58 @@ phy_eff <- phy %>% left_join(blk_auc, by = c("plant", "part")) %>%
             .groups = "drop")
 write_csv(phy_eff, file.path(tab_dir, "phytochemical_efficacy_overlay.csv"))
 
+# ── 7b. Exploratory summaries per objective (tables + figures first) ─────
+GRP_ORD <- c(CONC, "Negative Control", "Positive Control")
+grp_f <- function(x) factor(x, levels = GRP_ORD)
+
+explore_tti <- mot_grp %>%
+  group_by(parasite, group) %>%
+  summarise(n_groups = n(),
+            median_tti = suppressWarnings(median(tti, na.rm = TRUE)),
+            n_never_immobilised = sum(tti_censored),
+            mean_t120 = mean(mot120, na.rm = TRUE),
+            .groups = "drop") %>%
+  mutate(median_tti = ifelse(is.nan(median_tti), NA_real_, median_tti)) %>%
+  arrange(parasite, grp_f(group))
+write_csv(explore_tti, file.path(tab_dir, "explore_tti.csv"))
+
+explore_peak <- para_grp %>%
+  group_by(parasite, group) %>%
+  summarise(n_groups = n(),
+            mean_peak = mean(peak_lev, na.rm = TRUE),
+            median_clear_day = suppressWarnings(median(clear_day, na.rm = TRUE)),
+            pct_died = 100 * mean(died),
+            pct_day40_zero = 100 * mean(!is.na(day40_lev) & day40_lev == 0),
+            .groups = "drop") %>%
+  arrange(parasite, grp_f(group))
+write_csv(explore_peak, file.path(tab_dir, "explore_peak_mortality.csv"))
+
+explore_flags <- bind_rows(
+  wt_grp %>% transmute(dataset = "weight", plant, parasite, flag),
+  pcv_grp %>% transmute(dataset = "pcv", plant, parasite, flag)) %>%
+  filter(!is.na(flag)) %>%
+  count(dataset, plant, parasite, flag, name = "n_groups")
+write_csv(explore_flags, file.path(tab_dir, "explore_toxicity_flags.csv"))
+
+plant_pair_diffs <- plant_wide %>%
+  transmute(part, parasite, A_indica, M_oleifera, diff = M_oleifera - A_indica)
+write_csv(plant_pair_diffs, file.path(tab_dir, "plant_pair_diffs.csv"))
+
 # ── 8. Figures ───────────────────────────────────────────────────────────
-theme_set(theme_bw(base_size = 11))
+# Sized for a portrait Word page (text width 6.5in): PNGs are rendered at
+# display size (dpi 200) so they fill the page without rescaling small text.
+theme_set(theme_bw(base_size = 12))
+SINGLE <- list(width = 6.5, height = 4.4, dpi = 200)
+FACET <- list(width = 6.5, height = 9, dpi = 200)
 
 p1 <- ggplot(para, aes(day, lev, colour = group)) +
   geom_line(aes(group = interaction(block, group)), alpha = 0.8, na.rm = TRUE) +
-  facet_wrap(~ block, ncol = 4) +
+  facet_wrap(~ block, ncol = 2) +
   labs(title = "Parasitemia (LEV 0-5) over 40 days by block",
        x = "Day", y = "LEV", colour = "Group") +
   theme(legend.position = "bottom")
 ggsave(file.path(fig_dir, "parasitemia_trajectories_faceted.png"),
-       p1, width = 12, height = 9, dpi = 150)
+       p1, width = FACET$width, height = FACET$height, dpi = FACET$dpi)
 
 p2 <- para_grp %>% filter(group %in% CONC) %>%
   ggplot(aes(LOGCONC[group], auc, colour = parasite)) +
@@ -401,7 +442,7 @@ p2 <- para_grp %>% filter(group %in% CONC) %>%
   labs(title = "Mean AUC vs log10(concentration) by parasite",
        x = "log10(concentration, mg/ml)", y = "AUC (LEV-days)", colour = "Parasite")
 ggsave(file.path(fig_dir, "auc_dose_response.png"),
-       p2, width = 8, height = 5, dpi = 150)
+       p2, width = SINGLE$width, height = SINGLE$height, dpi = SINGLE$dpi)
 
 p3 <- plant_wide %>%
   ggplot(aes(A_indica, M_oleifera, colour = parasite)) +
@@ -412,7 +453,7 @@ p3 <- plant_wide %>%
   labs(title = "Paired block-mean AUC: A. indica vs M. oleifera (8 pairs)",
        x = "A. indica", y = "M. oleifera", colour = "Parasite")
 ggsave(file.path(fig_dir, "plant_paired_auc.png"),
-       p3, width = 7, height = 6, dpi = 150)
+       p3, width = 6.5, height = 5.5, dpi = 200)
 
 p3b <- sym_diffs %>%
   ggplot(aes(contrast, diff)) +
@@ -424,17 +465,17 @@ p3b <- sym_diffs %>%
        x = NULL, y = "Paired difference (AUC-days)") +
   coord_flip()
 ggsave(file.path(fig_dir, "diagnostic_paired_diffs.png"),
-       p3b, width = 8, height = 4, dpi = 150)
+       p3b, width = 6.5, height = 4, dpi = 200)
 
 p4 <- ggplot(mot, aes(time_min, motile, colour = group)) +
   stat_summary(fun = mean, geom = "line", aes(group = interaction(block, group)),
                alpha = 0.8, na.rm = TRUE) +
-  facet_wrap(~ block, ncol = 4) +
+  facet_wrap(~ block, ncol = 2) +
   labs(title = "% motile over 120 min by block (motility assay)",
        x = "Time (min)", y = "Proportion motile", colour = "Group") +
   theme(legend.position = "bottom")
 ggsave(file.path(fig_dir, "motility_trajectories_faceted.png"),
-       p4, width = 12, height = 9, dpi = 150)
+       p4, width = FACET$width, height = FACET$height, dpi = FACET$dpi)
 
 p5 <- wt_grp %>% ggplot(aes(plant, delta, fill = parasite)) +
   geom_hline(yintercept = 0, linetype = "dashed") +
@@ -443,7 +484,7 @@ p5 <- wt_grp %>% ggplot(aes(plant, delta, fill = parasite)) +
   labs(title = "Body-weight change Post-Pre (g) by plant and parasite",
        x = NULL, y = "Delta weight (g)")
 ggsave(file.path(fig_dir, "weight_delta_boxplot.png"),
-       p5, width = 8, height = 5, dpi = 150)
+       p5, width = SINGLE$width, height = SINGLE$height, dpi = SINGLE$dpi)
 
 p6 <- pcv_grp %>% ggplot(aes(plant, delta, fill = parasite)) +
   geom_hline(yintercept = 0, linetype = "dashed") +
@@ -452,7 +493,7 @@ p6 <- pcv_grp %>% ggplot(aes(plant, delta, fill = parasite)) +
   labs(title = "PCV change Post-Pre (pp) by plant and parasite",
        x = NULL, y = "Delta PCV (percentage points)")
 ggsave(file.path(fig_dir, "pcv_delta_boxplot.png"),
-       p6, width = 8, height = 5, dpi = 150)
+       p6, width = SINGLE$width, height = SINGLE$height, dpi = SINGLE$dpi)
 
 p7 <- phy %>% mutate(present = factor(present, levels = c(TRUE, FALSE))) %>%
   ggplot(aes(part, compound, fill = present)) +
@@ -464,7 +505,94 @@ p7 <- phy %>% mutate(present = factor(present, levels = c(TRUE, FALSE))) %>%
        x = NULL, y = NULL) +
   theme(axis.text.x = element_text(angle = 30, hjust = 1))
 ggsave(file.path(fig_dir, "phytochemical_heatmap.png"),
-       p7, width = 9, height = 6, dpi = 150)
+       p7, width = 6.5, height = 5, dpi = 200)
+
+# exploratory figures (one per objective, shown before inference)
+p8 <- mot_grp %>% filter(group %in% GRP_ORD) %>%
+  mutate(tti_show = ifelse(tti_censored, 132, tti)) %>%
+  ggplot(aes(grp_f(group), tti_show, colour = parasite)) +
+  geom_hline(yintercept = 120, linetype = "dotted") +
+  geom_jitter(width = 0.2, size = 2.5, alpha = 0.7,
+              aes(shape = tti_censored), na.rm = TRUE) +
+  stat_summary(fun = median, geom = "point", size = 3, colour = "black",
+               na.rm = TRUE) +
+  scale_shape_manual(values = c("FALSE" = 16, "TRUE" = 4),
+                     labels = c("observed", "never (censored)")) +
+  labs(title = "Time to immobilisation by dose (black = median)",
+       x = NULL, y = "TTI (min; x = censored at 120+)",
+       colour = "Parasite", shape = "TTI") +
+  theme(axis.text.x = element_text(angle = 25, hjust = 1))
+ggsave(file.path(fig_dir, "explore_tti_dose.png"),
+       p8, width = SINGLE$width, height = 5, dpi = SINGLE$dpi)
+
+p9 <- para_grp %>% filter(group %in% GRP_ORD) %>%
+  ggplot(aes(grp_f(group), peak_lev, colour = parasite)) +
+  geom_jitter(width = 0.2, size = 2.2, alpha = 0.6, na.rm = TRUE) +
+  stat_summary(fun = mean, geom = "point", size = 3, colour = "black",
+               na.rm = TRUE) +
+  labs(title = "Peak LEV by dose (black = mean)",
+       x = NULL, y = "Peak LEV (0-5)", colour = "Parasite") +
+  theme(axis.text.x = element_text(angle = 25, hjust = 1))
+ggsave(file.path(fig_dir, "explore_peak_dose.png"),
+       p9, width = SINGLE$width, height = SINGLE$height, dpi = SINGLE$dpi)
+
+p10 <- para_grp %>% filter(group %in% GRP_ORD) %>%
+  group_by(parasite, group) %>%
+  summarise(pct = 100 * mean(died), .groups = "drop") %>%
+  ggplot(aes(grp_f(group), pct, fill = parasite)) +
+  geom_col(position = "dodge", na.rm = TRUE) +
+  labs(title = "% groups with any animal death, by dose",
+       x = NULL, y = "% groups", fill = "Parasite") +
+  theme(axis.text.x = element_text(angle = 25, hjust = 1))
+ggsave(file.path(fig_dir, "explore_mortality.png"),
+       p10, width = SINGLE$width, height = SINGLE$height, dpi = SINGLE$dpi)
+
+p11 <- phy_rich %>%
+  ggplot(aes(part, n_present, fill = plant)) +
+  geom_col(position = "dodge", na.rm = TRUE) +
+  geom_text(aes(label = n_present), position = position_dodge(0.9),
+            vjust = -0.4, size = 4) +
+  labs(title = "Phytochemical richness: classes present of 12",
+       x = NULL, y = "N classes present", fill = "Plant")
+ggsave(file.path(fig_dir, "explore_richness_bar.png"),
+       p11, width = SINGLE$width, height = SINGLE$height, dpi = SINGLE$dpi)
+
+hl <- plant_sup %>% slice(1)
+p12 <- plant_pair_diffs %>%
+  mutate(pair = paste(part, parasite, sep = " | ")) %>%
+  ggplot(aes(diff, reorder(pair, diff), colour = parasite)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  annotate("rect", xmin = hl$hl_l, xmax = hl$hl_u, ymin = -Inf, ymax = Inf,
+           alpha = 0.12) +
+  geom_vline(xintercept = hl$hl_est, colour = "black", linewidth = 0.8) +
+  geom_point(size = 3, na.rm = TRUE) +
+  labs(title = "Paired AUC difference per block\n(M. oleifera minus A. indica)",
+       subtitle = "Band + black line = overall HL estimate with 95% CI",
+       x = "Difference (AUC-days)", y = NULL, colour = "Parasite")
+ggsave(file.path(fig_dir, "plant_forest.png"),
+       p12, width = SINGLE$width, height = 5, dpi = SINGLE$dpi)
+
+wp_long <- bind_rows(
+  wt_grp %>% transmute(plant, parasite, block, group, metric = "weight_g",
+                       Pre, Dur, Post),
+  pcv_grp %>% transmute(plant, parasite, block, group, metric = "pcv",
+                        Pre, Dur, Post)) %>%
+  pivot_longer(c(Pre, Dur, Post), names_to = "timepoint", values_to = "value") %>%
+  mutate(timepoint = factor(timepoint, levels = c("Pre", "Dur", "Post")))
+p13 <- wp_long %>%
+  group_by(plant, parasite, metric, timepoint) %>%
+  summarise(m = mean(value, na.rm = TRUE), .groups = "drop") %>%
+  ggplot(aes(timepoint, m, colour = plant, group = interaction(plant, parasite),
+             linetype = parasite)) +
+  geom_line(linewidth = 1, na.rm = TRUE) +
+  geom_point(size = 2.5, na.rm = TRUE) +
+  facet_wrap(~ metric, scales = "free_y",
+             labeller = labeller(metric = c(weight_g = "Weight (g)",
+                                            pcv = "PCV (%)"))) +
+  labs(title = "Mean weight and PCV across the three timepoints",
+       x = NULL, y = NULL, colour = "Plant", linetype = "Parasite")
+ggsave(file.path(fig_dir, "explore_weight_pcv_traj.png"),
+       p13, width = SINGLE$width, height = SINGLE$height, dpi = SINGLE$dpi)
 
 # ── 9. Console headline summary ──────────────────────────────────────────
 cat("\n=== DOSE-RESPONSE (parasitemia AUC) ===\n"); print(dose_resp_tbl)

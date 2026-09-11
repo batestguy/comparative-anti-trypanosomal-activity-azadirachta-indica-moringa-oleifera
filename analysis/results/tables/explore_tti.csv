@@ -1,0 +1,15 @@
+parasite,group,n_groups,median_tti,n_never_immobilised,mean_t120
+T. congolense,100mg/ml,8,15,0,0
+T. congolense,10mg/ml,8,30,0,0
+T. congolense,0.5mg/ml,8,52.5,2,0.25
+T. congolense,0.01mg/ml,8,60,3,0.375
+T. congolense,0.005mg/ml,8,90,3,0.375
+T. congolense,Negative Control,8,112.5,6,0.6666666666666666
+T. congolense,Positive Control,8,15,0,0
+T. evansi,100mg/ml,8,15,0,0
+T. evansi,10mg/ml,8,22.5,0,0
+T. evansi,0.5mg/ml,8,45,1,0.125
+T. evansi,0.01mg/ml,8,75,3,0.375
+T. evansi,0.005mg/ml,8,105,4,0.5
+T. evansi,Negative Control,8,NA,8,1
+T. evansi,Positive Control,8,15,0,0

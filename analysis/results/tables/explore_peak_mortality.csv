@@ -1,0 +1,15 @@
+parasite,group,n_groups,mean_peak,median_clear_day,pct_died,pct_day40_zero
+T. congolense,100mg/ml,8,0,NA,0,100
+T. congolense,10mg/ml,8,1.875,24,37.5,62.5
+T. congolense,0.5mg/ml,8,2.77875,17,62.5,37.5
+T. congolense,0.01mg/ml,8,3.125,15,62.5,37.5
+T. congolense,0.005mg/ml,8,3.1925,16.5,75,25
+T. congolense,Negative Control,8,5,11.5,100,0
+T. congolense,Positive Control,8,0,NA,0,100
+T. evansi,100mg/ml,8,0,NA,0,100
+T. evansi,10mg/ml,8,0,NA,0,100
+T. evansi,0.5mg/ml,8,0.625,17,12.5,87.5
+T. evansi,0.01mg/ml,8,1.92625,23.5,50,50
+T. evansi,0.005mg/ml,8,2.08375,22.5,50,50
+T. evansi,Negative Control,8,5,19.5,100,0
+T. evansi,Positive Control,8,0,NA,0,100
