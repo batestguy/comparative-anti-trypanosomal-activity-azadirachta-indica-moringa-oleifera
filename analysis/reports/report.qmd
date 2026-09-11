@@ -49,18 +49,23 @@ fmt_contrast <- function(f) {
   d$hl <- sprintf("%.2f [%.2f, %.2f]", d$hl_est, d$hl_l, d$hl_u)
   # Short row labels: parenthetical detail lives in the caption, not the cell.
   d$contrast <- sub(" \\(.*\\)$", "", d$contrast)
+  # Name columns by identity (never by position: merged tables may lack p_holm).
+  disp <- c(endpoint = "Endpoint", contrast = "Contrast", Dose = "Dose",
+            Parasite = "Parasite", n_pairs = "n", W = "W", p = "p",
+            p_holm = "p (Holm)", hl = "HL [95% CI]", r_rb = "r")
   if (all(grepl(" \\| ", d$contrast))) {
+    # Dose tables: split Dose | Parasite into two narrow columns.
     parts <- strsplit(d$contrast, " \\| ")
     d$Dose <- vapply(parts, `[`, "", 1)
     d$Parasite <- vapply(parts, `[`, "", 2)
-    out <- d[, c("Dose", "Parasite", "n_pairs", "W", "p", "p_holm", "hl", "r_rb")]
-    names(out) <- c("Dose", "Parasite", "n", "W", "p", "p (Holm)", "HL [95% CI]", "r")
+    cols <- c("Dose", "Parasite", "n_pairs", "W", "p", "p_holm", "hl", "r_rb")
   } else {
-    keep <- c("contrast", "n_pairs", "W", "p", "hl", "r_rb")
-    keep <- keep[keep %in% names(d)]
-    out <- d[, keep]
-    names(out) <- c("Contrast", "n", "W", "p", "HL [95% CI]", "r")[seq_along(keep)]
+    # Merged tables: Endpoint first, one header row, no repeats.
+    cols <- c("endpoint", "contrast", "n_pairs", "W", "p", "p_holm", "hl", "r_rb")
   }
+  cols <- cols[cols %in% names(d)]
+  out <- d[, cols]
+  names(out) <- disp[names(out)]
   kable(out, digits = 4)
 }
 ```
@@ -312,9 +317,7 @@ k("explore_toxicity_flags.csv", 0)
 ```{r}
 #| label: tbl-other
 #| tbl-cap: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
-fmt_contrast("parasite_comparison.csv")
-fmt_contrast("weight_tests.csv")
-fmt_contrast("pcv_tests.csv")
+fmt_contrast("other_contrasts.csv")
 ```
 
 ![Body-weight change Post−Pre (g)](`r file.path(fig_dir, "weight_delta_boxplot.png")`){#fig-wt}
@@ -337,8 +340,7 @@ agent, the answer is negative, and it is insensitive to any single block
 ```{r}
 #| label: tbl-sup
 #| tbl-cap: Plant superiority contrasts (paired Wilcoxon; 8 pairs each).
-fmt_contrast("plant_superiority.csv")
-fmt_contrast("plant_superiority_motility.csv")
+fmt_contrast("superiority_combined.csv")
 ```
 
 ![Paired AUC difference per block with overall HL estimate](`r file.path(fig_dir, "plant_forest.png")`){#fig-forest}

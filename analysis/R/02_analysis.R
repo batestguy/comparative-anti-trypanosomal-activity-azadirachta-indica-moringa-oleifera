@@ -299,6 +299,22 @@ wp_contrast <- function(d, val, label_prefix, outfile) {
 wp_contrast(wt_grp, "delta", "weight delta: ", "weight_tests.csv")
 wp_contrast(pcv_grp, "delta", "pcv delta: ", "pcv_tests.csv")
 
+# Merged display tables: one header row each (stacked tables repeat headers
+# and overflow in Word). Endpoint column keeps rows identifiable.
+bind_rows(
+  mutate(parasite_cmp, endpoint = "AUC"),
+  mutate(read_csv(file.path(tab_dir, "weight_tests.csv"), show_col_types = FALSE),
+         endpoint = "Weight delta"),
+  mutate(read_csv(file.path(tab_dir, "pcv_tests.csv"), show_col_types = FALSE),
+         endpoint = "PCV delta")
+) %>% select(endpoint, everything()) %>%
+  write_csv(file.path(tab_dir, "other_contrasts.csv"))
+bind_rows(
+  mutate(plant_sup, endpoint = "AUC"),
+  mutate(plant_sup_mot, endpoint = "Motility")
+) %>% select(endpoint, everything()) %>%
+  write_csv(file.path(tab_dir, "superiority_combined.csv"))
+
 # ── 6b. Diagnostics: LOO sensitivity + paired-difference symmetry ─────────
 # LOO re-runs every headline paired claim dropping one pair at a time.
 # A claim is "stable" if no single pair flips its significance conclusion.
