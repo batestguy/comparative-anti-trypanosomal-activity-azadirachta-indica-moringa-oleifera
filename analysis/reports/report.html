@@ -2220,7 +2220,7 @@ vertical-align: -.125em;
 </section>
 <section id="aim-and-structure-of-this-report" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="aim-and-structure-of-this-report"><span class="header-section-number">2</span> 1. Aim and structure of this report</h2>
-<p>The aim of the study is to compare the anti-trypanosomal activity of methanolic extracts of <em>A. indica</em> and <em>M. oleifera</em> (leaves, stem bark, roots, seeds) against <em>T. congolense</em> and <em>T. evansi</em> (thesis §1.8.1). This report presents the statistical analysis for specific objectives ii–v (§1.8.2): phytochemical characterisation (§5.2), the in-vitro motility assay (§5.3), in-vivo infectivity (§5.4) and the superiority assessment (§5.5), followed by diagnostics (§6), an integrative discussion against the recent literature (§7) and limitations (§8). Objective i (extraction) is a laboratory procedure without recorded replicates and carries no statistical component (§5.1).</p>
+<p>The aim of the study is to compare the anti-trypanosomal activity of methanolic extracts of <em>A. indica</em> and <em>M. oleifera</em> (leaves, stem bark, roots, seeds) against <em>T. congolense</em> and <em>T. evansi</em> (thesis Section 1.8.1). This report presents the statistical analysis for specific objectives ii–v (Section 1.8.2): phytochemical characterisation (Section 5.2), the in-vitro motility assay (Section 5.3), in-vivo infectivity (Section 5.4) and the superiority assessment (Section 5.5), followed by diagnostics (Section 6), an integrative discussion against the recent literature (Section 7) and limitations (Section 8). Objective i (extraction) is a laboratory procedure without recorded replicates and carries no statistical component (Section 5.1).</p>
 </section>
 <section id="design-and-analytical-approach" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="design-and-analytical-approach"><span class="header-section-number">3</span> 2. Design and analytical approach</h2>
@@ -2232,7 +2232,86 @@ vertical-align: -.125em;
 </section>
 <section id="statistical-methods" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="statistical-methods"><span class="header-section-number">5</span> 4. Statistical methods</h2>
-<p>All inference is rank-based: Friedman tests blocked by block for ordered dose trends with pooled Spearman correlations on log10 dose, and paired Wilcoxon signed-rank tests for dose-versus-control post-hoc families (Holm-adjusted per parasite) and for plant and parasite contrasts, each accompanied by the matched-pairs rank-biserial effect (|r| ≥ 0.11/0.28/0.43 as small/medium/ large) and the Hodges–Lehmann median difference with 95% confidence interval. Exact p-values are used wherever the data permit; where tied ranks or zero differences occur, the continuity-corrected normal approximation is substituted and the substitution recorded per contrast (§6). Per-block trend tests at n = 1 lack power, so only the blocked tests are inferential. Computations are in <code>analysis/R/02_analysis.R</code>; no machine learning was used.</p>
+<p>All inference is rank-based: Friedman tests blocked by block for ordered dose trends with pooled Spearman correlations on log10 dose, and paired Wilcoxon signed-rank tests for dose-versus-control post-hoc families (Holm-adjusted per parasite) and for plant and parasite contrasts, each accompanied by the matched-pairs rank-biserial effect (|r| ≥ 0.11/0.28/0.43 as small/medium/ large) and the Hodges–Lehmann median difference with 95% confidence interval. Exact p-values are used wherever the data permit; where tied ranks or zero differences occur, the continuity-corrected normal approximation is substituted and the substitution recorded per contrast (Section 6). Per-block trend tests at n = 1 lack power, so only the blocked tests are inferential. Computations are in <code>analysis/R/02_analysis.R</code>; no machine learning was used. Analysis variables are specified exactly as named in code and data files in Table 1; Results and Discussion use proper display names.</p>
+<div class="cell">
+<div id="tbl-vars" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-vars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 1: Analysis variables as specified in code and data files.
+</figcaption>
+<div aria-describedby="tbl-vars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 43%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">File</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>auc</code></td>
+<td style="text-align: left;">Death-censored trapezoidal AUC over observed days</td>
+<td style="text-align: left;"><code>endpoints_parasitemia.csv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>peak_lev</code></td>
+<td style="text-align: left;">Maximum LEV within group</td>
+<td style="text-align: left;"><code>endpoints_parasitemia.csv</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>clear_day</code></td>
+<td style="text-align: left;">Last day with LEV &gt; 0</td>
+<td style="text-align: left;"><code>endpoints_parasitemia.csv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>day40_lev</code></td>
+<td style="text-align: left;">LEV at day 40 (0 or missing)</td>
+<td style="text-align: left;"><code>endpoints_parasitemia.csv</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>tti</code></td>
+<td style="text-align: left;">First time with motility 0</td>
+<td style="text-align: left;"><code>endpoints_motility.csv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>mot120</code></td>
+<td style="text-align: left;">Motility at 120 min</td>
+<td style="text-align: left;"><code>endpoints_motility.csv</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>mean_motile</code></td>
+<td style="text-align: left;">Mean proportion motile over 0-120 min</td>
+<td style="text-align: left;"><code>endpoints_motility.csv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>delta</code></td>
+<td style="text-align: left;">Post-Infection minus Pre-Infection (weight, PCV)</td>
+<td style="text-align: left;"><code>endpoints_weight.csv</code>, <code>endpoints_pcv.csv</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>present</code></td>
+<td style="text-align: left;">Phytochemical presence (TRUE/FALSE)</td>
+<td style="text-align: left;"><code>phytochemical.csv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>concentration_mgml</code></td>
+<td style="text-align: left;">Dose in mg/ml (NA for controls)</td>
+<td style="text-align: left;"><code>motility.csv</code>, <code>parasitemia.csv</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
 </section>
 <section id="objective-i-methanolic-extraction" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="objective-i-methanolic-extraction"><span class="header-section-number">6</span> 5.1. Objective i — methanolic extraction</h2>
@@ -2240,22 +2319,22 @@ vertical-align: -.125em;
 </section>
 <section id="objective-ii-phytochemical-contents" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="objective-ii-phytochemical-contents"><span class="header-section-number">7</span> 5.2. Objective ii — phytochemical contents</h2>
-<p>The screening panel resolved eight of twelve compound classes in at least one extract, distributed along a part axis rather than a plant axis. Leaves were the richest fraction in both species (6 of 12 classes each), stem bark and roots the sparsest (3–4), and seeds intermediate (4–5; <a href="#tbl-phyto" class="quarto-xref">Table 1</a>, <a href="#fig-rich" class="quarto-xref">Figure 1</a>). Saponins and carbohydrates were ubiquitous (8 of 8 combinations) while anthraquinones, phlobatannins, oxalates and phytates were uniformly absent, so neither group discriminates the plants; tannins showed the sharpest part pattern, present everywhere except seeds in both species (<a href="#fig-phyto-hm" class="quarto-xref">Figure 2</a>). The few differentiating classes were part-specific rather than species-specific: steroids (only <em>A. indica</em> leaves and seeds), terpenoids (only <em>M. oleifera</em> stem bark), and alkaloids, flavonoids and glucosides in asymmetric but overlapping distributions — the two leaf profiles share six classes apiece with only the steroid/glucoside entries swapped. With eight combinations, these data admit description only; compound–efficacy overlays are tabulated without tests. The substantive point for §7 is the extent of chemical overlap between the species, which leaves little phytochemical basis for expecting divergent efficacy.</p>
+<p>The screening panel resolved eight of twelve compound classes in at least one extract, distributed along a part axis rather than a plant axis. Leaves were the richest fraction in both species (6 of 12 classes each), stem bark and roots the sparsest (3–4), and seeds intermediate (4–5; <a href="#tbl-phyto" class="quarto-xref">Table 2</a>, <a href="#fig-rich" class="quarto-xref">Figure 1</a>). Saponins and carbohydrates were ubiquitous (8 of 8 combinations) while anthraquinones, phlobatannins, oxalates and phytates were uniformly absent, so neither group discriminates the plants; tannins showed the sharpest part pattern, present everywhere except seeds in both species (<a href="#fig-phyto-hm" class="quarto-xref">Figure 2</a>). The few differentiating classes were part-specific rather than species-specific: steroids (only <em>A. indica</em> leaves and seeds), terpenoids (only <em>M. oleifera</em> stem bark), and alkaloids, flavonoids and glucosides in asymmetric but overlapping distributions — the two leaf profiles share six classes apiece with only the steroid/glucoside entries swapped. With eight combinations, these data admit description only; compound–efficacy overlays are tabulated without tests. The substantive point for Section 7 is the extent of chemical overlap between the species, which leaves little phytochemical basis for expecting divergent efficacy.</p>
 <div class="cell">
 <div id="tbl-phyto" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-phyto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 1: Phytochemical richness per plant and part (descriptive).
+Table 2: Phytochemical richness per plant and part (descriptive).
 </figcaption>
 <div aria-describedby="tbl-phyto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">plant</th>
-<th style="text-align: left;">part</th>
-<th style="text-align: right;">n_present</th>
-<th style="text-align: right;">n_absent</th>
+<th style="text-align: left;">Plant</th>
+<th style="text-align: left;">Part</th>
+<th style="text-align: right;">n Present</th>
+<th style="text-align: right;">n Absent</th>
 </tr>
 </thead>
 <tbody>
@@ -2337,12 +2416,12 @@ Figure 2: Phytochemical presence by plant and part
 </section>
 <section id="objective-iii-in-vitro-motility" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="objective-iii-in-vitro-motility"><span class="header-section-number">8</span> 5.3. Objective iii — in-vitro motility</h2>
-<p>Both parasites were immobilised in strict concentration order. Mean motility curves fan out cleanly by dose (<a href="#fig-curves" class="quarto-xref">Figure 4</a>): 100 mg/ml collapses motility within 15–30 minutes in both parasites, each lower dose traces a progressively slower decline, and Negative Controls remain motile throughout. Median time-to-immobilisation lengthened monotonically from 15 minutes at 100 mg/ml (uncensored in all blocks) to fully censored controls, with t120 motility rising from zero to 0.67 (<em>congolense</em>) and 1.0 (<em>evansi</em>) in the controls (<a href="#tbl-tti" class="quarto-xref">Table 2</a>; <a href="#fig-tti" class="quarto-xref">Figure 3</a>). The Positive Controls behaved as a reference trypanocide should — motile at t = 0, immobile thereafter in all sixteen tables — which validates the assay and establishes the benchmark that the top extract dose reproduces. Formally, the blocked trend was highly significant in both parasites (<a href="#tbl-mot-dose" class="quarto-xref">Table 3</a>; <em>congolense</em> Friedman Q = 27.75, p &lt; 0.001, ρ = −0.70; <em>evansi</em> Q = 30.32, p &lt; 0.001, ρ = −0.88). Post-hoc contrasts against the control (<a href="#tbl-mot-posthoc" class="quarto-xref">Table 4</a>) were uniformly large at the top doses (rank-biserial −1; HL reductions of −0.83 and −0.89 at 100 mg/ml) but, with eight blocks and Holm correction, stopped just short of significance (0.065 and 0.052; 10 mg/ml 0.085 and 0.052), and lower doses were indistinguishable from control — several low-dose pairs matched it exactly. The in-vitro conclusion is therefore a significant ordered trend with large but multiplicity-limited pairwise effects, concentrated at 100 mg/ml.</p>
+<p>Both parasites were immobilised in strict concentration order. Mean motility curves fan out cleanly by dose (<a href="#fig-curves" class="quarto-xref">Figure 4</a>): 100 mg/ml collapses motility within 15–30 minutes in both parasites, each lower dose traces a progressively slower decline, and Negative Controls remain motile throughout. Median time-to-immobilisation lengthened monotonically from 15 minutes at 100 mg/ml (uncensored in all blocks) to fully censored controls, with t120 motility rising from zero to 0.67 (<em>congolense</em>) and 1.0 (<em>evansi</em>) in the controls (<a href="#tbl-tti" class="quarto-xref">Table 3</a>; <a href="#fig-tti" class="quarto-xref">Figure 3</a>). The Positive Controls behaved as a reference trypanocide should — motile at t = 0, immobile thereafter in all sixteen tables — which validates the assay and establishes the benchmark that the top extract dose reproduces. Formally, the blocked trend was highly significant in both parasites (<a href="#tbl-mot-dose" class="quarto-xref">Table 4</a>; <em>congolense</em> Friedman Q = 27.75, p &lt; 0.001, ρ = −0.70; <em>evansi</em> Q = 30.32, p &lt; 0.001, ρ = −0.88). Post-hoc contrasts against the control (<a href="#tbl-mot-posthoc" class="quarto-xref">Table 5</a>) were uniformly large at the top doses (rank-biserial −1; HL reductions of −0.83 and −0.89 at 100 mg/ml) but, with eight blocks and Holm correction, stopped just short of significance (0.065 and 0.052; 10 mg/ml 0.085 and 0.052), and lower doses were indistinguishable from control — several low-dose pairs matched it exactly. The in-vitro conclusion is therefore a significant ordered trend with large but multiplicity-limited pairwise effects, concentrated at 100 mg/ml.</p>
 <div class="cell">
 <div id="tbl-tti" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tti-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 2: TTI and t120 summaries per dose (medians; censored groups never immobilise).
+Table 3: TTI and t120 summaries per dose (medians; censored groups never immobilise).
 </figcaption>
 <div aria-describedby="tbl-tti-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2357,12 +2436,12 @@ Table 2: TTI and t120 summaries per dose (medians; censored groups never immobi
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">parasite</th>
-<th style="text-align: left;">group</th>
-<th style="text-align: right;">n_groups</th>
-<th style="text-align: right;">median_tti</th>
-<th style="text-align: right;">n_never_immobilised</th>
-<th style="text-align: right;">mean_t120</th>
+<th style="text-align: left;">Parasite</th>
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">n Groups</th>
+<th style="text-align: right;">Median TTI</th>
+<th style="text-align: right;">n Never Immobilised</th>
+<th style="text-align: right;">Mean T120</th>
 </tr>
 </thead>
 <tbody>
@@ -2509,7 +2588,7 @@ Figure 4: Mean proportion motile over time, by dose
 <div id="tbl-mot-dose" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mot-dose-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 3: Motility dose-response on mean proportion motile (Friedman blocked by block; Spearman on log10 dose).
+Table 4: Motility dose-response on mean proportion motile (Friedman blocked by block; Spearman on log10 dose).
 </figcaption>
 <div aria-describedby="tbl-mot-dose-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2524,12 +2603,12 @@ Table 3: Motility dose-response on mean proportion motile (Friedman blocked by 
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">parasite</th>
-<th style="text-align: right;">n_blocks</th>
-<th style="text-align: right;">friedman_Q</th>
-<th style="text-align: right;">friedman_p</th>
-<th style="text-align: right;">spearman_rho_pooled</th>
-<th style="text-align: right;">spearman_p</th>
+<th style="text-align: left;">Parasite</th>
+<th style="text-align: right;">n Blocks</th>
+<th style="text-align: right;">Friedman Q</th>
+<th style="text-align: right;">Friedman p</th>
+<th style="text-align: right;">Spearman Rho Pooled</th>
+<th style="text-align: right;">Spearman p</th>
 </tr>
 </thead>
 <tbody>
@@ -2560,7 +2639,7 @@ Table 3: Motility dose-response on mean proportion motile (Friedman blocked by 
 <div id="tbl-mot-posthoc" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mot-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 4: Post-hoc motility contrasts vs Negative Control (paired Wilcoxon; Holm per parasite).
+Table 5: Post-hoc motility contrasts vs Negative Control (paired Wilcoxon; Holm per parasite).
 </figcaption>
 <div aria-describedby="tbl-mot-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2700,12 +2779,12 @@ Table 4: Post-hoc motility contrasts vs Negative Control (paired Wilcoxon; Holm
 <h2 data-number="9" class="anchored" data-anchor-id="objective-iv-in-vivo-infectivity"><span class="header-section-number">9</span> 5.4. Objective iv — in-vivo infectivity</h2>
 <section id="parasitaemia" class="level3" data-number="9.1">
 <h3 data-number="9.1" class="anchored" data-anchor-id="parasitaemia"><span class="header-section-number">9.1</span> Parasitaemia</h3>
-<p>The in-vivo gradient reproduced the dish. Mean peak parasitaemia declined monotonically with dose to exactly zero at 100 mg/ml in both parasites with no deaths, against peak LEV 5 with universal mortality in the Negative Controls (<a href="#tbl-peak" class="quarto-xref">Table 5</a>; <a href="#fig-peak" class="quarto-xref">Figure 5</a>); mortality, clearance time and day-40 clearance all tracked the same ordering (<a href="#fig-mort" class="quarto-xref">Figure 6</a>), and trajectories peaked near days 9–14 before resolving in survivors (<a href="#fig-para-traj" class="quarto-xref">Figure 8</a>). On cumulative burden the <em>T. evansi</em> trend was significant (<a href="#tbl-dose" class="quarto-xref">Table 6</a>: Friedman Q = 14.51, p = 0.006, ρ = −0.51) with 100, 10 and 0.5 mg/ml each superior to control in all eight blocks (W = 0, exact p = 0.008, Holm 0.039; HL ≈ −50/−50/−44 AUC-days), while 0.01 and 0.005 mg/ml lost significance on correction (Holm 0.078) despite strongly negative estimates. <em>T. congolense</em> showed the same direction with weaker evidence (Friedman p = 0.074; 100 mg/ml Holm 0.071, HL −29.9 [−41.0, −20.9]; lower doses Holm ≥ 0.32; <a href="#tbl-para-posthoc" class="quarto-xref">Table 7</a>, <a href="#fig-auc" class="quarto-xref">Figure 7</a>). Overall burdens did not differ between parasites (paired p = 0.46, HL 6.0 [−10.7, 21.1]; <a href="#tbl-other" class="quarto-xref">Table 9</a>): the species differ in dose sensitivity, not in the burden the model produces.</p>
+<p>The in-vivo gradient reproduced the dish. Mean peak parasitaemia declined monotonically with dose to exactly zero at 100 mg/ml in both parasites with no deaths, against peak LEV 5 with universal mortality in the Negative Controls (<a href="#tbl-peak" class="quarto-xref">Table 6</a>; <a href="#fig-peak" class="quarto-xref">Figure 5</a>); mortality, clearance time and day-40 clearance all tracked the same ordering (<a href="#fig-mort" class="quarto-xref">Figure 6</a>), and trajectories peaked near days 9–14 before resolving in survivors (<a href="#fig-para-traj" class="quarto-xref">Figure 8</a>). On cumulative burden the <em>T. evansi</em> trend was significant (<a href="#tbl-dose" class="quarto-xref">Table 7</a>: Friedman Q = 14.51, p = 0.006, ρ = −0.51) with 100, 10 and 0.5 mg/ml each superior to control in all eight blocks (W = 0, exact p = 0.008, Holm 0.039; HL ≈ −50/−50/−44 AUC-days), while 0.01 and 0.005 mg/ml lost significance on correction (Holm 0.078) despite strongly negative estimates. <em>T. congolense</em> showed the same direction with weaker evidence (Friedman p = 0.074; 100 mg/ml Holm 0.071, HL −29.9 [−41.0, −20.9]; lower doses Holm ≥ 0.32; <a href="#tbl-para-posthoc" class="quarto-xref">Table 8</a>, <a href="#fig-auc" class="quarto-xref">Figure 7</a>). Overall burdens did not differ between parasites (paired p = 0.46, HL 6.0 [−10.7, 21.1]; <a href="#tbl-other" class="quarto-xref">Table 10</a>): the species differ in dose sensitivity, not in the burden the model produces.</p>
 <div class="cell">
 <div id="tbl-peak" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-peak-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 5: Peak, clearance and mortality per dose (means/medians over 8 blocks).
+Table 6: Peak, clearance and mortality per dose (means/medians over 8 blocks).
 </figcaption>
 <div aria-describedby="tbl-peak-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2721,13 +2800,13 @@ Table 5: Peak, clearance and mortality per dose (means/medians over 8 blocks).
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">parasite</th>
-<th style="text-align: left;">group</th>
-<th style="text-align: right;">n_groups</th>
-<th style="text-align: right;">mean_peak</th>
-<th style="text-align: right;">median_clear_day</th>
-<th style="text-align: right;">pct_died</th>
-<th style="text-align: right;">pct_day40_zero</th>
+<th style="text-align: left;">Parasite</th>
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">n Groups</th>
+<th style="text-align: right;">Mean Peak</th>
+<th style="text-align: right;">Median Clear Day</th>
+<th style="text-align: right;">Pct Died</th>
+<th style="text-align: right;">Pct Day40 Zero</th>
 </tr>
 </thead>
 <tbody>
@@ -2888,7 +2967,7 @@ Figure 6: Groups with any death, by dose
 <div id="tbl-dose" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dose-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 6: Parasitaemia dose-response on AUC (Friedman blocked by block; Spearman on log10 dose).
+Table 7: Parasitaemia dose-response on AUC (Friedman blocked by block; Spearman on log10 dose).
 </figcaption>
 <div aria-describedby="tbl-dose-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2905,14 +2984,14 @@ Table 6: Parasitaemia dose-response on AUC (Friedman blocked by block; Spearman
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">parasite</th>
-<th style="text-align: right;">n_blocks</th>
-<th style="text-align: right;">friedman_Q</th>
-<th style="text-align: right;">friedman_df</th>
-<th style="text-align: right;">friedman_p</th>
-<th style="text-align: right;">spearman_rho_pooled</th>
-<th style="text-align: right;">spearman_p</th>
-<th style="text-align: right;">mean_rho_perblock</th>
+<th style="text-align: left;">Parasite</th>
+<th style="text-align: right;">n Blocks</th>
+<th style="text-align: right;">Friedman Q</th>
+<th style="text-align: right;">Friedman Df</th>
+<th style="text-align: right;">Friedman p</th>
+<th style="text-align: right;">Spearman Rho Pooled</th>
+<th style="text-align: right;">Spearman p</th>
+<th style="text-align: right;">Mean Rho Perblock</th>
 </tr>
 </thead>
 <tbody>
@@ -2947,7 +3026,7 @@ Table 6: Parasitaemia dose-response on AUC (Friedman blocked by block; Spearman
 <div id="tbl-para-posthoc" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-para-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 7: Post-hoc parasitaemia contrasts vs Negative Control on AUC (paired Wilcoxon; Holm per parasite).
+Table 8: Post-hoc parasitaemia contrasts vs Negative Control on AUC (paired Wilcoxon; Holm per parasite).
 </figcaption>
 <div aria-describedby="tbl-para-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -3105,12 +3184,12 @@ Figure 8: Parasitaemia trajectories by block
 </section>
 <section id="body-weight-and-pcv" class="level3" data-number="9.2">
 <h3 data-number="9.2" class="anchored" data-anchor-id="body-weight-and-pcv"><span class="header-section-number">9.2</span> Body weight and PCV</h3>
-<p>Neither measure responded to treatment. Mean trajectories across the three timepoints were flat and overlapping (<a href="#fig-wp-traj" class="quarto-xref">Figure 9</a>), deltas centred near zero (<a href="#fig-wt" class="quarto-xref">Figure 10</a>, <a href="#fig-pcv" class="quarto-xref">Figure 11</a>), and no plant or parasite contrast approached significance (<a href="#tbl-other" class="quarto-xref">Table 9</a>; all p ≥ 0.15 with intervals spanning zero). The informative signal is instead where the flags fell (<a href="#tbl-flags" class="quarto-xref">Table 8</a>): deaths, severe weight loss and anaemia concentrated almost entirely in <em>T. congolense</em> blocks of both plants, with <em>T. evansi</em> groups largely unflagged. Two inferences follow. First, the parasitaemia effects above are not confounded by differential toxicity — treated groups gained no weight or PCV advantage because there was no toxicity gradient to begin with. Second, <em>T. congolense</em> is confirmed as the more pathogenic organism in this model, independently of extract.</p>
+<p>Neither measure responded to treatment. Mean trajectories across the three timepoints were flat and overlapping (<a href="#fig-wp-traj" class="quarto-xref">Figure 9</a>), deltas centred near zero (<a href="#fig-wt" class="quarto-xref">Figure 10</a>, <a href="#fig-pcv" class="quarto-xref">Figure 11</a>), and no plant or parasite contrast approached significance (<a href="#tbl-other" class="quarto-xref">Table 10</a>; all p ≥ 0.15 with intervals spanning zero). The informative signal is instead where the flags fell (<a href="#tbl-flags" class="quarto-xref">Table 9</a>): deaths, severe weight loss and anaemia concentrated almost entirely in <em>T. congolense</em> blocks of both plants, with <em>T. evansi</em> groups largely unflagged. Two inferences follow. First, the parasitaemia effects above are not confounded by differential toxicity — treated groups gained no weight or PCV advantage because there was no toxicity gradient to begin with. Second, <em>T. congolense</em> is confirmed as the more pathogenic organism in this model, independently of extract.</p>
 <div class="cell">
 <div id="tbl-flags" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-flags-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 8: Toxicity/anaemia flag counts (descriptive).
+Table 9: Toxicity/anaemia flag counts (descriptive).
 </figcaption>
 <div aria-describedby="tbl-flags-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -3124,11 +3203,11 @@ Table 8: Toxicity/anaemia flag counts (descriptive).
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">dataset</th>
-<th style="text-align: left;">plant</th>
-<th style="text-align: left;">parasite</th>
-<th style="text-align: left;">flag</th>
-<th style="text-align: right;">n_groups</th>
+<th style="text-align: left;">Dataset</th>
+<th style="text-align: left;">Plant</th>
+<th style="text-align: left;">Parasite</th>
+<th style="text-align: left;">Flag</th>
+<th style="text-align: right;">n Groups</th>
 </tr>
 </thead>
 <tbody>
@@ -3265,18 +3344,18 @@ Figure 9: Mean weight and PCV across timepoints
 <div id="tbl-other" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-other-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 9: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
+Table 10: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
 </figcaption>
 <div aria-describedby="tbl-other-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 57%">
-<col style="width: 3%">
-<col style="width: 3%">
+<col style="width: 40%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 10%">
+<col style="width: 31%">
 <col style="width: 7%">
-<col style="width: 22%">
-<col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3290,7 +3369,7 @@ Table 9: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">T. congolense vs T. evansi (block-mean AUC, 8 pairs)</td>
+<td style="text-align: left;">T. congolense vs T. evansi</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">0.4609</td>
@@ -3302,14 +3381,6 @@ Table 9: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
 </div>
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 46%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 9%">
-<col style="width: 28%">
-<col style="width: 7%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Contrast</th>
@@ -3322,7 +3393,7 @@ Table 9: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">weight delta: plant (8 pairs)</td>
+<td style="text-align: left;">weight delta: plant</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">0.3125</td>
@@ -3330,7 +3401,7 @@ Table 9: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
 <td style="text-align: right;">0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">weight delta: parasite (8 pairs)</td>
+<td style="text-align: left;">weight delta: parasite</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">0.1484</td>
@@ -3342,14 +3413,6 @@ Table 9: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
 </div>
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 44%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 10%">
-<col style="width: 28%">
-<col style="width: 7%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Contrast</th>
@@ -3362,7 +3425,7 @@ Table 9: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">pcv delta: plant (8 pairs)</td>
+<td style="text-align: left;">pcv delta: plant</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">21</td>
 <td style="text-align: right;">0.7422</td>
@@ -3370,7 +3433,7 @@ Table 9: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
 <td style="text-align: right;">0.25</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">pcv delta: parasite (8 pairs)</td>
+<td style="text-align: left;">pcv delta: parasite</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">19</td>
 <td style="text-align: right;">0.9453</td>
@@ -3408,24 +3471,16 @@ Figure 11: PCV change Post−Pre (pp)
 </section>
 <section id="objective-v-comparative-superiority" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="objective-v-comparative-superiority"><span class="header-section-number">10</span> 5.5. Objective v — comparative superiority</h2>
-<p>The eight paired differences span zero with no structure: three favour <em>M. oleifera</em> (to −21.5 AUC-days), four favour <em>A. indica</em> (to +18.1), one is an exact tie, and neither part nor parasite predicts the sign (<a href="#fig-forest" class="quarto-xref">Figure 12</a>; <a href="#fig-paired" class="quarto-xref">Figure 13</a>). The paired test returns the null almost exactly (W = 14, exact p = 1.0; HL 0.3, 95% CI −14.7 to 20.5; rank-biserial −0.14), and the motility cross-check concurs (p = 0.15; <a href="#tbl-sup" class="quarto-xref">Table 10</a>). Because the interval covers meaningful effects in both directions, the data neither establish nor exclude a modest plant difference — but as a superiority claim for either agent, the answer is negative, and it is insensitive to any single block (§6).</p>
+<p>The eight paired differences span zero with no structure: three favour <em>M. oleifera</em> (to −21.5 AUC-days), four favour <em>A. indica</em> (to +18.1), one is an exact tie, and neither part nor parasite predicts the sign (<a href="#fig-forest" class="quarto-xref">Figure 12</a>; <a href="#fig-paired" class="quarto-xref">Figure 13</a>). The paired test returns the null almost exactly (W = 14, exact p = 1.0; HL 0.3, 95% CI −14.7 to 20.5; rank-biserial −0.14), and the motility cross-check concurs (p = 0.15; <a href="#tbl-sup" class="quarto-xref">Table 11</a>). Because the interval covers meaningful effects in both directions, the data neither establish nor exclude a modest plant difference — but as a superiority claim for either agent, the answer is negative, and it is insensitive to any single block (Section 6).</p>
 <div class="cell">
 <div id="tbl-sup" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 10: Plant superiority contrasts (paired Wilcoxon; 8 pairs each).
+Table 11: Plant superiority contrasts (paired Wilcoxon; 8 pairs each).
 </figcaption>
 <div aria-describedby="tbl-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 57%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 23%">
-<col style="width: 8%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Contrast</th>
@@ -3438,7 +3493,7 @@ Table 10: Plant superiority contrasts (paired Wilcoxon; 8 pairs each).
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">A. indica vs M. oleifera (block-mean AUC, 8 pairs)</td>
+<td style="text-align: left;">A. indica vs M. oleifera</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">1</td>
@@ -3450,14 +3505,6 @@ Table 10: Plant superiority contrasts (paired Wilcoxon; 8 pairs each).
 </div>
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 56%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 8%">
-<col style="width: 22%">
-<col style="width: 5%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Contrast</th>
@@ -3470,7 +3517,7 @@ Table 10: Plant superiority contrasts (paired Wilcoxon; 8 pairs each).
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">A. indica vs M. oleifera (mean %motile, 8 pairs)</td>
+<td style="text-align: left;">A. indica vs M. oleifera</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">29</td>
 <td style="text-align: right;">0.1484</td>
@@ -3507,12 +3554,12 @@ Figure 13: Paired block-mean AUC scatter
 </section>
 <section id="diagnostics-sensitivity-and-refits" class="level2" data-number="11">
 <h2 data-number="11" class="anchored" data-anchor-id="diagnostics-sensitivity-and-refits"><span class="header-section-number">11</span> 6. Diagnostics, sensitivity and refits</h2>
-<p>Contrasts with tied ranks or zero differences report <code>n_nonzero</code>, <code>n_ties</code> and the p-value method used (exact only when clean; continuity-corrected normal approximation otherwise); refitting on this basis left no conclusion changed. Paired differences were inspected for the symmetry the signed-rank test assumes (<a href="#fig-sym" class="quarto-xref">Figure 14</a>): <em>evansi</em> differences form a pure location shift, while the superiority differences are symmetric about zero, consistent with its null. Leave-one-block-out re-analysis (<a href="#tbl-loo" class="quarto-xref">Table 11</a>) found no conclusion dependent on any single block. Completeness is asserted structurally at build.</p>
+<p>Contrasts with tied ranks or zero differences report <code>n_nonzero</code>, <code>n_ties</code> and the p-value method used (exact only when clean; continuity-corrected normal approximation otherwise); refitting on this basis left no conclusion changed. Paired differences were inspected for the symmetry the signed-rank test assumes (<a href="#fig-sym" class="quarto-xref">Figure 14</a>): <em>evansi</em> differences form a pure location shift, while the superiority differences are symmetric about zero, consistent with its null. Leave-one-block-out re-analysis (<a href="#tbl-loo" class="quarto-xref">Table 12</a>) found no conclusion dependent on any single block. Completeness is asserted structurally at build.</p>
 <div class="cell">
 <div id="tbl-loo" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-loo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 11: Leave-one-block-out sensitivity (stable = no single block flips the conclusion).
+Table 12: Leave-one-block-out sensitivity (stable = no single block flips the conclusion).
 </figcaption>
 <div aria-describedby="tbl-loo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -3528,13 +3575,13 @@ Table 11: Leave-one-block-out sensitivity (stable = no single block flips the c
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">contrast</th>
-<th style="text-align: right;">full_p</th>
-<th style="text-align: right;">loo_p_min</th>
-<th style="text-align: right;">loo_p_max</th>
-<th style="text-align: right;">loo_significant</th>
-<th style="text-align: right;">loo_runs</th>
-<th style="text-align: left;">stable</th>
+<th style="text-align: left;">Contrast</th>
+<th style="text-align: right;">Full p</th>
+<th style="text-align: right;">LOO p Min</th>
+<th style="text-align: right;">LOO p Max</th>
+<th style="text-align: right;">LOO Significant</th>
+<th style="text-align: right;">LOO Runs</th>
+<th style="text-align: left;">Stable</th>
 </tr>
 </thead>
 <tbody>

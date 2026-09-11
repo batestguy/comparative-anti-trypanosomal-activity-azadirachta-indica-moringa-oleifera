@@ -24,14 +24,31 @@ library(dplyr)
 library(knitr)
 tab_dir <- file.path("..", "results", "tables")
 fig_dir <- file.path("..", "results", "figures")
-k <- function(f, digits = 3) kable(
-  read_csv(file.path(tab_dir, f), show_col_types = FALSE), digits = digits)
+# Display names for tables: exact code names stay in Methods (Section 4 table below);
+# everywhere else tables carry proper names (underscores expanded, acronyms kept).
+proper <- function(nm) {
+  nm <- gsub("_", " ", nm)
+  nm <- tools::toTitleCase(nm)
+  nm <- gsub("\\bTti\\b", "TTI", nm)
+  nm <- gsub("\\bAuc\\b", "AUC", nm)
+  nm <- gsub("\\bPcv\\b", "PCV", nm)
+  nm <- gsub("\\bLoo\\b", "LOO", nm)
+  nm <- gsub("^N ", "n ", nm)
+  nm
+}
+k <- function(f, digits = 3) {
+  d <- read_csv(file.path(tab_dir, f), show_col_types = FALSE)
+  names(d) <- proper(names(d))
+  kable(d, digits = digits)
+}
 # Slim display for contrast tables: split the Dose | Parasite label into two
 # narrow columns and combine the HL estimate with its CI, so wide tables fit
 # a portrait page without wrapping.
 fmt_contrast <- function(f) {
   d <- read_csv(file.path(tab_dir, f), show_col_types = FALSE)
   d$hl <- sprintf("%.2f [%.2f, %.2f]", d$hl_est, d$hl_l, d$hl_u)
+  # Short row labels: parenthetical detail lives in the caption, not the cell.
+  d$contrast <- sub(" \\(.*\\)$", "", d$contrast)
   if (all(grepl(" \\| ", d$contrast))) {
     parts <- strsplit(d$contrast, " \\| ")
     d$Dose <- vapply(parts, `[`, "", 1)
@@ -68,14 +85,14 @@ leave-one-block-out sensitivity analysis.
 
 The aim of the study is to compare the anti-trypanosomal activity of
 methanolic extracts of *A. indica* and *M. oleifera* (leaves, stem bark,
-roots, seeds) against *T. congolense* and *T. evansi* (thesis §1.8.1). This
+roots, seeds) against *T. congolense* and *T. evansi* (thesis Section 1.8.1). This
 report presents the statistical analysis for specific objectives ii–v
-(§1.8.2): phytochemical characterisation (§5.2), the in-vitro motility assay
-(§5.3), in-vivo infectivity (§5.4) and the superiority assessment (§5.5),
-followed by diagnostics (§6), an integrative discussion against the recent
-literature (§7) and limitations (§8). Objective i (extraction) is a
+(Section 1.8.2): phytochemical characterisation (Section 5.2), the in-vitro motility assay
+(Section 5.3), in-vivo infectivity (Section 5.4) and the superiority assessment (Section 5.5),
+followed by diagnostics (Section 6), an integrative discussion against the recent
+literature (Section 7) and limitations (Section 8). Objective i (extraction) is a
 laboratory procedure without recorded replicates and carries no statistical
-component (§5.1).
+component (Section 5.1).
 
 ## 2. Design and analytical approach
 
@@ -114,9 +131,32 @@ matched-pairs rank-biserial effect (|r| ≥ 0.11/0.28/0.43 as small/medium/
 large) and the Hodges–Lehmann median difference with 95% confidence
 interval. Exact p-values are used wherever the data permit; where tied ranks
 or zero differences occur, the continuity-corrected normal approximation is
-substituted and the substitution recorded per contrast (§6). Per-block trend
+substituted and the substitution recorded per contrast (Section 6). Per-block trend
 tests at n = 1 lack power, so only the blocked tests are inferential.
 Computations are in `analysis/R/02_analysis.R`; no machine learning was used.
+Analysis variables are specified exactly as named in code and data files in
+Table 1; Results and Discussion use proper display names.
+
+```{r}
+#| label: tbl-vars
+#| tbl-cap: Analysis variables as specified in code and data files.
+kable(data.frame(
+  Variable = c("`auc`", "`peak_lev`", "`clear_day`", "`day40_lev`",
+               "`tti`", "`mot120`", "`mean_motile`", "`delta`", "`present`",
+               "`concentration_mgml`"),
+  Description = c("Death-censored trapezoidal AUC over observed days",
+                  "Maximum LEV within group", "Last day with LEV > 0",
+                  "LEV at day 40 (0 or missing)", "First time with motility 0",
+                  "Motility at 120 min", "Mean proportion motile over 0-120 min",
+                  "Post-Infection minus Pre-Infection (weight, PCV)",
+                  "Phytochemical presence (TRUE/FALSE)",
+                  "Dose in mg/ml (NA for controls)"),
+  File = c(rep("`endpoints_parasitemia.csv`", 4),
+           rep("`endpoints_motility.csv`", 3),
+           "`endpoints_weight.csv`, `endpoints_pcv.csv`",
+           "`phytochemical.csv`", "`motility.csv`, `parasitemia.csv`"),
+  check.names = FALSE))
+```
 
 ## 5.1. Objective i — methanolic extraction
 
@@ -139,7 +179,7 @@ stem bark), and alkaloids, flavonoids and glucosides in asymmetric but
 overlapping distributions — the two leaf profiles share six classes apiece
 with only the steroid/glucoside entries swapped. With eight combinations,
 these data admit description only; compound–efficacy overlays are tabulated
-without tests. The substantive point for §7 is the extent of chemical overlap
+without tests. The substantive point for Section 7 is the extent of chemical overlap
 between the species, which leaves little phytochemical basis for expecting
 divergent efficacy.
 
@@ -292,7 +332,7 @@ motility cross-check concurs (p = 0.15; @tbl-sup). Because the interval
 covers meaningful effects in both directions, the data neither establish nor
 exclude a modest plant difference — but as a superiority claim for either
 agent, the answer is negative, and it is insensitive to any single block
-(§6).
+(Section 6).
 
 ```{r}
 #| label: tbl-sup
