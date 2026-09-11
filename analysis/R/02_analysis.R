@@ -622,6 +622,7 @@ p14 <- mot %>% filter(group %in% GRP_ORD) %>%
   facet_wrap(~ parasite) +
   scale_y_continuous(limits = c(0, 1),
                      labels = function(x) paste0(round(100 * x), "%")) +
+  scale_x_continuous(limits = c(0, 120), breaks = seq(0, 120, by = 15)) +
   labs(title = "Mean proportion motile over time, by dose",
        x = "Time (min)", y = "% motile", colour = "Group") +
   theme(legend.position = "bottom")
