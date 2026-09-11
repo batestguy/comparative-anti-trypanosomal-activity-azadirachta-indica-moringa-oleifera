@@ -1,0 +1,113 @@
+plant,part,parasite,group,concentration_mgml,Pre,Dur,Post,delta,pct_change,block,flag
+A. indica,seeds,T. congolense,100mg/ml,100,50,52.1,52,2,4,A. indica | seeds | T. congolense,NA
+A. indica,seeds,T. congolense,10mg/ml,10,49.6,50.4,50,0.3999999999999986,0.8064516129032229,A. indica | seeds | T. congolense,NA
+A. indica,seeds,T. congolense,0.5mg/ml,0.5,51.5,48.6,36.4,-15.100000000000001,-29.320388349514566,A. indica | seeds | T. congolense,anemia
+A. indica,seeds,T. congolense,0.01mg/ml,0.01,50.1,45.6,33.7,-16.4,-32.73453093812375,A. indica | seeds | T. congolense,anemia
+A. indica,seeds,T. congolense,0.005mg/ml,0.005,55,56.8,55.3,0.29999999999999716,0.5454545454545403,A. indica | seeds | T. congolense,NA
+A. indica,seeds,T. congolense,Negative Control,NA,51.2,40.3,35.4,-15.800000000000004,-30.859375000000007,A. indica | seeds | T. congolense,anemia
+A. indica,seeds,T. congolense,Positive Control,NA,51,52.7,54,3,5.882352941176471,A. indica | seeds | T. congolense,NA
+A. indica,roots,T. congolense,100mg/ml,100,50,52.5,54,4,8,A. indica | roots | T. congolense,NA
+A. indica,roots,T. congolense,10mg/ml,10,50.1,50,NA,NA,NA,A. indica | roots | T. congolense,missing (died)
+A. indica,roots,T. congolense,0.5mg/ml,0.5,52,48.1,NA,NA,NA,A. indica | roots | T. congolense,missing (died)
+A. indica,roots,T. congolense,0.01mg/ml,0.01,50.1,46.7,NA,NA,NA,A. indica | roots | T. congolense,missing (died)
+A. indica,roots,T. congolense,0.005mg/ml,0.005,55,36.5,NA,NA,NA,A. indica | roots | T. congolense,missing (died)
+A. indica,roots,T. congolense,Negative Control,NA,54.4,32.7,NA,NA,NA,A. indica | roots | T. congolense,missing (died)
+A. indica,roots,T. congolense,Positive Control,NA,51,53,53.6,2.6000000000000014,5.098039215686277,A. indica | roots | T. congolense,NA
+A. indica,stem bark,T. congolense,100mg/ml,100,50,50.8,53.1,3.1000000000000014,6.200000000000002,A. indica | stem bark | T. congolense,NA
+A. indica,stem bark,T. congolense,10mg/ml,10,49.6,50.4,50,0.3999999999999986,0.8064516129032229,A. indica | stem bark | T. congolense,NA
+A. indica,stem bark,T. congolense,0.5mg/ml,0.5,51.5,53.2,55,3.5,6.796116504854369,A. indica | stem bark | T. congolense,NA
+A. indica,stem bark,T. congolense,0.01mg/ml,0.01,50.1,52,52.4,2.299999999999997,4.590818363273447,A. indica | stem bark | T. congolense,NA
+A. indica,stem bark,T. congolense,0.005mg/ml,0.005,55,55,41.2,-13.799999999999997,-25.090909090909086,A. indica | stem bark | T. congolense,anemia
+A. indica,stem bark,T. congolense,Negative Control,NA,54,39,NA,NA,NA,A. indica | stem bark | T. congolense,missing (died)
+A. indica,stem bark,T. congolense,Positive Control,NA,53,52.7,53.2,0.20000000000000284,0.3773584905660431,A. indica | stem bark | T. congolense,NA
+A. indica,leaves,T. congolense,100mg/ml,100,52.3,52.1,54.5,2.200000000000003,4.20650095602295,A. indica | leaves | T. congolense,NA
+A. indica,leaves,T. congolense,10mg/ml,10,50,50.4,52,2,4,A. indica | leaves | T. congolense,NA
+A. indica,leaves,T. congolense,0.5mg/ml,0.5,51.5,54,51.2,-0.29999999999999716,-0.5825242718446547,A. indica | leaves | T. congolense,NA
+A. indica,leaves,T. congolense,0.01mg/ml,0.01,50,47,36.1,-13.899999999999999,-27.799999999999997,A. indica | leaves | T. congolense,anemia
+A. indica,leaves,T. congolense,0.005mg/ml,0.005,54,50,44.6,-9.399999999999999,-17.407407407407405,A. indica | leaves | T. congolense,NA
+A. indica,leaves,T. congolense,Negative Control,NA,51.2,36.4,NA,NA,NA,A. indica | leaves | T. congolense,missing (died)
+A. indica,leaves,T. congolense,Positive Control,NA,51,52.5,54,3,5.882352941176471,A. indica | leaves | T. congolense,NA
+M. oleifera,seeds,T. congolense,100mg/ml,100,50,52.1,52,2,4,M. oleifera | seeds | T. congolense,NA
+M. oleifera,seeds,T. congolense,10mg/ml,10,49.6,50.4,50,0.3999999999999986,0.8064516129032229,M. oleifera | seeds | T. congolense,NA
+M. oleifera,seeds,T. congolense,0.5mg/ml,0.5,51.5,48.6,36.4,-15.100000000000001,-29.320388349514566,M. oleifera | seeds | T. congolense,anemia
+M. oleifera,seeds,T. congolense,0.01mg/ml,0.01,50.1,45.6,33.7,-16.4,-32.73453093812375,M. oleifera | seeds | T. congolense,anemia
+M. oleifera,seeds,T. congolense,0.005mg/ml,0.005,55,56.8,55.3,0.29999999999999716,0.5454545454545403,M. oleifera | seeds | T. congolense,NA
+M. oleifera,seeds,T. congolense,Negative Control,NA,51,40.3,35.4,-15.600000000000001,-30.588235294117652,M. oleifera | seeds | T. congolense,anemia
+M. oleifera,seeds,T. congolense,Positive Control,NA,51.3,53,54,2.700000000000003,5.263157894736848,M. oleifera | seeds | T. congolense,NA
+M. oleifera,roots,T. congolense,100mg/ml,100,49.9,53,53.2,3.3000000000000043,6.613226452905821,M. oleifera | roots | T. congolense,NA
+M. oleifera,roots,T. congolense,10mg/ml,10,49.6,51,51,1.3999999999999986,2.8225806451612874,M. oleifera | roots | T. congolense,NA
+M. oleifera,roots,T. congolense,0.5mg/ml,0.5,52,51,50,-2,-3.8461538461538463,M. oleifera | roots | T. congolense,NA
+M. oleifera,roots,T. congolense,0.01mg/ml,0.01,51.1,50,43.8,-7.300000000000004,-14.285714285714294,M. oleifera | roots | T. congolense,NA
+M. oleifera,roots,T. congolense,0.005mg/ml,0.005,54,49.1,NA,NA,NA,M. oleifera | roots | T. congolense,missing (died)
+M. oleifera,roots,T. congolense,Negative Control,NA,55.1,34.3,NA,NA,NA,M. oleifera | roots | T. congolense,missing (died)
+M. oleifera,roots,T. congolense,Positive Control,NA,53.4,53,54,0.6000000000000014,1.1235955056179803,M. oleifera | roots | T. congolense,NA
+M. oleifera,stem bark,T. congolense,100mg/ml,100,50,51,52.3,2.299999999999997,4.599999999999994,M. oleifera | stem bark | T. congolense,NA
+M. oleifera,stem bark,T. congolense,10mg/ml,10,52,50.4,52.7,0.7000000000000028,1.3461538461538516,M. oleifera | stem bark | T. congolense,NA
+M. oleifera,stem bark,T. congolense,0.5mg/ml,0.5,52,52,52.6,0.6000000000000014,1.1538461538461566,M. oleifera | stem bark | T. congolense,NA
+M. oleifera,stem bark,T. congolense,0.01mg/ml,0.01,55.1,54,55,-0.10000000000000142,-0.18148820326679024,M. oleifera | stem bark | T. congolense,NA
+M. oleifera,stem bark,T. congolense,0.005mg/ml,0.005,52.9,54.3,55,2.1000000000000014,3.9697542533081314,M. oleifera | stem bark | T. congolense,NA
+M. oleifera,stem bark,T. congolense,Negative Control,NA,54.1,52,33.7,-20.4,-37.707948243992604,M. oleifera | stem bark | T. congolense,anemia
+M. oleifera,stem bark,T. congolense,Positive Control,NA,53,53,54.3,1.2999999999999972,2.45283018867924,M. oleifera | stem bark | T. congolense,NA
+M. oleifera,leaves,T. congolense,100mg/ml,100,52.4,52.1,53,0.6000000000000014,1.145038167938934,M. oleifera | leaves | T. congolense,NA
+M. oleifera,leaves,T. congolense,10mg/ml,10,50.5,52,52,1.5,2.9702970297029703,M. oleifera | leaves | T. congolense,NA
+M. oleifera,leaves,T. congolense,0.5mg/ml,0.5,55.1,54.6,54.3,-0.8000000000000043,-1.451905626134309,M. oleifera | leaves | T. congolense,NA
+M. oleifera,leaves,T. congolense,0.01mg/ml,0.01,52.1,52.2,53,0.8999999999999986,1.7274472168905923,M. oleifera | leaves | T. congolense,NA
+M. oleifera,leaves,T. congolense,0.005mg/ml,0.005,53,54.2,55.3,2.299999999999997,4.339622641509429,M. oleifera | leaves | T. congolense,NA
+M. oleifera,leaves,T. congolense,Negative Control,NA,51,44.6,NA,NA,NA,M. oleifera | leaves | T. congolense,missing (died)
+M. oleifera,leaves,T. congolense,Positive Control,NA,53.2,53,54.5,1.2999999999999972,2.4436090225563856,M. oleifera | leaves | T. congolense,NA
+A. indica,seeds,T. evansi,100mg/ml,100,56.3,58,56.7,0.4000000000000057,0.7104795737122659,A. indica | seeds | T. evansi,NA
+A. indica,seeds,T. evansi,10mg/ml,10,54.3,54.3,55.8,1.5,2.7624309392265194,A. indica | seeds | T. evansi,NA
+A. indica,seeds,T. evansi,0.5mg/ml,0.5,56.3,56.7,31,-25.299999999999997,-44.93783303730017,A. indica | seeds | T. evansi,severe anemia
+A. indica,seeds,T. evansi,0.01mg/ml,0.01,56.3,53,46.5,-9.799999999999997,-17.406749555950263,A. indica | seeds | T. evansi,NA
+A. indica,seeds,T. evansi,0.005mg/ml,0.005,56.7,55.3,49,-7.700000000000003,-13.58024691358025,A. indica | seeds | T. evansi,NA
+A. indica,seeds,T. evansi,Negative Control,NA,56,54,31,-25,-44.642857142857146,A. indica | seeds | T. evansi,severe anemia
+A. indica,seeds,T. evansi,Positive Control,NA,56.7,58.9,58.9,2.1999999999999957,3.8800705467372056,A. indica | seeds | T. evansi,NA
+A. indica,roots,T. evansi,100mg/ml,100,50.67,54.5,56.5,5.829999999999998,11.505821985395693,A. indica | roots | T. evansi,NA
+A. indica,roots,T. evansi,10mg/ml,10,52,56,56.5,4.5,8.653846153846153,A. indica | roots | T. evansi,NA
+A. indica,roots,T. evansi,0.5mg/ml,0.5,56.67,55,45,-11.670000000000002,-20.592906299629437,A. indica | roots | T. evansi,NA
+A. indica,roots,T. evansi,0.01mg/ml,0.01,54.667,53,55.33,0.6629999999999967,1.212797482942171,A. indica | roots | T. evansi,NA
+A. indica,roots,T. evansi,0.005mg/ml,0.005,55.33,54.33,52,-3.3299999999999983,-6.0184348454726155,A. indica | roots | T. evansi,NA
+A. indica,roots,T. evansi,Negative Control,NA,50,42,41.5,-8.5,-17,A. indica | roots | T. evansi,NA
+A. indica,roots,T. evansi,Positive Control,NA,55.7,56,55.8,0.09999999999999432,0.17953321364451402,A. indica | roots | T. evansi,NA
+A. indica,stem bark,T. evansi,100mg/ml,100,51.67,53.33,53.67,2,3.8707180181923744,A. indica | stem bark | T. evansi,NA
+A. indica,stem bark,T. evansi,10mg/ml,10,50,58.33,54.33,4.329999999999998,8.659999999999997,A. indica | stem bark | T. evansi,NA
+A. indica,stem bark,T. evansi,0.5mg/ml,0.5,54.67,54.67,55,0.3299999999999983,0.6036217303822906,A. indica | stem bark | T. evansi,NA
+A. indica,stem bark,T. evansi,0.01mg/ml,0.01,50.33,50,45.33,-5,-9.934432743890325,A. indica | stem bark | T. evansi,NA
+A. indica,stem bark,T. evansi,0.005mg/ml,0.005,54,56.67,54.67,0.6700000000000017,1.2407407407407438,A. indica | stem bark | T. evansi,NA
+A. indica,stem bark,T. evansi,Negative Control,NA,53,56.67,54.67,1.6700000000000017,3.150943396226418,A. indica | stem bark | T. evansi,NA
+A. indica,stem bark,T. evansi,Positive Control,NA,55,54,55,0,0,A. indica | stem bark | T. evansi,NA
+A. indica,leaves,T. evansi,100mg/ml,100,49.3,57.67,59.33,10.030000000000001,20.3448275862069,A. indica | leaves | T. evansi,NA
+A. indica,leaves,T. evansi,10mg/ml,10,53.33,59.33,56,2.6700000000000017,5.00656291018189,A. indica | leaves | T. evansi,NA
+A. indica,leaves,T. evansi,0.5mg/ml,0.5,56.33,53,54.67,-1.6599999999999966,-2.946919936090887,A. indica | leaves | T. evansi,NA
+A. indica,leaves,T. evansi,0.01mg/ml,0.01,55,57.5,56.25,1.25,2.272727272727273,A. indica | leaves | T. evansi,NA
+A. indica,leaves,T. evansi,0.005mg/ml,0.005,52.33,52,58.33,6,11.46569845213071,A. indica | leaves | T. evansi,NA
+A. indica,leaves,T. evansi,Negative Control,NA,51.33,43.33,NA,NA,NA,A. indica | leaves | T. evansi,missing (died)
+A. indica,leaves,T. evansi,Positive Control,NA,53,54,54,1,1.8867924528301887,A. indica | leaves | T. evansi,NA
+M. oleifera,seeds,T. evansi,100mg/ml,100,56.33,49.67,54,-2.3299999999999983,-4.136339428368539,M. oleifera | seeds | T. evansi,NA
+M. oleifera,seeds,T. evansi,10mg/ml,10,54.67,52,54.33,-0.3400000000000034,-0.6219132979696422,M. oleifera | seeds | T. evansi,NA
+M. oleifera,seeds,T. evansi,0.5mg/ml,0.5,59.67,59.67,57.67,-2,-3.3517680576504105,M. oleifera | seeds | T. evansi,NA
+M. oleifera,seeds,T. evansi,0.01mg/ml,0.01,59,50,52.67,-6.329999999999998,-10.72881355932203,M. oleifera | seeds | T. evansi,NA
+M. oleifera,seeds,T. evansi,0.005mg/ml,0.005,56,45.67,56.33,0.3299999999999983,0.5892857142857112,M. oleifera | seeds | T. evansi,NA
+M. oleifera,seeds,T. evansi,Negative Control,NA,52.33,49.33,46.67,-5.659999999999997,-10.815975539843295,M. oleifera | seeds | T. evansi,NA
+M. oleifera,seeds,T. evansi,Positive Control,NA,50,51,53.2,3.200000000000003,6.400000000000006,M. oleifera | seeds | T. evansi,NA
+M. oleifera,roots,T. evansi,100mg/ml,100,50.67,57.33,58,7.329999999999998,14.466153542530092,M. oleifera | roots | T. evansi,NA
+M. oleifera,roots,T. evansi,10mg/ml,10,52,50,53.67,1.6700000000000017,3.211538461538465,M. oleifera | roots | T. evansi,NA
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,56.67,60.33,56,-0.6700000000000017,-1.1822833950944092,M. oleifera | roots | T. evansi,NA
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,54.67,52,53,-1.6700000000000017,-3.0546917870861563,M. oleifera | roots | T. evansi,NA
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,55.33,53.33,50.67,-4.659999999999997,-8.422194108078793,M. oleifera | roots | T. evansi,NA
+M. oleifera,roots,T. evansi,Negative Control,NA,50,53,43,-7,-14,M. oleifera | roots | T. evansi,NA
+M. oleifera,roots,T. evansi,Positive Control,NA,50,50,51.2,1.2000000000000028,2.4000000000000057,M. oleifera | roots | T. evansi,NA
+M. oleifera,stem bark,T. evansi,100mg/ml,100,51,49,54.67,3.6700000000000017,7.196078431372553,M. oleifera | stem bark | T. evansi,NA
+M. oleifera,stem bark,T. evansi,10mg/ml,10,50,55.33,54.67,4.670000000000002,9.340000000000003,M. oleifera | stem bark | T. evansi,NA
+M. oleifera,stem bark,T. evansi,0.5mg/ml,0.5,50.33,58,56.33,6,11.92131929266839,M. oleifera | stem bark | T. evansi,NA
+M. oleifera,stem bark,T. evansi,0.01mg/ml,0.01,49.33,53.33,38.67,-10.659999999999997,-21.60956821406851,M. oleifera | stem bark | T. evansi,NA
+M. oleifera,stem bark,T. evansi,0.005mg/ml,0.005,51.33,58.33,36.33,-15,-29.222676797194623,M. oleifera | stem bark | T. evansi,anemia
+M. oleifera,stem bark,T. evansi,Negative Control,NA,52.33,53,36,-16.33,-31.205809287215743,M. oleifera | stem bark | T. evansi,anemia
+M. oleifera,stem bark,T. evansi,Positive Control,NA,51,50,52,1,1.9607843137254901,M. oleifera | stem bark | T. evansi,NA
+M. oleifera,leaves,T. evansi,100mg/ml,100,59.67,51.33,54.33,-5.340000000000003,-8.949220713926602,M. oleifera | leaves | T. evansi,NA
+M. oleifera,leaves,T. evansi,10mg/ml,10,49.33,48.33,52,2.6700000000000017,5.4125278735049704,M. oleifera | leaves | T. evansi,NA
+M. oleifera,leaves,T. evansi,0.5mg/ml,0.5,53,46,50.33,-2.6700000000000017,-5.037735849056607,M. oleifera | leaves | T. evansi,NA
+M. oleifera,leaves,T. evansi,0.01mg/ml,0.01,50.67,50.67,49,-1.6700000000000017,-3.295835800276301,M. oleifera | leaves | T. evansi,NA
+M. oleifera,leaves,T. evansi,0.005mg/ml,0.005,50.33,50.33,44,-6.329999999999998,-12.576991853765145,M. oleifera | leaves | T. evansi,NA
+M. oleifera,leaves,T. evansi,Negative Control,NA,48.33,46.67,45,-3.3299999999999983,-6.890130353817502,M. oleifera | leaves | T. evansi,NA
+M. oleifera,leaves,T. evansi,Positive Control,NA,50,50,52,2,4,M. oleifera | leaves | T. evansi,NA

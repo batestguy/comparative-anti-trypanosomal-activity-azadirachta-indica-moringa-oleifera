@@ -1,0 +1,113 @@
+plant,part,parasite,group,concentration_mgml,auc,n_days_obs,died,peak_lev,onset_day,clear_day,day40_lev,block
+A. indica,leaves,T. congolense,0.005mg/ml,0.005,51.96,18,TRUE,5,5,18,NA,A. indica | leaves | T. congolense
+A. indica,leaves,T. congolense,0.01mg/ml,0.01,49.26,18,TRUE,5,5,18,NA,A. indica | leaves | T. congolense
+A. indica,leaves,T. congolense,0.5mg/ml,0.5,17.355,19,TRUE,2.23,10,19,NA,A. indica | leaves | T. congolense
+A. indica,leaves,T. congolense,100mg/ml,100,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. congolense
+A. indica,leaves,T. congolense,10mg/ml,10,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. congolense
+A. indica,leaves,T. congolense,Negative Control,NA,34.660000000000004,11,TRUE,5,3,11,NA,A. indica | leaves | T. congolense
+A. indica,leaves,T. congolense,Positive Control,NA,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. congolense
+A. indica,leaves,T. evansi,0.005mg/ml,0.005,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. evansi
+A. indica,leaves,T. evansi,0.01mg/ml,0.01,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. evansi
+A. indica,leaves,T. evansi,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. evansi
+A. indica,leaves,T. evansi,100mg/ml,100,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. evansi
+A. indica,leaves,T. evansi,10mg/ml,10,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. evansi
+A. indica,leaves,T. evansi,Negative Control,NA,26.626667,15,TRUE,5,8,15,NA,A. indica | leaves | T. evansi
+A. indica,leaves,T. evansi,Positive Control,NA,0,40,FALSE,0,NA,NA,0,A. indica | leaves | T. evansi
+A. indica,roots,T. congolense,0.005mg/ml,0.005,20.919999999999998,11,TRUE,5,6,11,NA,A. indica | roots | T. congolense
+A. indica,roots,T. congolense,0.01mg/ml,0.01,24.82,12,TRUE,5,6,12,NA,A. indica | roots | T. congolense
+A. indica,roots,T. congolense,0.5mg/ml,0.5,18.95,10,TRUE,5,6,10,NA,A. indica | roots | T. congolense
+A. indica,roots,T. congolense,100mg/ml,100,0,40,FALSE,0,NA,NA,0,A. indica | roots | T. congolense
+A. indica,roots,T. congolense,10mg/ml,10,22.3,12,TRUE,5,7,12,NA,A. indica | roots | T. congolense
+A. indica,roots,T. congolense,Negative Control,NA,25.580000000000002,10,TRUE,5,4,10,NA,A. indica | roots | T. congolense
+A. indica,roots,T. congolense,Positive Control,NA,0,40,FALSE,0,NA,NA,0,A. indica | roots | T. congolense
+A. indica,roots,T. evansi,0.005mg/ml,0.005,0,40,FALSE,0,NA,NA,0,A. indica | roots | T. evansi
+A. indica,roots,T. evansi,0.01mg/ml,0.01,0,40,FALSE,0,NA,NA,0,A. indica | roots | T. evansi
+A. indica,roots,T. evansi,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,A. indica | roots | T. evansi
+A. indica,roots,T. evansi,100mg/ml,100,0,40,FALSE,0,NA,NA,0,A. indica | roots | T. evansi
+A. indica,roots,T. evansi,10mg/ml,10,0,40,FALSE,0,NA,NA,0,A. indica | roots | T. evansi
+A. indica,roots,T. evansi,Negative Control,NA,29.85,19,TRUE,5,11,19,NA,A. indica | roots | T. evansi
+A. indica,roots,T. evansi,Positive Control,NA,0,40,FALSE,0,NA,NA,0,A. indica | roots | T. evansi
+A. indica,seeds,T. congolense,0.005mg/ml,0.005,37.24,35,TRUE,2.77,14,35,NA,A. indica | seeds | T. congolense
+A. indica,seeds,T. congolense,0.01mg/ml,0.01,37.56,15,TRUE,5,6,15,NA,A. indica | seeds | T. congolense
+A. indica,seeds,T. congolense,0.5mg/ml,0.5,45.150000000000006,17,TRUE,5,5,17,NA,A. indica | seeds | T. congolense
+A. indica,seeds,T. congolense,100mg/ml,100,0,40,FALSE,0,NA,NA,0,A. indica | seeds | T. congolense
+A. indica,seeds,T. congolense,10mg/ml,10,55.64,24,TRUE,5,9,24,NA,A. indica | seeds | T. congolense
+A. indica,seeds,T. congolense,Negative Control,NA,47.28,16,TRUE,5,5,16,NA,A. indica | seeds | T. congolense
+A. indica,seeds,T. congolense,Positive Control,NA,0,40,FALSE,0,NA,NA,0,A. indica | seeds | T. congolense
+A. indica,seeds,T. evansi,0.005mg/ml,0.005,31.55,23,TRUE,5,11,24,NA,A. indica | seeds | T. evansi
+A. indica,seeds,T. evansi,0.01mg/ml,0.01,39.26,21,TRUE,5,12,21,NA,A. indica | seeds | T. evansi
+A. indica,seeds,T. evansi,0.5mg/ml,0.5,18.630000000000003,16,TRUE,5,12,17,NA,A. indica | seeds | T. evansi
+A. indica,seeds,T. evansi,100mg/ml,100,0,40,FALSE,0,NA,NA,0,A. indica | seeds | T. evansi
+A. indica,seeds,T. evansi,10mg/ml,10,0,40,FALSE,0,NA,NA,0,A. indica | seeds | T. evansi
+A. indica,seeds,T. evansi,Negative Control,NA,72.76,24,TRUE,5,7,24,NA,A. indica | seeds | T. evansi
+A. indica,seeds,T. evansi,Positive Control,NA,0,40,FALSE,0,NA,NA,0,A. indica | seeds | T. evansi
+A. indica,stem bark,T. congolense,0.005mg/ml,0.005,30.47,15,TRUE,5,7,15,NA,A. indica | stem bark | T. congolense
+A. indica,stem bark,T. congolense,0.01mg/ml,0.01,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. congolense
+A. indica,stem bark,T. congolense,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. congolense
+A. indica,stem bark,T. congolense,100mg/ml,100,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. congolense
+A. indica,stem bark,T. congolense,10mg/ml,10,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. congolense
+A. indica,stem bark,T. congolense,Negative Control,NA,19.990000000000002,10,TRUE,5,4,10,NA,A. indica | stem bark | T. congolense
+A. indica,stem bark,T. congolense,Positive Control,NA,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. congolense
+A. indica,stem bark,T. evansi,0.005mg/ml,0.005,33.5497,35,TRUE,5,27,35,NA,A. indica | stem bark | T. evansi
+A. indica,stem bark,T. evansi,0.01mg/ml,0.01,24.8087,36,TRUE,3.74,27,36,NA,A. indica | stem bark | T. evansi
+A. indica,stem bark,T. evansi,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. evansi
+A. indica,stem bark,T. evansi,100mg/ml,100,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. evansi
+A. indica,stem bark,T. evansi,10mg/ml,10,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. evansi
+A. indica,stem bark,T. evansi,Negative Control,NA,29.207,13,TRUE,5,7,13,NA,A. indica | stem bark | T. evansi
+A. indica,stem bark,T. evansi,Positive Control,NA,0,40,FALSE,0,NA,NA,0,A. indica | stem bark | T. evansi
+M. oleifera,leaves,T. congolense,0.005mg/ml,0.005,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. congolense
+M. oleifera,leaves,T. congolense,0.01mg/ml,0.01,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. congolense
+M. oleifera,leaves,T. congolense,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. congolense
+M. oleifera,leaves,T. congolense,100mg/ml,100,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. congolense
+M. oleifera,leaves,T. congolense,10mg/ml,10,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. congolense
+M. oleifera,leaves,T. congolense,Negative Control,NA,24.14,12,TRUE,5,6,12,NA,M. oleifera | leaves | T. congolense
+M. oleifera,leaves,T. congolense,Positive Control,NA,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. congolense
+M. oleifera,leaves,T. evansi,0.005mg/ml,0.005,17.685,21,TRUE,1.67,10,21,NA,M. oleifera | leaves | T. evansi
+M. oleifera,leaves,T. evansi,0.01mg/ml,0.01,11.335,21,TRUE,1.67,14,21,NA,M. oleifera | leaves | T. evansi
+M. oleifera,leaves,T. evansi,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. evansi
+M. oleifera,leaves,T. evansi,100mg/ml,100,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. evansi
+M. oleifera,leaves,T. evansi,10mg/ml,10,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. evansi
+M. oleifera,leaves,T. evansi,Negative Control,NA,56.95,24,TRUE,5,9,24,NA,M. oleifera | leaves | T. evansi
+M. oleifera,leaves,T. evansi,Positive Control,NA,0,40,FALSE,0,NA,NA,0,M. oleifera | leaves | T. evansi
+M. oleifera,roots,T. congolense,0.005mg/ml,0.005,28.46,14,TRUE,5,5,14,NA,M. oleifera | roots | T. congolense
+M. oleifera,roots,T. congolense,0.01mg/ml,0.01,44.38,20,TRUE,5,9,20,NA,M. oleifera | roots | T. congolense
+M. oleifera,roots,T. congolense,0.5mg/ml,0.5,46.28,22,TRUE,5,9,22,NA,M. oleifera | roots | T. congolense
+M. oleifera,roots,T. congolense,100mg/ml,100,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. congolense
+M. oleifera,roots,T. congolense,10mg/ml,10,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. congolense
+M. oleifera,roots,T. congolense,Negative Control,NA,17.7,10,TRUE,5,5,10,NA,M. oleifera | roots | T. congolense
+M. oleifera,roots,T. congolense,Positive Control,NA,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. congolense
+M. oleifera,roots,T. evansi,0.005mg/ml,0.005,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. evansi
+M. oleifera,roots,T. evansi,0.01mg/ml,0.01,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. evansi
+M. oleifera,roots,T. evansi,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. evansi
+M. oleifera,roots,T. evansi,100mg/ml,100,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. evansi
+M. oleifera,roots,T. evansi,10mg/ml,10,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. evansi
+M. oleifera,roots,T. evansi,Negative Control,NA,97.755,38,TRUE,5,7,39,NA,M. oleifera | roots | T. evansi
+M. oleifera,roots,T. evansi,Positive Control,NA,0,40,FALSE,0,NA,NA,0,M. oleifera | roots | T. evansi
+M. oleifera,seeds,T. congolense,0.005mg/ml,0.005,37.24,35,TRUE,2.77,14,35,NA,M. oleifera | seeds | T. congolense
+M. oleifera,seeds,T. congolense,0.01mg/ml,0.01,37.56,15,TRUE,5,6,15,NA,M. oleifera | seeds | T. congolense
+M. oleifera,seeds,T. congolense,0.5mg/ml,0.5,45.150000000000006,17,TRUE,5,5,17,NA,M. oleifera | seeds | T. congolense
+M. oleifera,seeds,T. congolense,100mg/ml,100,0,40,FALSE,0,NA,NA,0,M. oleifera | seeds | T. congolense
+M. oleifera,seeds,T. congolense,10mg/ml,10,55.64,24,TRUE,5,9,24,NA,M. oleifera | seeds | T. congolense
+M. oleifera,seeds,T. congolense,Negative Control,NA,47.28,16,TRUE,5,5,16,NA,M. oleifera | seeds | T. congolense
+M. oleifera,seeds,T. congolense,Positive Control,NA,0,40,FALSE,0,NA,NA,0,M. oleifera | seeds | T. congolense
+M. oleifera,seeds,T. evansi,0.005mg/ml,0.005,0,40,FALSE,0,NA,NA,0,M. oleifera | seeds | T. evansi
+M. oleifera,seeds,T. evansi,0.01mg/ml,0.01,0,40,FALSE,0,NA,NA,0,M. oleifera | seeds | T. evansi
+M. oleifera,seeds,T. evansi,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,M. oleifera | seeds | T. evansi
+M. oleifera,seeds,T. evansi,100mg/ml,100,0,40,FALSE,0,NA,NA,0,M. oleifera | seeds | T. evansi
+M. oleifera,seeds,T. evansi,10mg/ml,10,0,40,FALSE,0,NA,NA,0,M. oleifera | seeds | T. evansi
+M. oleifera,seeds,T. evansi,Negative Control,NA,44.86,20,TRUE,5,8,20,NA,M. oleifera | seeds | T. evansi
+M. oleifera,seeds,T. evansi,Positive Control,NA,0,40,FALSE,0,NA,NA,0,M. oleifera | seeds | T. evansi
+M. oleifera,stem bark,T. congolense,0.005mg/ml,0.005,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. congolense
+M. oleifera,stem bark,T. congolense,0.01mg/ml,0.01,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. congolense
+M. oleifera,stem bark,T. congolense,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. congolense
+M. oleifera,stem bark,T. congolense,100mg/ml,100,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. congolense
+M. oleifera,stem bark,T. congolense,10mg/ml,10,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. congolense
+M. oleifera,stem bark,T. congolense,Negative Control,NA,29.1,15,TRUE,5,8,15,NA,M. oleifera | stem bark | T. congolense
+M. oleifera,stem bark,T. congolense,Positive Control,NA,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. congolense
+M. oleifera,stem bark,T. evansi,0.005mg/ml,0.005,59.28,20,TRUE,5,6,20,NA,M. oleifera | stem bark | T. evansi
+M. oleifera,stem bark,T. evansi,0.01mg/ml,0.01,85.67,26,TRUE,5,6,26,NA,M. oleifera | stem bark | T. evansi
+M. oleifera,stem bark,T. evansi,0.5mg/ml,0.5,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. evansi
+M. oleifera,stem bark,T. evansi,100mg/ml,100,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. evansi
+M. oleifera,stem bark,T. evansi,10mg/ml,10,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. evansi
+M. oleifera,stem bark,T. evansi,Negative Control,NA,51.45,17,TRUE,5,5,17,NA,M. oleifera | stem bark | T. evansi
+M. oleifera,stem bark,T. evansi,Positive Control,NA,0,40,FALSE,0,NA,NA,0,M. oleifera | stem bark | T. evansi

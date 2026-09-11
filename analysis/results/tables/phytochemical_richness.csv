@@ -1,0 +1,9 @@
+plant,part,n_present,n_absent
+A. indica,leaves,6,6
+A. indica,roots,3,9
+A. indica,seeds,5,7
+A. indica,stem bark,3,9
+M. oleifera,leaves,6,6
+M. oleifera,roots,4,8
+M. oleifera,seeds,4,8
+M. oleifera,stem bark,4,8
