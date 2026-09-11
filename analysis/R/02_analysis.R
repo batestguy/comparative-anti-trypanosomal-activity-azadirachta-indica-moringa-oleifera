@@ -122,28 +122,38 @@ write_csv(pcv_grp,  file.path(tab_dir, "endpoints_pcv.csv"))
 # ── helpers for paired contrasts ─────────────────────────────────────────
 paired_contrast <- function(d, value, g1, g2, pair, label) {
   # d: data frame; value: numeric col; g1/g2: group labels within `grp_col`;
-  # pair: pairing id col. Returns 1-row tibble w/ W, exact p, HL est+CI, r_rb.
+  # pair: pairing id col. Returns 1-row tibble w/ W, p, HL est+CI, r_rb,
+  # plus tie/zero diagnostics. Exact p only when no ties/zeros exist;
+  # otherwise the continuity-corrected normal approximation (recorded in
+  # p_method) — R's exact distribution is invalid with tied ranks.
   x <- d %>% filter(group == g1) %>% arrange(.data[[pair]])
   y <- d %>% filter(group == g2) %>% arrange(.data[[pair]])
   stopifnot(identical(x[[pair]], y[[pair]]))
   ok <- !is.na(x[[value]]) & !is.na(y[[value]])
   n_pair <- sum(ok)
   if (n_pair < 5) {
-    return(tibble(contrast = label, n_pairs = n_pair, W = NA_real_,
-                  p_exact = NA_real_, hl_est = NA_real_,
+    return(tibble(contrast = label, n_pairs = n_pair, n_nonzero = NA_integer_,
+                  n_ties = NA_integer_, W = NA_real_,
+                  p = NA_real_, p_method = NA_character_, hl_est = NA_real_,
                   hl_l = NA_real_, hl_u = NA_real_, r_rb = NA_real_,
                   note = "n<5: descriptive only"))
   }
-  w <- suppressWarnings(wilcox.test(x[[value]][ok], y[[value]][ok],
-                                    paired = TRUE, exact = TRUE, conf.int = TRUE))
+  dd_all <- x[[value]][ok] - y[[value]][ok]
+  n_zero <- sum(dd_all == 0)
+  nz <- dd_all[dd_all != 0]
+  n_ties <- sum(duplicated(abs(nz)) | duplicated(abs(nz), fromLast = TRUE))
+  use_exact <- (n_zero == 0 && n_ties == 0)
+  w <- wilcox.test(x[[value]][ok], y[[value]][ok],
+                   paired = TRUE, exact = use_exact, conf.int = TRUE)
   # matched-pairs rank-biserial (Kerby simple formula: dominance rate over
   # nonzero paired differences) — the paired-data member of Cliff's delta family
-  dd <- x[[value]][ok] - y[[value]][ok]
-  dd <- dd[dd != 0]
+  dd <- nz
   r_rb <- if (length(dd) == 0) 0 else
     (sum(dd > 0) - sum(dd < 0)) / length(dd)
-  tibble(contrast = label, n_pairs = n_pair, W = unname(w$statistic),
-         p_exact = w$p.value, hl_est = unname(w$estimate),
+  tibble(contrast = label, n_pairs = n_pair, n_nonzero = length(nz),
+         n_ties = n_ties, W = unname(w$statistic),
+         p = w$p.value, p_method = ifelse(use_exact, "exact", "asymptotic"),
+         hl_est = unname(w$estimate),
          hl_l = w$conf.int[1], hl_u = w$conf.int[2],
          r_rb = r_rb, note = NA_character_)
 }
@@ -196,11 +206,27 @@ for (ps in c("T. congolense", "T. evansi")) {
     paired_contrast(sub, "auc", cc, "Negative Control", "block",
                     paste0(cc, " vs NC | ", ps))
   }) %>% bind_rows() %>%
-    mutate(p_holm = p.adjust(p_exact, "holm"))
+    mutate(p_holm = p.adjust(p, "holm"))
   dose_vs_nc[[ps]] <- res
 }
 dose_vs_nc_tbl <- bind_rows(dose_vs_nc)
 write_csv(dose_vs_nc_tbl, file.path(tab_dir, "dose_vs_nc_auc.csv"))
+
+# ── 3b. Post-hoc: each dose vs Negative Control on motility (mean %motile) ──
+# Runs regardless of omnibus outcome (both ornibuses are highly significant),
+# Holm-adjusted per parasite like the AUC family.
+mot_vs_nc <- list()
+for (ps in c("T. congolense", "T. evansi")) {
+  sub <- mot_grp %>% filter(parasite == ps, group %in% c(CONC, "Negative Control"))
+  res <- lapply(CONC, function(cc) {
+    paired_contrast(sub, "mean_motile", cc, "Negative Control", "block",
+                    paste0(cc, " vs NC | ", ps))
+  }) %>% bind_rows() %>%
+    mutate(p_holm = p.adjust(p, "holm"))
+  mot_vs_nc[[ps]] <- res
+}
+mot_vs_nc_tbl <- bind_rows(mot_vs_nc)
+write_csv(mot_vs_nc_tbl, file.path(tab_dir, "dose_vs_nc_motility.csv"))
 
 # ── 4. Plant superiority (paired by part x parasite, 8 pairs) ────────────
 plant_wide <- para_grp %>% filter(group %in% c(CONC, "Negative Control")) %>%
@@ -273,6 +299,68 @@ wp_contrast <- function(d, val, label_prefix, outfile) {
 wp_contrast(wt_grp, "delta", "weight delta: ", "weight_tests.csv")
 wp_contrast(pcv_grp, "delta", "pcv delta: ", "pcv_tests.csv")
 
+# ── 6b. Diagnostics: LOO sensitivity + paired-difference symmetry ─────────
+# LOO re-runs every headline paired claim dropping one pair at a time.
+# A claim is "stable" if no single pair flips its significance conclusion.
+loo_wilcox <- function(d, value, g1, g2, pair) {
+  x <- d %>% filter(group == g1) %>% arrange(.data[[pair]])
+  y <- d %>% filter(group == g2) %>% arrange(.data[[pair]])
+  ids <- x[[pair]]
+  out <- lapply(seq_along(ids), function(k) {
+    xx <- x[[value]][-k]; yy <- y[[value]][-k]
+    ok <- !is.na(xx) & !is.na(yy)
+    dd <- (xx - yy)[ok]; nz <- dd[dd != 0]
+    ties <- sum(duplicated(abs(nz)) | duplicated(abs(nz), fromLast = TRUE))
+    p <- suppressWarnings(wilcox.test(xx[ok], yy[ok], paired = TRUE,
+                       exact = (sum(dd == 0) == 0 && ties == 0))$p.value)
+    tibble(dropped = ids[k], p_loo = p,
+           hl_loo = suppressWarnings(wilcox.test(xx[ok], yy[ok], paired = TRUE,
+                        exact = FALSE, conf.int = TRUE)$estimate))
+  })
+  bind_rows(out)
+}
+loo_collect <- function(d, value, g1, g2, pair, label, alpha = 0.05) {
+  full_p <- paired_contrast(d, value, g1, g2, pair, label)$p
+  loo <- loo_wilcox(d, value, g1, g2, pair)
+  tibble(contrast = label, full_p = full_p,
+         loo_p_min = min(loo$p_loo, na.rm = TRUE),
+         loo_p_max = max(loo$p_loo, na.rm = TRUE),
+         loo_significant = sum(loo$p_loo < alpha, na.rm = TRUE),
+         loo_runs = nrow(loo),
+         stable = ifelse(full_p < alpha,
+                         all(loo$p_loo < alpha, na.rm = TRUE),
+                         all(loo$p_loo >= alpha, na.rm = TRUE)))
+}
+sens <- bind_rows(
+  loo_collect(para_grp %>% filter(parasite == "T. evansi"),
+              "auc", "100mg/ml", "Negative Control", "block", "evansi 100mg vs NC"),
+  loo_collect(para_grp %>% filter(parasite == "T. evansi"),
+              "auc", "10mg/ml", "Negative Control", "block", "evansi 10mg vs NC"),
+  loo_collect(para_grp %>% filter(parasite == "T. evansi"),
+              "auc", "0.5mg/ml", "Negative Control", "block", "evansi 0.5mg vs NC"),
+  loo_collect(para_grp %>% filter(parasite == "T. congolense"),
+              "auc", "100mg/ml", "Negative Control", "block", "congolense 100mg vs NC"),
+  loo_collect(plant_wide %>% pivot_longer(c(A_indica, M_oleifera),
+              names_to = "group", values_to = "auc"),
+              "auc", "A_indica", "M_oleifera", "pair", "plant superiority")
+)
+write_csv(sens, file.path(tab_dir, "sensitivity_loo.csv"))
+
+# paired differences for symmetry inspection (signed-rank assumes symmetric diffs)
+sym_diffs <- bind_rows(
+  para_grp %>% filter(parasite == "T. evansi", group %in% c("100mg/ml", "Negative Control")) %>%
+    select(block, group, auc) %>% pivot_wider(names_from = group, values_from = auc) %>%
+    mutate(diff = `100mg/ml` - `Negative Control`,
+           contrast = "evansi 100mg-NC") %>% select(contrast, diff),
+  para_grp %>% filter(parasite == "T. congolense", group %in% c("100mg/ml", "Negative Control")) %>%
+    select(block, group, auc) %>% pivot_wider(names_from = group, values_from = auc) %>%
+    mutate(diff = `100mg/ml` - `Negative Control`,
+           contrast = "congolense 100mg-NC") %>% select(contrast, diff),
+  plant_wide %>% mutate(diff = A_indica - M_oleifera,
+                        contrast = "plant A-M") %>% select(contrast, diff)
+)
+write_csv(sym_diffs, file.path(tab_dir, "diagnostic_paired_diffs.csv"))
+
 # ── 7. Phytochemical: descriptive richness + exploratory efficacy overlay ─
 phy_rich <- phy %>% group_by(plant, part) %>%
   summarise(n_present = sum(present, na.rm = TRUE),
@@ -326,6 +414,18 @@ p3 <- plant_wide %>%
 ggsave(file.path(fig_dir, "plant_paired_auc.png"),
        p3, width = 7, height = 6, dpi = 150)
 
+p3b <- sym_diffs %>%
+  ggplot(aes(contrast, diff)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_jitter(width = 0.15, size = 2.5, alpha = 0.7, na.rm = TRUE) +
+  stat_summary(fun = median, geom = "crossbar", width = 0.4,
+               colour = "red", na.rm = TRUE) +
+  labs(title = "Paired differences: symmetry check (red = median)",
+       x = NULL, y = "Paired difference (AUC-days)") +
+  coord_flip()
+ggsave(file.path(fig_dir, "diagnostic_paired_diffs.png"),
+       p3b, width = 8, height = 4, dpi = 150)
+
 p4 <- ggplot(mot, aes(time_min, motile, colour = group)) +
   stat_summary(fun = mean, geom = "line", aes(group = interaction(block, group)),
                alpha = 0.8, na.rm = TRUE) +
@@ -369,8 +469,10 @@ ggsave(file.path(fig_dir, "phytochemical_heatmap.png"),
 # ── 9. Console headline summary ──────────────────────────────────────────
 cat("\n=== DOSE-RESPONSE (parasitemia AUC) ===\n"); print(dose_resp_tbl)
 cat("\n=== DOSE vs NC (AUC, Holm per parasite) ===\n"); print(dose_vs_nc_tbl)
+cat("\n=== DOSE vs NC (motility, Holm per parasite) ===\n"); print(mot_vs_nc_tbl)
 cat("\n=== PLANT SUPERIORITY (AUC) ===\n"); print(plant_sup)
 cat("\n=== PLANT SUPERIORITY (motility) ===\n"); print(plant_sup_mot)
 cat("\n=== PARASITE COMPARISON (AUC) ===\n"); print(parasite_cmp)
+cat("\n=== LOO SENSITIVITY (headline claims) ===\n"); print(sens)
 cat("\nDone. Tables:", length(list.files(tab_dir)),
     " Figures:", length(list.files(fig_dir)), "\n")

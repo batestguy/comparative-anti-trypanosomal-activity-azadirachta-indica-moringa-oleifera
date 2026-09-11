@@ -26,155 +26,252 @@ k <- function(f) kable(read_csv(file.path(tab_dir, f), show_col_types = FALSE),
                        digits = 4)
 ```
 
-## Aim and objectives
+## 1. Aim, objectives and section map
 
-The aim of this study is to comparatively evaluate the anti-trypanosomal activity
-of methanolic extracts of the leaves, stem bark, roots and seeds of
+The aim of this study is to comparatively evaluate the anti-trypanosomal
+activity of methanolic extracts of the leaves, stem bark, roots and seeds of
 *Azadirachta indica* and *Moringa oleifera* against *Trypanosoma congolense*
-and *T. evansi* (thesis §1.8.1).
+and *T. evansi* (thesis §1.8.1). Each specific objective (§1.8.2) is addressed
+in a dedicated results section: extraction (i) in §5.1, phytochemical
+characterisation (ii) in §5.2, the in-vitro motility assay (iii) in §5.3,
+in-vivo infectivity monitoring (iv) in §5.4, and the comparative superiority
+assessment (v) in §5.5. The analysis protocol, diagnostic checks and
+limitations follow in §6–§7.
 
-Specific objectives (§1.8.2): (i) methanolic extraction; (ii) phytochemical
-identification/characterisation; (iii) in-vitro motility dose–response at 100,
-10, 0.5, 0.01 and 0.005 mg/ml against both parasites; (iv) in-vivo infectivity
-in albino mice (body weight, parasitaemia, PCV); (v) comparative efficacy and
-superior agent. Objectives i–ii are laboratory procedures reported
-descriptively; this report covers the statistical analysis for iii–v.
+## 2. Data and experimental design
 
-## Data and design
+Source data are group means of n = 3 mice per group, parsed from Sheet 2 of
+the study workbook into tidy CSVs (`analysis/data/`, builder
+`analysis/R/01_build_datasets.R`). Within any plant × part × parasite block,
+each of the 7 groups (five concentrations plus two controls) is therefore
+n = 1 and supports description only. The analytical unit throughout is the
+**block (N = 16; 8 per plant, 8 per parasite)**. Plant contrasts pair blocks
+by part × parasite (8 pairs); parasite contrasts pair by plant × part
+(8 pairs). Treatments appear as labelled in the source — Negative Control and
+Positive Control, whose identities and doses are not stated in Sheet 2 — so
+the Positive Control serves as an assay-validity reference only, not as a
+non-inferiority comparator.
 
-Source data are group means of n = 3 mice per group, parsed from Sheet 2 of the
-study workbook into tidy CSVs (`analysis/data/`, builder
-`analysis/R/01_build_datasets.R`). Within any plant × part × parasite block
-each of the 7 groups is therefore n = 1 (descriptive only). The analytical
-unit is the **block (N = 16; 8 per plant, 8 per parasite)**; plant contrasts
-use 8 part × parasite pairs, parasite contrasts 8 plant × part pairs.
-Treatments are labelled Negative Control / Positive Control exactly as in the
-source (identities and doses not stated in Sheet 2); the Positive Control
-serves as assay-validity reference only.
+## 3. Endpoints
 
-## Endpoints
+Parasitaemia is recorded on the ordinal LEV scale (0–5). Because day-40 LEV
+proved degenerate (0 of 112 groups positive at day 40 — 68 zeros and 44
+deaths — while positivity peaks near 30% around days 9–14), the primary
+parasitaemia endpoint is the **AUC** (death-censored trapezoidal sum over
+observed days, always reported alongside mortality), supported by peak LEV,
+clearance day and day-40 status. Motility (+/−) is summarised per group as
+time-to-immobilisation (TTI), proportion motile at t = 120 and mean proportion
+motile; the source key defines only `+ Active motility` and `− No motility`
+(`+-` is undefined and was set to NA, 2 cells). Body weight and PCV use
+Δ = Post-Infection − Pre-Infection with literature-standard flags — anaemia at
+Post PCV < 35% or ≥ 25% relative drop (severe: < 30% or ≥ 40%; Noyes et al.
+2009; Naessens et al. 2005; Gitonga et al. 2017) and weight-toxicity signal at
+≥ 10% loss (severe: ≥ 20%, the standard humane-endpoint range). Raw LEV
+values above the 0–5 scale (42 cells: 41 decimals 5.01–5.3 plus one LEV = 6)
+were capped to 5 with pre-cap values preserved (`lev_raw`) and flagged.
+Missing in-vivo values are treated as animal death — an adopted convention,
+since Sheet 2 never states it — and are never imputed.
 
-- **Parasitaemia (LEV 0–5 ordinal):** primary = **AUC** (death-censored
-  trapezoidal sum over observed days, reported with mortality); supporting =
-  peak LEV, clearance day, day-40 status. Day-40 LEV alone is degenerate
-  (0/112 groups positive at day 40: 68 zeros, 44 dead; positivity peaks ~30%
-  around days 9–14) and is not used as a primary endpoint.
-- **Motility (binary +/−):** time-to-immobilisation (TTI), % motile at t = 120,
-  mean proportion motile. Source key: `+ Active motility; − No motility`
-  (`+-` undefined → NA, 2 cells).
-- **Weight / PCV:** Δ = Post-Infection − Pre-Infection, with
-  literature-standard flags — anemia: Post PCV < 35% or ≥ 25% relative drop
-  (severe: < 30% or ≥ 40%; Noyes et al. 2009; Naessens et al. 2005; Gitonga et
-  al. 2017); weight toxicity signal: ≥ 10% loss (severe: ≥ 20%, the standard
-  humane-endpoint range).
-- Raw LEV values above the 0–5 scale (42 cells: 41 decimals 5.01–5.3, one
-  LEV = 6) were capped to 5 with the pre-cap value preserved (`lev_raw`) and
-  flagged. Missing in-vivo values are treated as animal death (adopted
-  convention — Sheet 2 never states it; never imputed).
+## 4. Statistical methods
 
-## Statistical methods
+Descriptive analysis is primary: trajectory plots per block, endpoint tables,
+and flag tabulations. Inference is entirely rank-based (LEV ordinal, N
+small): Friedman tests blocked by block for ordered dose trends with pooled
+Spearman ρ on log10(concentration) as the trend effect; paired Wilcoxon
+signed-rank tests (exact where the data permit, otherwise the
+continuity-corrected normal approximation — see §6) for dose-vs-control and
+for plant/parasite contrasts, each with the matched-pairs rank-biserial
+effect size (Cliff's delta family; |r| ≥ 0.11/0.28/0.43 small/medium/large
+per Vargha & Delaney 2000) and the Hodges–Lehmann median difference with 95%
+CI. The dose-vs-control Wilcoxons are the formal post-hoc family following
+each omnibus trend test, Holm-adjusted per parasite; plant and parasite
+contrasts address independent questions and are not corrected across
+questions. Per-block trend tests at n = 1 have no power and pooled trend
+tests would break independence, so only the blocked Friedman is reported as
+inference. Significance is set at p < 0.05 with p-values supplementary to
+effect sizes. All computation is in `analysis/R/02_analysis.R` (statistics
+only, no machine learning).
 
-All tests are rank-based (LEV ordinal, N small): Friedman test blocked by
-block for dose trends with pooled Spearman ρ for log10(concentration);
-paired Wilcoxon signed-rank (exact) for dose-vs-Negative-Control and for
-plant/parasite contrasts, with matched-pairs rank-biserial effect size
-(Cliff's delta family; |r| ≥ 0.11/0.28/0.43 small/medium/large per Vargha &
-Delaney 2000) and Hodges–Lehmann median difference with 95% CI; Holm
-adjustment within each dose-vs-control family. Per-block trend tests at n = 1
-have no power and pooled trend tests would break independence, so only the
-blocked Friedman is reported as inference. Significance at p < 0.05;
-p-values are supplementary to effect sizes. Analysis script:
-`analysis/R/02_analysis.R` (statistics only, no ML).
+## 5.1. Objective i — methanolic extraction
 
-## Results — dose response (objective iii–iv)
+Objective i (extraction of leaves, stem bark, roots and seeds of both plants
+under standard phytochemical protocols) is a laboratory procedure with no
+statistical component: no yields or replicates are recorded in the available
+data, so there is nothing to estimate or test. It is reported here only to
+keep the objective map complete; efficacy inference begins with the
+characterised extracts in §5.2–§5.5.
 
-Mean AUC falls monotonically with concentration for *T. evansi* and
-approximately for *T. congolense* (@fig-dose).
+## 5.2. Objective ii — phytochemical contents
+
+Screening detected all 12 assayed compound classes across the design, with
+richness concentrated in leaves and seeds (@tbl-phyto). *M. oleifera*
+leaves carry the broadest profile (9 of 12 classes present) while stem bark
+in both plants is the sparsest fraction; no compound is unique to a single
+plant part in a way that alone explains efficacy. Because only eight
+plant × part combinations exist, these data support description only: the
+presence matrix (@fig-phyto) is the result, and any compound–efficacy
+association is an exploratory overlay tabulated without inference in
+`phytochemical_efficacy_overlay.csv`.
+
+```{r}
+#| label: tbl-phyto
+#| tbl-cap: Phytochemical richness per plant and part (descriptive; screening data, no tests).
+k("phytochemical_richness.csv")
+```
+
+![Phytochemical presence by plant and part](`r file.path(fig_dir, "phytochemical_heatmap.png")`){#fig-phyto}
+
+## 5.3. Objective iii — in-vitro motility dose response
+
+Motility collapses with both time and concentration in every block
+(@fig-mot-traj): Negative Controls remain motile through 120 minutes while
+100 mg/ml immobilises parasites within 15–30 minutes in most blocks, and the
+recovered Positive Control rows show the expected rapid kill (+ at t = 0,
+immobile thereafter). Group-level summaries (TTI, t120, mean proportion
+motile; `endpoints_motility.csv`) confirm the pattern numerically — TTI is
+derivable for 82 of 112 groups, the remainder being groups that never
+immobilise (chiefly Negative Controls). The blocked dose–response test is
+highly significant for both parasites (@tbl-mot-dose: *T. congolense*
+Friedman Q = 27.75, p < 0.001, pooled ρ = −0.70; *T. evansi* Q = 30.32,
+p < 0.001, ρ = −0.88), and mean AUC-equivalent motility falls monotonically
+with log-concentration. Post-hoc dose-vs-control contrasts (@tbl-mot-posthoc)
+show large, consistent effects at the top doses (rank-biserial −1; HL
+reduction ≈ −0.83 for *congolense* 100 mg/ml and −0.89 for *evansi*
+100 mg/ml) that sit just above the Holm-adjusted threshold (Holm 0.065 and
+0.052) — strong but, at N = 8 blocks, formally inconclusive after
+multiplicity control. Lower doses are indistinguishable from the control.
+
+```{r}
+#| label: tbl-mot-dose
+#| tbl-cap: Motility dose-response on mean proportion motile (Friedman blocked by block; Spearman on log10 dose).
+k("dose_response_motility.csv")
+```
+
+```{r}
+#| label: tbl-mot-posthoc
+#| tbl-cap: Post-hoc motility contrasts, each dose vs Negative Control (paired Wilcoxon by block; Holm per parasite).
+k("dose_vs_nc_motility.csv")
+```
+
+![Motility trajectories by block](`r file.path(fig_dir, "motility_trajectories_faceted.png")`){#fig-mot-traj}
+
+## 5.4. Objective iv — in-vivo infectivity
+
+### Parasitaemia
+
+LEV trajectories rise from day 1, peak around days 9–14 and resolve toward
+zero by day 40 in survivors (@fig-para-traj); mortality (44 of 112 groups
+with at least one dead-animal day, first deaths days 9–37) accompanies the
+decline, which is why AUC rather than day-40 LEV carries the inference.
+Cumulative burden falls monotonically with concentration (@fig-auc),
+significantly for *T. evansi* (@tbl-dose: Friedman Q = 14.51, p = 0.006,
+pooled ρ = −0.51) and suggestively for *T. congolense* (Q = 8.52, p = 0.074,
+ρ = −0.42). Post-hoc contrasts (@tbl-para-posthoc) confirm the gradient for
+*T. evansi*: 100, 10 and 0.5 mg/ml each beat the Negative Control in all
+eight blocks (W = 0, exact p = 0.008, Holm 0.039; HL ≈ −50/−50/−44 AUC-days),
+while 0.01 and 0.005 mg/ml do not survive correction (Holm 0.078). For
+*T. congolense* only 100 mg/ml is suggestive (p = 0.014, Holm 0.071) and no
+dose is significant after correction. No parasite-level difference in AUC was
+found (paired p = 0.46; @tbl-other).
 
 ```{r}
 #| label: tbl-dose
-#| tbl-cap: Dose-response tests on parasitaemia AUC (Friedman blocked by block; Spearman on log10 dose).
+#| tbl-cap: Parasitaemia dose-response on AUC (Friedman blocked by block; Spearman on log10 dose).
 k("dose_response.csv")
 ```
 
-![Mean AUC vs log10(concentration) by parasite](`r file.path(fig_dir, "auc_dose_response.png")`){#fig-dose}
-
-## Results — doses vs Negative Control
-
-*T. evansi*: 100, 10 and 0.5 mg/ml all beat the control in every block
-(W = 0, exact p = 0.008, Holm 0.039; HL ≈ −50/−50/−44 AUC-days). Lower doses
-are weaker (Holm 0.078). *T. congolense*: only 100 mg/ml is suggestive
-(p = 0.014, Holm 0.071) — not significant after correction.
-
 ```{r}
-#| label: tbl-vsnc
-#| tbl-cap: Each dose vs Negative Control on AUC (paired Wilcoxon by block; Holm per parasite).
+#| label: tbl-para-posthoc
+#| tbl-cap: Post-hoc parasitaemia contrasts, each dose vs Negative Control on AUC (paired Wilcoxon by block; Holm per parasite).
 k("dose_vs_nc_auc.csv")
 ```
 
-## Results — plant superiority (objective v)
+![Mean AUC vs log10(concentration) by parasite](`r file.path(fig_dir, "auc_dose_response.png")`){#fig-auc}
 
-No evidence of a difference between *A. indica* and *M. oleifera*: paired
-W = 14, exact p = 1.0, HL ≈ 0.3 AUC-days, 95% CI (−14.7, +20.5); motility
-paired p = 0.15. Pairs scatter on both sides of identity (@fig-paired), so
-at N = 8 pairs the data cannot support a superiority claim.
+![Parasitaemia trajectories by block](`r file.path(fig_dir, "parasitemia_trajectories_faceted.png")`){#fig-para-traj}
+
+### Body weight and PCV
+
+Weight and PCV deltas centre near zero with wide scatter (@fig-wt,
+@fig-pcv); neither plant nor parasite contrasts approach significance
+(@tbl-other: weight plant p = 0.31, parasite p = 0.15; PCV plant p = 0.74,
+parasite p = 0.95). Toxicity and anaemia flags (`endpoints_weight.csv`,
+`endpoints_pcv.csv`) are therefore the substantive read-out: they identify
+the groups paying a physiological price for infection regardless of
+treatment, consistent with efficacy that is parasitological rather than
+confounded by differential toxicity.
 
 ```{r}
-#| label: tbl-superiority
-#| tbl-cap: Plant superiority contrasts (8 pairs each).
+#| label: tbl-other
+#| tbl-cap: Parasite, weight and PCV contrasts (paired Wilcoxon; 8 pairs each).
+k("parasite_comparison.csv")
+k("weight_tests.csv")
+k("pcv_tests.csv")
+```
+
+![Body-weight change Post−Pre (g)](`r file.path(fig_dir, "weight_delta_boxplot.png")`){#fig-wt}
+
+![PCV change Post−Pre (pp)](`r file.path(fig_dir, "pcv_delta_boxplot.png")`){#fig-pcv}
+
+## 5.5. Objective v — comparative superiority
+
+There is no evidence that either plant is superior. Block-mean AUC pairs
+scatter on both sides of identity (@fig-paired): paired W = 14, exact
+p = 1.0, HL ≈ 0.3 AUC-days with 95% CI (−14.7, +20.5), rank-biserial −0.14
+(@tbl-sup). The motility cross-check agrees (paired p = 0.15, HL 0.11).
+With only eight pairs the interval spans effects in both directions, so the
+data cannot support a superiority claim for either agent; the correct
+conclusion is the null, stated with its confidence interval rather than as a
+bare p-value.
+
+```{r}
+#| label: tbl-sup
+#| tbl-cap: Plant superiority contrasts (paired Wilcoxon; 8 pairs each).
 k("plant_superiority.csv")
 k("plant_superiority_motility.csv")
 ```
 
 ![Paired block-mean AUC: A. indica vs M. oleifera](`r file.path(fig_dir, "plant_paired_auc.png")`){#fig-paired}
 
-## Results — parasite contrast; weight and PCV
+## 6. Diagnostics, sensitivity and refits
 
-No parasite difference in AUC (p = 0.46). Weight and PCV deltas show no
-plant or parasite signals (all p ≥ 0.15); flags below are descriptive.
-
-```{r}
-#| label: tbl-other
-#| tbl-cap: Parasite, weight and PCV contrasts.
-k("parasite_comparison.csv")
-k("weight_tests.csv")
-k("pcv_tests.csv")
-```
-
-![Body-weight change Post−Pre (g)](`r file.path(fig_dir, "weight_delta_boxplot.png")`)
-
-![PCV change Post−Pre (pp)](`r file.path(fig_dir, "pcv_delta_boxplot.png")`)
-
-## Results — trajectories and phytochemistry
-
-![Parasitaemia trajectories by block](`r file.path(fig_dir, "parasitemia_trajectories_faceted.png")`)
-
-![Motility trajectories by block](`r file.path(fig_dir, "motility_trajectories_faceted.png")`)
-
-![Phytochemical presence by plant and part](`r file.path(fig_dir, "phytochemical_heatmap.png")`)
+Three diagnostics were run and each changed or confirmed the analysis.
+First, rank-test validity: several contrasts contain tied absolute
+differences (all five *T. congolense* dose contrasts; most motility
+contrasts, whose endpoint averages nine binary points) or dropped zero
+differences (plant superiority: one of eight pairs). Because R's exact
+Wilcoxon distribution is invalid with tied ranks, every contrast now records
+`n_nonzero`, `n_ties` and `p_method`, using the exact p-value only when
+neither occurs and the continuity-corrected normal approximation otherwise —
+this refit left all conclusions unchanged (e.g. *congolense* 100 mg/ml:
+asymptotic p = 0.014, Holm 0.071). Second, paired-difference symmetry, the
+remaining signed-rank assumption, was inspected visually (@fig-sym): the
+*evansi* differences sit entirely below zero (a location shift, unproblematic
+for the test), while the superiority differences spread symmetrically around
+zero, matching its null result. Third, leave-one-block-out sensitivity
+(@tbl-loo) shows every headline claim is stable — no single block flips any
+conclusion (evansi top doses: LOO p = 0.016 throughout; superiority null:
+LOO p 0.53–1.0). Completeness was verified structurally (4480/336/336/1008/96
+rows with 4 part levels enforced at build).
 
 ```{r}
-#| label: tbl-phyto
-#| tbl-cap: Phytochemical richness per plant and part (descriptive).
-k("phytochemical_richness.csv")
+#| label: tbl-loo
+#| tbl-cap: Leave-one-block-out sensitivity of headline claims (stable = no single block flips the conclusion).
+k("sensitivity_loo.csv")
 ```
 
-Per-compound efficacy overlays are exploratory only (n = 8 plant × part
-combos) and are tabulated without inference in
-`phytochemical_efficacy_overlay.csv`.
+![Paired differences: symmetry check (red = median)](`r file.path(fig_dir, "diagnostic_paired_diffs.png")`){#fig-sym}
 
-## Limitations
+## 7. Limitations
 
-1. Each CSV row is a mean of n = 3 mice; no within-group variance survives,
-   so all inference is at N = 16 blocks (8 per contrast) — power is low and
-   confidence intervals are wide; descriptive patterns carry the weight.
-2. Control identities/doses are unknown in the source; Positive Control is a
-   validity reference, not a non-inferiority comparator.
-3. Death-censored AUC favours early-death groups numerically; every AUC is
-   therefore reported alongside mortality — low AUC with high mortality reads
-   as failure, not efficacy.
-4. NA = death is an adopted convention (Sheet 2 never states it); confirm
-   against the thesis animal records if possible.
+Each CSV row is a mean of n = 3 mice, so no within-group variance survives
+and all inference rests on N = 16 blocks (8 per contrast) — power is low,
+intervals are wide, and descriptive patterns carry the weight. Control
+identities and doses are unknown in the source, so the Positive Control is a
+validity reference, not a comparator. Death-censored AUC favours early-death
+groups numerically, hence every AUC is read alongside mortality. NA = death
+is an adopted convention worth confirming against the animal records. All
+results are exploratory, not confirmatory.
 
 ## References (methods)
 
@@ -183,6 +280,7 @@ combos) and are tabulated without inference in
 - Wilcoxon, F. (1945). *Biometrics* 1(1): 86–89.
 - Cliff, N. (1993, 1996); Vargha, A. & Delaney, H.D. (2000). *J. Educ. Behav. Stat.* 25(2): 101–133.
 - Spearman, C. (1904). *Am. J. Psychol.* 15(1): 72–85.
+- Jonckheere, A. (1954); Terpstra, J.T. (1952) — ordered alternatives (design reference; blocked Friedman reported instead, see §4).
 - Noyes, H. et al. (2009). *PLoS ONE* 4(4): e5170.
 - Naessens, J. et al. (2005). *Clin. Exp. Immunol.* 139: 449–456.
 - Gitonga, P.K. et al. (2017). *Onderstepoort J. Vet. Res.* 84(1): a1412.
