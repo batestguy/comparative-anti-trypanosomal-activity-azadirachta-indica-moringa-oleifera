@@ -153,3 +153,10 @@ al. (2005); Gitonga et al. (2017). substantive literature is discussed in
 the report (§7): Rabe et al. (2024), Ujah et al. (2020), Datti et al.
 (2020), Tauheed et al. (2021), Wanzala et al. (2017), Sirak et al. (2024),
 Ogbole et al. (2021).
+
+## Licence
+
+© 2026 Jerry Zachary Bannister (batestguy). The contents of this repository are
+licensed under the Creative Commons Attribution 4.0 International licence
+(CC BY 4.0) — see [LICENSE](LICENSE). Reuse is permitted with attribution;
+please indicate if you made changes.
