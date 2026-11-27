@@ -11,6 +11,21 @@ mortality) against peak LEV 5 with universal mortality in Negative Controls;
 Holm-adjusted p = 0.039); *T. congolense* responds suggestively at 100 mg/ml
 only; the two plants are statistically indistinguishable (paired p = 1.0).
 
+## Watch the tour
+
+[![Walkthrough cover — mortality by dose](analysis/media/trypanosoma-tour-cover.jpg)](analysis/media/trypanosoma-tour.mp4)
+
+A 2:31 recorded walkthrough of the analysis — design, workbook quirks,
+phytochemistry, motility and time-to-immobilisation, parasitaemia, peak and
+mortality, plant superiority, weight/PCV, and the sensitivity refits. Every
+figure shown is the PNG in `analysis/results/figures` and every number is read
+from `analysis/results/tables`; nothing is illustrative.
+
+- `analysis/media/trypanosoma-tour.mp4` — 1280×720, 30 fps, ~13 MB
+- Music: “Headlock”, Imogen Heap (bed, not part of the licence below)
+- Rebuild it: `node analysis/reports/video/record-tour.js` with a local server
+  in the repo root, then mux (see `analysis/reports/video/README.md`)
+
 ## Repository layout
 
 ```text
@@ -31,7 +46,9 @@ only; the two plants are statistically indistinguishable (paired p = 1.0).
 │   ├── results/
 │   │   ├── tables/                # 20 result CSVs (endpoints, tests, diagnostics)
 │   │   └── figures/               # 15 PNGs (see screenshots below)
+│   ├── media/                     # walkthrough video + cover image
 │   └── reports/
+│       ├── video/                 # tour page + Playwright recorder (dev only)
 │       ├── report.qmd             # Quarto source of the statistical report
 │       ├── report.docx            # thesis chapter (Times New Roman, APA tables)
 │       ├── report.html            # self-contained review build

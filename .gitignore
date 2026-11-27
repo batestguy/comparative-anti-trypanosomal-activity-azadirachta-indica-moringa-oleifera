@@ -20,3 +20,6 @@
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Walkthrough build scratch (raw recordings, frames, title/end cards)
+analysis/reports/video/out/

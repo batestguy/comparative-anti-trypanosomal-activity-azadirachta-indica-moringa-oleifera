@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Walkthrough — anti-trypanosomal activity of A. indica and M. oleifera</title>
+<style>
+  :root {
+    --ink: #0d2a21;
+    --ink-soft: #2c4d40;
+    --muted: #6b8377;
+    --paper: #f7f3e8;
+    --paper-2: #efe9d8;
+    --rule: #d9d1b9;
+    --gold: #a8791a;
+    --gold-bright: #c9a227;
+    --congo: #e8695f;
+    --evansi: #17b3c4;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: auto; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .strip {
+    position: fixed; top: 0; left: 0; right: 0; height: 8px; z-index: 900;
+    background: repeating-linear-gradient(90deg, #0d3d2d 0 26px, var(--gold-bright) 26px 40px);
+  }
+  .scene {
+    position: relative; height: 720px; padding: 62px 60px 96px;
+    display: grid; grid-template-columns: 452px 1fr; gap: 46px; align-items: center;
+    border-bottom: 1px solid var(--rule); overflow: hidden;
+  }
+  .scene::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .45;
+    background-image: repeating-linear-gradient(135deg, rgba(13,61,45,.045) 0 2px, transparent 2px 28px);
+  }
+  .copy { position: relative; z-index: 2; }
+  .kicker {
+    font-size: 11.5px; letter-spacing: .19em; text-transform: uppercase;
+    font-weight: 700; color: var(--gold); margin: 0 0 16px;
+  }
+  h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-weight: 600; font-size: 38px; line-height: 1.12; letter-spacing: -.015em;
+    margin: 0 0 20px;
+  }
+  h2 em { font-style: italic; color: #0a4d36; }
+  .rule { width: 68px; height: 2px; background: var(--gold-bright); margin: 0 0 20px; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  li {
+    position: relative; padding-left: 17px; margin: 0 0 11px;
+    font-size: 15.5px; line-height: 1.5; color: var(--ink-soft);
+  }
+  li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--gold-bright);
+  }
+  li b { color: var(--ink); font-weight: 650; }
+  .num { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .95em; }
+  .panel {
+    position: relative; z-index: 2; height: 100%;
+    display: flex; flex-direction: column; justify-content: center; gap: 12px;
+  }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  figure img {
+    max-width: 100%; max-height: 486px; display: block;
+    background: #fff; border: 1px solid var(--rule);
+    box-shadow: 0 16px 34px rgba(13,42,33,.12); border-radius: 3px;
+    cursor: zoom-in;
+  }
+  figcaption { font-size: 11.5px; letter-spacing: .03em; color: var(--muted); }
+  .small img { max-height: 300px; }
+  .duo { display: flex; gap: 14px; align-items: flex-start; justify-content: center; }
+  .duo figure img { max-height: 300px; }
+  .duo figcaption { max-width: 300px; text-align: center; }
+
+  /* ---- scene 1: block grid ---- */
+  .grid-wrap { display: flex; flex-direction: column; gap: 10px; align-items: stretch; width: 100%; }
+  .grid-head { display: grid; grid-template-columns: 96px repeat(4, 1fr); gap: 8px; width: 100%; }
+  .grid-head span {
+    font-size: 10px; letter-spacing: .04em; color: var(--muted); text-align: center; line-height: 1.3;
+  }
+  .grid { display: grid; grid-template-columns: 96px repeat(4, 1fr); gap: 8px; width: 100%; }
+  .grid .rowlab {
+    font-size: 12.5px; color: var(--ink-soft); display: flex; align-items: center;
+    justify-content: flex-end; padding-right: 4px; text-align: right; line-height: 1.2;
+  }
+  .cell {
+    height: 58px; border-radius: 3px; border: 1px solid #cfc6ab;
+    background: linear-gradient(160deg, #e7f0e9, #dce9df);
+    display: flex; align-items: center; justify-content: center;
+    font-family: ui-monospace, Consolas, monospace; font-size: 11px; color: #3a5d4c;
+  }
+  .cell.congo { border-left: 3px solid var(--congo); }
+  .cell.evansi { border-left: 3px solid var(--evansi); }
+  .grid-note { font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+
+  /* ---- scene 2: cleaning log ---- */
+  .log { display: flex; flex-direction: column; gap: 10px; }
+  .log div {
+    display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start;
+    background: #fff; border: 1px solid var(--rule); border-left: 3px solid var(--gold-bright);
+    border-radius: 3px; padding: 11px 14px; font-size: 13.5px; line-height: 1.42;
+    color: var(--ink-soft); box-shadow: 0 6px 16px rgba(13,42,33,.06);
+  }
+  .log span.ix {
+    font-family: ui-monospace, Consolas, monospace; font-size: 11px; color: var(--gold);
+    padding-top: 1px;
+  }
+  .log b { color: var(--ink); }
+
+  /* ---- scene 10: code ---- */
+  pre {
+    background: #0d2a21; color: #e8e2cf; border-radius: 4px; padding: 18px 20px;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: 13px; line-height: 1.75; margin: 0 0 14px; overflow: hidden;
+    box-shadow: 0 16px 34px rgba(13,42,33,.18);
+  }
+  pre i { color: #8a9d92; font-style: normal; }
+  pre b { color: #f0c65c; font-weight: 500; }
+  .outs { display: flex; gap: 26px; margin-top: 4px; }
+  .outs div b {
+    display: block; font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 30px; font-weight: 600;
+  }
+  .outs div span { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+
+  /* ---- harness chrome ---- */
+  .rail {
+    position: fixed; right: 18px; top: 50%; transform: translateY(-50%);
+    z-index: 950; display: flex; flex-direction: column; gap: 9px; align-items: flex-end;
+  }
+  .rail button {
+    width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%;
+    background: #c6bda3; cursor: pointer; transition: all .25s ease;
+  }
+  .rail button:hover { background: var(--gold); }
+  .rail button.on { background: var(--gold); height: 22px; border-radius: 4px; }
+  #lightbox {
+    position: fixed; inset: 0; z-index: 1200; background: rgba(8,26,20,.93);
+    display: none; align-items: center; justify-content: center; padding: 26px 40px 148px;
+  }
+  #lightbox.on { display: flex; }
+  #lightbox img { max-width: 96%; max-height: 92%; border: 1px solid #3d6555; }
+  .hint {
+    position: fixed; right: 18px; bottom: 14px; z-index: 940;
+    font-size: 11px; letter-spacing: .05em; color: #8e9a8a;
+  }
+</style>
+</head>
+<body>
+
+<div class="strip"></div>
+<nav class="rail" id="rail"></nav>
+
+<!-- 01 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="1">
+  <div class="copy">
+    <p class="kicker">01 · Design</p>
+    <h2>Sixteen blocks,<br>one unit of analysis</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>Two extracts, four plant parts, two parasites — <b>16 blocks</b>, eight per plant and per parasite.</li>
+      <li>Each row is a <b>group mean of n = 3 mice</b>, so the block is the unit and repetition is honest.</li>
+      <li>4,480 parasitaemia readings, 1,008 motility cells, 336 weight and PCV rows.</li>
+      <li>Everything below is rank-based: Friedman blocked by block, paired Wilcoxon, Hodges–Lehmann intervals.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <div class="grid-wrap">
+      <div class="grid-head">
+        <span></span>
+        <span>A. indica<br>T. congolense</span>
+        <span>A. indica<br>T. evansi</span>
+        <span>M. oleifera<br>T. congolense</span>
+        <span>M. oleifera<br>T. evansi</span>
+      </div>
+      <div class="grid" id="blocks"></div>
+      <p class="grid-note">One cell = one block = one plant × part × parasite combination.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="2">
+  <div class="copy">
+    <p class="kicker">02 · Parsing</p>
+    <h2>The workbook<br>does not co-operate</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>Merged cells flatten the dose labels, so groups are assigned <b>by position</b>, not by text.</li>
+      <li>The Azadirachta panel is shifted one column; the compound names sit where leaf values should be.</li>
+      <li><b>42 readings</b> above the 0–5 LEV scale are capped at 5 — the raw value is kept in <span class="num">lev_raw</span>.</li>
+      <li>Every deviation is logged in <span class="num">data_flag</span>; structural guards refuse to build on a changed layout.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <div class="log">
+      <div><span class="ix">01</span><span>Merged group labels — <b>100 / 10 / 0.5 / 0.01 / 0.005 mg/ml</b>, Negative, Positive, assigned per block by position.</span></div>
+      <div><span class="ix">02</span><span>Split <b>Negative / control</b> label row in the motility tables — the bare continuation row is skipped.</span></div>
+      <div><span class="ix">03</span><span><b>42 cells capped</b> at LEV 5: 41 decimals from 5.01 to 5.3, plus one integer 6 — all flagged, none silently dropped.</span></div>
+      <div><span class="ix">04</span><span>Two <b>±</b> motility cells set to NA; missing in-vivo values read as deaths, never imputed.</span></div>
+      <div><span class="ix">05</span><span>Guards assert <b>4,480 / 336 / 336 / 1,008 / 96</b> rows and four plant parts before anything runs.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="3">
+  <div class="copy">
+    <p class="kicker">03 · Objective ii — phytochemistry</p>
+    <h2>The chemistry follows<br>the part, not the plant</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>Leaves are the richest fraction in <b>both</b> species: 6 of 12 classes each.</li>
+      <li>Stem bark and roots are sparsest (3–4 classes), seeds intermediate (4–5).</li>
+      <li>Saponins and carbohydrates appear in all <b>8 of 8</b> plant × part combinations; tannins everywhere except seeds.</li>
+      <li>Heavy chemical overlap — little phytochemical reason to expect one plant to outperform the other.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <figure>
+      <img src="../../results/figures/phytochemical_heatmap.png" alt="Phytochemical presence by plant and part">
+      <figcaption>Presence of 12 compound classes across four parts in both plants</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 04 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="4">
+  <div class="copy">
+    <p class="kicker">04 · Objective iii — in vitro</p>
+    <h2>Motility collapses<br>in strict dose order</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>100 mg/ml immobilises both parasites within <b>15–30 minutes</b>; each lower dose trails off more slowly.</li>
+      <li>Negative controls stay motile to 120 min — the curves fan out without crossing.</li>
+      <li>Blocked trend: Q = <span class="num">27.75</span> (<i>congolense</i>) and <span class="num">30.32</span> (<i>evansi</i>), both <b>p &lt; 0.001</b>.</li>
+      <li>The Positive Control is immobile after t = 0 in all sixteen tables — the assay's own validity check.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <figure>
+      <img src="../../results/figures/motility_summary_curves.png" alt="Mean proportion motile over time, by dose">
+      <figcaption>Mean proportion motile over 0–120 min, by dose and parasite</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 05 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="5">
+  <div class="copy">
+    <p class="kicker">05 · Time to immobilisation</p>
+    <h2>Fifteen minutes at the top,<br>censored at the bottom</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>Median TTI rises monotonically: <b>15 min</b> at 100 mg/ml, 30 → 52.5 → 60 → 90 → 112.5 min down the doses.</li>
+      <li>At 0.005 mg/ml most groups never immobilise; all eight <i>evansi</i> negative controls are censored.</li>
+      <li>Pairwise Holm p-values stop just short (0.065 and 0.052) — <b>large effects, eight pairs, multiplicity</b>.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <figure>
+      <img src="../../results/figures/explore_tti_dose.png" alt="Time to immobilisation by dose">
+      <figcaption>Time to immobilisation by dose; crosses are censored at 120 min</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 06 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="6">
+  <div class="copy">
+    <p class="kicker">06 · Objective iv — in vivo</p>
+    <h2>Cumulative burden<br>falls with dose</h2>
+    <div class="rule"></div>
+    <ul>
+      <li><i>T. evansi</i>: Friedman <b>p = 0.006</b>; 100, 10 and 0.5 mg/ml beat control in <b>all eight blocks</b>, Holm 0.039.</li>
+      <li><i>T. congolense</i>: <b>p = 0.074</b>, with 100 mg/ml suggestive (Holm 0.071; HL −29.9, 95% CI −41.0 to −20.9).</li>
+      <li>Lower doses lose significance only after correction — the direction is consistent, the evidence thin.</li>
+      <li>Species differ in dose sensitivity, not in the burden the model produces (p = 0.46).</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <figure>
+      <img src="../../results/figures/auc_dose_response.png" alt="Mean AUC vs log10 concentration by parasite">
+      <figcaption>Death-censored AUC against log10 concentration, block points and means</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 07 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="7">
+  <div class="copy">
+    <p class="kicker">07 · Peak parasitaemia</p>
+    <h2>Peak burden reaches<br>exactly zero</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>Mean peak LEV falls monotonically with dose and lands on <b>0 at 100 mg/ml</b> in both parasites.</li>
+      <li><i>T. evansi</i> yields further down: 10 mg/ml also reaches peak 0.</li>
+      <li>Negative controls peak at the scale ceiling, LEV 5, in every block.</li>
+      <li>Clearance day and day-40 status track the same ordering — reported together, never alone.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <figure>
+      <img src="../../results/figures/explore_peak_dose.png" alt="Peak LEV by dose">
+      <figcaption>Peak LEV by dose (black = mean of eight blocks)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 08 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="8">
+  <div class="copy">
+    <p class="kicker">08 · Mortality</p>
+    <h2>And no deaths<br>at the effective dose</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>At 100 mg/ml, <b>0% mortality</b> in both parasites; the Positive Control matches it.</li>
+      <li>Negative controls die in <b>100% of blocks</b> — the model does infect and does kill.</li>
+      <li><i>T. congolense</i> kills at every lower dose (37.5–75%); <i>T. evansi</i> only from 0.5 mg/ml down (12.5–50%) — the same pathogenicity ordering that recurs in the clinical data.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <figure>
+      <img src="../../results/figures/explore_mortality.png" alt="Groups with any death, by dose">
+      <figcaption>Percentage of groups with any death, by dose</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 08 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="8">
+  <div class="copy">
+    <p class="kicker">09 · Objective v — superiority</p>
+    <h2>Neither plant<br>is the winner</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>Eight paired differences: three favour <i>M. oleifera</i>, four favour <i>A. indica</i>, one is an exact tie.</li>
+      <li>Paired test lands on the null — W = 14, <b>p = 1.0</b>; HL 0.3, 95% CI −14.7 to 20.5 AUC-days.</li>
+      <li>Neither part nor parasite predicts the sign; the interval straddles meaningful effects both ways.</li>
+      <li>So: no superiority claim is supportable — and the result survives every leave-one-block-out refit.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <figure>
+      <img src="../../results/figures/plant_forest.png" alt="Paired AUC difference per block with overall HL estimate">
+      <figcaption>AUC difference per block (M. oleifera minus A. indica), with the overall HL estimate</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 09 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="9">
+  <div class="copy">
+    <p class="kicker">10 · Weight, PCV and toxicity</p>
+    <h2>No toxicity gradient —<br>and a pathogenicity signal</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>Weight and PCV deltas centre on zero; every plant and parasite contrast is <b>p ≥ 0.148</b> with intervals spanning zero.</li>
+      <li>Deaths, severe weight loss and anaemia cluster almost entirely in <i>T. congolense</i> blocks, in both plants.</li>
+      <li>Two consequences: the parasitaemia effect is not confounded by differential toxicity, and <i>T. congolense</i> ranks the more pathogenic organism.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <figure>
+      <img src="../../results/figures/explore_weight_pcv_traj.png" alt="Mean weight and PCV across timepoints">
+      <figcaption>Mean PCV and body weight across pre-infection, infection and post-infection</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 10 ---------------------------------------------------------------- -->
+<section class="scene" data-scene="10">
+  <div class="copy">
+    <p class="kicker">11 · Robustness and reproduction</p>
+    <h2>No single block<br>carries a claim</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>Leave-one-block-out: all five headline contrasts keep their conclusion in <b>8 of 8</b> refits.</li>
+      <li>Ties and zero differences are reported per contrast — exact p where clean, continuity-corrected where not.</li>
+      <li>From the workbook to the Word chapter in four commands; nothing hand-edited.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <pre><b>Rscript</b> analysis/R/01_build_datasets.R   <i># Sheet 2 → tidy CSVs</i>
+<b>Rscript</b> analysis/R/02_analysis.R         <i># tests → tables + figures</i>
+<b>quarto render</b> analysis/reports/report.qmd  <i># → report.docx</i>
+<b>Rscript</b> analysis/R/render_methods_docx.R    <i># → methods companion</i></pre>
+    <div class="outs">
+      <div><b>25</b><span>result tables</span></div>
+      <div><b>15</b><span>figures</span></div>
+      <div><b>16</b><span>blocks</span></div>
+      <div><b>0</b><span>hand-edited CSVs</span></div>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox"><img id="lightbox-img" alt=""></div>
+<p class="hint">Click any figure to enlarge</p>
+
+<script>
+  /* block grid */
+  const parts = ['leaves', 'stem bark', 'roots', 'seeds'];
+  const cols = ['congo', 'evansi', 'congo', 'evansi'];
+  const grid = document.getElementById('blocks');
+  parts.forEach((p) => {
+    const lab = document.createElement('div');
+    lab.className = 'rowlab';
+    lab.textContent = p;
+    grid.appendChild(lab);
+    cols.forEach((c) => {
+      const cell = document.createElement('div');
+      cell.className = 'cell ' + c;
+      cell.textContent = '3 mice';
+      grid.appendChild(cell);
+    });
+  });
+
+  /* rail */
+  const scenes = [...document.querySelectorAll('.scene')];
+  const rail = document.getElementById('rail');
+  scenes.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.title = 'Scene ' + (i + 1);
+    b.addEventListener('click', () => {
+      document.body.style.scrollBehavior = 'smooth';
+      window.scrollTo(0, i * 720);
+      setTimeout(() => { document.body.style.scrollBehavior = 'auto'; }, 900);
+    });
+    rail.appendChild(b);
+  });
+  const dots = [...rail.children];
+  const spy = () => {
+    const i = Math.round(window.scrollY / 720);
+    dots.forEach((d, j) => d.classList.toggle('on', j === i));
+  };
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+
+  /* lightbox */
+  const box = document.getElementById('lightbox');
+  const boxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('figure img').forEach((img) => {
+    img.addEventListener('click', () => {
+      boxImg.src = img.src;
+      box.classList.add('on');
+    });
+  });
+  box.addEventListener('click', () => box.classList.remove('on'));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') box.classList.remove('on'); });
+</script>
+</body>
+</html>
